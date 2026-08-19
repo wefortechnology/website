@@ -7,6 +7,7 @@ import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ArrowRight } from "lucide-react";
 import Button from "./Button";
+import ThemeToggle from "./ThemeToggle";
 
 const navLinks = [
   { label: "Home", href: "/" },
@@ -58,8 +59,8 @@ export default function Navbar() {
       <header
         className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
           scrolled
-            ? "py-3 sm:py-4 bg-[#050b18]/90 backdrop-blur-md border-b border-white/10 shadow-[0_10px_30px_-10px_rgba(0,0,0,0.5)]"
-            : "py-4 sm:py-5 bg-[#050b18]/60 backdrop-blur-sm border-b border-white/5"
+            ? "py-3 sm:py-4 bg-white/95 dark:bg-[#050b18]/90 backdrop-blur-md border-b border-slate-200 dark:border-white/10 shadow-sm dark:shadow-[0_10px_30px_-10px_rgba(0,0,0,0.5)]"
+            : "py-4 sm:py-5 bg-white/80 dark:bg-[#050b18]/60 backdrop-blur-sm border-b border-slate-200/60 dark:border-white/5"
         }`}
       >
         <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
@@ -76,7 +77,7 @@ export default function Navbar() {
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center gap-1 bg-white/5 border border-white/5 rounded-full p-1.5 backdrop-blur-sm">
+          <nav className="hidden lg:flex items-center gap-1 bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/5 rounded-full p-1.5 backdrop-blur-sm">
             {navLinks.map((link) => {
               const isActive = pathname === link.href;
               return (
@@ -84,13 +85,13 @@ export default function Navbar() {
                   key={link.label}
                   href={link.href}
                   className={`relative px-4 py-2 text-sm font-medium transition-colors duration-300 rounded-full select-none ${
-                    isActive ? "text-white" : "text-slate-400 hover:text-white"
+                    isActive ? "text-[#008FE5] dark:text-white font-semibold" : "text-slate-700 dark:text-slate-400 hover:text-[#0A0F1E] dark:hover:text-white"
                   }`}
                 >
                   {isActive && (
                     <motion.span
                       layoutId="active-nav-indicator"
-                      className="absolute inset-0 bg-white/10 rounded-full border border-white/10"
+                      className="absolute inset-0 bg-white dark:bg-white/10 rounded-full border border-slate-200/80 dark:border-white/10 shadow-xs dark:shadow-none"
                       transition={{ type: "spring", stiffness: 380, damping: 30 }}
                     />
                   )}
@@ -100,8 +101,9 @@ export default function Navbar() {
             })}
           </nav>
 
-          {/* CTA & Mobile Hamburger */}
-          <div className="flex items-center gap-4">
+          {/* CTA & Theme Toggle & Mobile Hamburger */}
+          <div className="flex items-center gap-3 sm:gap-4">
+            <ThemeToggle />
             <div className="hidden lg:block">
               <Button
                 href="/contact"
@@ -117,7 +119,7 @@ export default function Navbar() {
             {/* Hamburger Button */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="lg:hidden p-2 rounded-lg bg-white/5 border border-white/5 text-slate-400 hover:text-white transition-colors focus:outline-none cursor-pointer"
+              className="lg:hidden p-2 rounded-lg bg-black/5 dark:bg-white/5 border border-black/5 dark:border-white/5 text-slate-700 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors focus:outline-none cursor-pointer"
             >
               {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
@@ -141,11 +143,11 @@ export default function Navbar() {
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ type: "spring", damping: 25, stiffness: 200 }}
-              className="absolute right-0 top-0 h-full w-full max-w-sm bg-[#050b18] border-l border-white/10 flex flex-col z-[100] shadow-2xl overflow-hidden"
+              className="absolute right-0 top-0 h-full w-full max-w-sm bg-slate-900 dark:bg-[#050b18] border-l border-white/10 flex flex-col z-[100] shadow-2xl overflow-hidden"
               onClick={(e) => e.stopPropagation()}
             >
               {/* Sticky Header inside drawer */}
-              <div className="flex items-center justify-between p-6 shrink-0 bg-[#050b18] border-b border-white/5 z-10">
+              <div className="flex items-center justify-between p-6 shrink-0 bg-slate-900 dark:bg-[#050b18] border-b border-white/5 z-10">
                 <Link href="/" onClick={() => setMobileMenuOpen(false)} className="flex items-center">
                   <Image
                     src="/images/logo.svg"
@@ -155,12 +157,15 @@ export default function Navbar() {
                     className="h-8 w-auto object-contain"
                   />
                 </Link>
-                <button
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="p-2 rounded-lg bg-white/5 border border-white/5 text-slate-400 hover:text-white cursor-pointer"
-                >
-                  <X className="w-5 h-5" />
-                </button>
+                <div className="flex items-center gap-3">
+                  <ThemeToggle />
+                  <button
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="p-2 rounded-lg bg-white/5 border border-white/5 text-slate-400 hover:text-white cursor-pointer"
+                  >
+                    <X className="w-5 h-5" />
+                  </button>
+                </div>
               </div>
 
               {/* Scrollable drawer body */}
@@ -226,3 +231,4 @@ export default function Navbar() {
     </>
   );
 }
+

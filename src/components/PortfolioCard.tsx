@@ -42,7 +42,7 @@ export default function PortfolioCard({
       transition={{ duration: 0.6, delay: index * 0.1 }}
       className="h-full"
     >
-      <div className="glow-card rounded-2xl overflow-hidden group flex flex-col h-full border border-white/5 bg-gradient-to-b from-[#081224] to-[#040914]">
+      <div className="glow-card rounded-2xl overflow-hidden group flex flex-col h-full border border-slate-200 dark:border-white/5 bg-white dark:bg-gradient-to-b dark:from-[#081224] dark:to-[#040914]">
         {/* Geometric Technical Mockup instead of generic stock image */}
         <div className={`relative aspect-video w-full overflow-hidden bg-gradient-to-br ${selectedGradient} border-b border-white/5 flex items-center justify-center p-6 select-none`}>
           {/* Tech lines grid overlay */}
@@ -54,13 +54,13 @@ export default function PortfolioCard({
 
           {/* Centered technical graphic */}
           <div className="relative z-10 w-full flex flex-col items-center gap-2 text-center">
-            <div className="text-xs uppercase tracking-widest text-accent-cyan/80 bg-white/5 border border-white/10 px-3 py-1 rounded">
+            <div className="text-xs uppercase tracking-widest text-white/90 bg-white/10 border border-white/20 px-3 py-1 rounded">
               {category}
             </div>
             <div className="text-2xl font-bold tracking-tight text-white group-hover:text-accent-cyan transition-colors duration-300">
               {title}
             </div>
-            <div className="text-[10px] font-mono text-slate-500 mt-2">
+            <div className="text-[10px] font-mono text-slate-300/80 mt-2">
               {"< SYSTEM_INIT: SUCCESS_CHECK />"}
             </div>
           </div>
@@ -76,23 +76,23 @@ export default function PortfolioCard({
             {technologies.slice(0, 3).map((tech) => (
               <span
                 key={tech}
-                className="text-[10px] font-mono bg-white/5 text-slate-300 border border-white/5 px-2 py-0.5 rounded"
+                className="text-[10px] font-mono bg-slate-100 dark:bg-white/5 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-white/5 px-2 py-0.5 rounded"
               >
                 {tech}
               </span>
             ))}
             {technologies.length > 3 && (
-              <span className="text-[10px] font-mono bg-white/5 text-slate-400 px-2 py-0.5 rounded">
+              <span className="text-[10px] font-mono bg-slate-100 dark:bg-white/5 text-slate-600 dark:text-slate-400 px-2 py-0.5 rounded">
                 +{technologies.length - 3} more
               </span>
             )}
           </div>
 
-          <h3 className="text-xl font-bold text-white mb-2 group-hover:text-accent-cyan transition-colors duration-300 min-h-[2.75rem]">
+          <h3 className="text-xl font-bold text-[#0A0F1E] dark:text-white mb-2 group-hover:text-[#008FE5] dark:group-hover:text-accent-cyan transition-colors duration-300 min-h-[2.75rem]">
             {title}
           </h3>
 
-          <p className="text-slate-400 font-light text-sm leading-relaxed mb-6 flex-grow">
+          <p className="text-slate-600 dark:text-slate-400 font-light text-sm leading-relaxed mb-6 flex-grow">
             {subTitle}
           </p>
 
@@ -109,3 +109,4 @@ export default function PortfolioCard({
     </motion.div>
   );
 }
+

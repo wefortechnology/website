@@ -27,13 +27,13 @@ export default function Button({
   type = "button",
   disabled = false,
 }: ButtonProps) {
-  const baseStyles = "inline-flex items-center justify-center font-medium rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-accent-blue/50 disabled:opacity-50 disabled:pointer-events-none relative overflow-hidden select-none cursor-pointer";
+  const baseStyles = "inline-flex items-center justify-center font-medium rounded-lg transition-all focus:outline-none focus:ring-2 focus:ring-accent-blue/50 disabled:opacity-50 disabled:pointer-events-none relative overflow-hidden select-none cursor-pointer";
   
   const variants = {
-    primary: "bg-accent-blue hover:bg-accent-blue/90 text-white shadow-[0_4px_20px_rgba(14,165,233,0.3)]",
-    secondary: "bg-white/10 hover:bg-white/15 text-white border border-white/10 backdrop-blur-sm",
-    accent: "bg-gradient-to-r from-accent-blue to-accent-purple hover:opacity-95 text-white shadow-[0_4px_20px_rgba(139,92,246,0.3)]",
-    outline: "bg-transparent border border-white/20 hover:border-accent-blue text-white",
+    primary: "bg-accent-blue hover:bg-accent-blue/90 !text-white shadow-[0_4px_20px_rgba(14,165,233,0.3)]",
+    secondary: "bg-slate-100 hover:bg-slate-200 text-slate-900 border border-slate-300 dark:bg-white/10 dark:hover:bg-white/15 dark:text-white dark:border-white/10 backdrop-blur-sm",
+    accent: "bg-gradient-to-r from-accent-blue to-accent-purple hover:opacity-95 !text-white shadow-[0_4px_20px_rgba(139,92,246,0.3)]",
+    outline: "bg-transparent border border-slate-300 dark:border-white/20 hover:border-accent-blue text-slate-900 dark:text-white",
   };
 
   const sizes = {
@@ -78,3 +78,4 @@ export default function Button({
     </motion.button>
   );
 }
+

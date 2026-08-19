@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import LoadingScreen from "@/components/LoadingScreen";
+import { ThemeProvider } from "@/components/ThemeProvider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -52,16 +53,21 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased dark overflow-x-hidden max-w-full`}
+      suppressHydrationWarning
+      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased overflow-x-hidden max-w-full`}
     >
-      <body className="min-h-full flex flex-col bg-dark-bg text-slate-100 font-sans selection:bg-accent-blue/30 select-none overflow-x-hidden w-full max-w-full relative">
-        <LoadingScreen />
-        <Navbar />
-        <main className="flex-grow flex flex-col w-full max-w-full overflow-x-hidden">
-          {children}
-        </main>
-        <Footer />
+      <body className="min-h-full flex flex-col bg-white dark:bg-[#0A0F1E] text-[#0A0F1E] dark:text-slate-100 font-sans selection:bg-[#00AAFF]/30 select-none overflow-x-hidden w-full max-w-full relative transition-colors duration-300">
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem={true}>
+          <LoadingScreen />
+          <Navbar />
+          <main className="flex-grow flex flex-col w-full max-w-full overflow-x-hidden">
+            {children}
+          </main>
+          <Footer />
+        </ThemeProvider>
       </body>
     </html>
   );
 }
+
+

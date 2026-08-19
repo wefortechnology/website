@@ -130,7 +130,7 @@ export default function ContactForm() {
   };
 
   return (
-    <div className="glow-card rounded-2xl sm:rounded-3xl p-5 sm:p-8 md:p-10 border border-white/5 relative overflow-hidden bg-dark-card/30">
+    <div className="glow-card rounded-2xl sm:rounded-3xl p-5 sm:p-8 md:p-10 border border-slate-200 dark:border-white/5 relative overflow-hidden bg-white dark:bg-dark-card/30 shadow-lg dark:shadow-xl">
       <AnimatePresence mode="wait">
         {status === "success" ? (
           <motion.div
@@ -140,11 +140,11 @@ export default function ContactForm() {
             exit={{ opacity: 0, scale: 0.95 }}
             className="flex flex-col items-center text-center py-8 sm:py-12"
           >
-            <div className="w-14 sm:w-16 h-14 sm:h-16 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 flex items-center justify-center mb-4 sm:mb-6">
+            <div className="w-14 sm:w-16 h-14 sm:h-16 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-600 dark:text-emerald-400 flex items-center justify-center mb-4 sm:mb-6">
               <CheckCircle2 className="w-8 sm:w-10 h-8 sm:h-10" />
             </div>
-            <h3 className="text-xl sm:text-2xl font-bold text-white mb-2">Request Submitted!</h3>
-            <p className="text-slate-400 font-light text-xs sm:text-sm max-w-sm leading-relaxed mb-6 sm:mb-8">
+            <h3 className="text-xl sm:text-2xl font-bold text-[#0A0F1E] dark:text-white mb-2">Request Submitted!</h3>
+            <p className="text-slate-600 dark:text-slate-400 font-light text-xs sm:text-sm max-w-sm leading-relaxed mb-6 sm:mb-8">
               Thank you for reaching out to We For Technology. Our technology consultants will review your scope and follow up within 24 business hours.
             </p>
             <Button onClick={() => setStatus("idle")} variant="outline" size="sm">
@@ -163,7 +163,7 @@ export default function ContactForm() {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
               {/* Name */}
               <div className="flex flex-col gap-2">
-                <label htmlFor="name" className="text-xs font-mono text-slate-400 uppercase tracking-wider">
+                <label htmlFor="name" className="text-xs font-mono text-slate-600 dark:text-slate-400 uppercase tracking-wider">
                   Full Name *
                 </label>
                 <input
@@ -174,13 +174,13 @@ export default function ContactForm() {
                   value={formData.name}
                   onChange={handleChange}
                   placeholder="John Doe"
-                  className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white placeholder-slate-500 hover:bg-white/10 hover:border-accent-blue/30 focus:outline-none focus:border-accent-blue focus:ring-1 focus:ring-accent-blue/30 text-sm transition-all duration-200"
+                  className="w-full bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-lg px-4 py-3 text-[#0A0F1E] dark:text-white placeholder-slate-400 dark:placeholder-slate-500 hover:bg-slate-100 dark:hover:bg-white/10 hover:border-accent-blue/30 focus:outline-none focus:border-accent-blue focus:ring-1 focus:ring-accent-blue/30 text-sm transition-all duration-200"
                 />
               </div>
 
               {/* Company */}
               <div className="flex flex-col gap-2">
-                <label htmlFor="company" className="text-xs font-mono text-slate-400 uppercase tracking-wider">
+                <label htmlFor="company" className="text-xs font-mono text-slate-600 dark:text-slate-400 uppercase tracking-wider">
                   Company Name
                 </label>
                 <input
@@ -190,7 +190,7 @@ export default function ContactForm() {
                   value={formData.company}
                   onChange={handleChange}
                   placeholder="Acme Corp"
-                  className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white placeholder-slate-500 hover:bg-white/10 hover:border-accent-blue/30 focus:outline-none focus:border-accent-blue focus:ring-1 focus:ring-accent-blue/30 text-sm transition-all duration-200"
+                  className="w-full bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-lg px-4 py-3 text-[#0A0F1E] dark:text-white placeholder-slate-400 dark:placeholder-slate-500 hover:bg-slate-100 dark:hover:bg-white/10 hover:border-accent-blue/30 focus:outline-none focus:border-accent-blue focus:ring-1 focus:ring-accent-blue/30 text-sm transition-all duration-200"
                 />
               </div>
             </div>
@@ -198,7 +198,7 @@ export default function ContactForm() {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
               {/* Email */}
               <div className="flex flex-col gap-2">
-                <label htmlFor="email" className="text-xs font-mono text-slate-400 uppercase tracking-wider">
+                <label htmlFor="email" className="text-xs font-mono text-slate-600 dark:text-slate-400 uppercase tracking-wider">
                   Email Address *
                 </label>
                 <input
@@ -209,13 +209,13 @@ export default function ContactForm() {
                   value={formData.email}
                   onChange={handleChange}
                   placeholder="john@example.com"
-                  className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white placeholder-slate-500 hover:bg-white/10 hover:border-accent-blue/30 focus:outline-none focus:border-accent-blue focus:ring-1 focus:ring-accent-blue/30 text-sm transition-all duration-200"
+                  className="w-full bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-lg px-4 py-3 text-[#0A0F1E] dark:text-white placeholder-slate-400 dark:placeholder-slate-500 hover:bg-slate-100 dark:hover:bg-white/10 hover:border-accent-blue/30 focus:outline-none focus:border-accent-blue focus:ring-1 focus:ring-accent-blue/30 text-sm transition-all duration-200"
                 />
               </div>
 
               {/* Phone */}
               <div className="flex flex-col gap-2">
-                <label htmlFor="phone" className="text-xs font-mono text-slate-400 uppercase tracking-wider">
+                <label htmlFor="phone" className="text-xs font-mono text-slate-600 dark:text-slate-400 uppercase tracking-wider">
                   Phone Number
                 </label>
                 <input
@@ -225,7 +225,7 @@ export default function ContactForm() {
                   value={formData.phone}
                   onChange={handleChange}
                   placeholder="+91 8510070940"
-                  className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white placeholder-slate-500 hover:bg-white/10 hover:border-accent-blue/30 focus:outline-none focus:border-accent-blue focus:ring-1 focus:ring-accent-blue/30 text-sm transition-all duration-200"
+                  className="w-full bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-lg px-4 py-3 text-[#0A0F1E] dark:text-white placeholder-slate-400 dark:placeholder-slate-500 hover:bg-slate-100 dark:hover:bg-white/10 hover:border-accent-blue/30 focus:outline-none focus:border-accent-blue focus:ring-1 focus:ring-accent-blue/30 text-sm transition-all duration-200"
                 />
               </div>
             </div>
@@ -233,7 +233,7 @@ export default function ContactForm() {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
               {/* Service */}
               <div className="flex flex-col gap-2 relative" ref={serviceRef}>
-                <label className="text-xs font-mono text-slate-400 uppercase tracking-wider">
+                <label className="text-xs font-mono text-slate-600 dark:text-slate-400 uppercase tracking-wider">
                   Service Needed *
                 </label>
                 <button
@@ -242,18 +242,18 @@ export default function ContactForm() {
                     setServiceOpen(!serviceOpen);
                     setBudgetOpen(false);
                   }}
-                  className={`w-full bg-white/5 border text-left px-4 py-3 rounded-lg text-sm flex items-center justify-between transition-all duration-200 focus:outline-none focus:ring-1 focus:ring-accent-blue/30 ${
+                  className={`w-full bg-slate-50 dark:bg-white/5 border text-left px-4 py-3 rounded-lg text-sm flex items-center justify-between transition-all duration-200 focus:outline-none focus:ring-1 focus:ring-accent-blue/30 ${
                     errors.service
-                      ? "border-red-500/50 text-red-200"
+                      ? "border-red-500/50 text-red-600 dark:text-red-200"
                       : serviceOpen
-                      ? "border-accent-blue text-white"
-                      : "border-white/10 text-white hover:bg-white/10 hover:border-accent-blue/30"
+                      ? "border-accent-blue text-[#0A0F1E] dark:text-white"
+                      : "border-slate-200 dark:border-white/10 text-[#0A0F1E] dark:text-white hover:bg-slate-100 dark:hover:bg-white/10 hover:border-accent-blue/30"
                   }`}
                 >
-                  <span className={formData.service ? "text-white" : "text-slate-500"}>
+                  <span className={formData.service ? "text-[#0A0F1E] dark:text-white" : "text-slate-400 dark:text-slate-500"}>
                     {formData.service || "Select a Service"}
                   </span>
-                  <ChevronDown className={`w-4 h-4 text-slate-400 transition-transform duration-300 ${serviceOpen ? "transform rotate-180 text-accent-blue" : ""}`} />
+                  <ChevronDown className={`w-4 h-4 text-slate-500 dark:text-slate-400 transition-transform duration-300 ${serviceOpen ? "transform rotate-180 text-accent-blue" : ""}`} />
                 </button>
 
                 <AnimatePresence>
@@ -263,7 +263,7 @@ export default function ContactForm() {
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: 10 }}
                       transition={{ duration: 0.15 }}
-                      className="absolute left-0 right-0 top-full mt-2 bg-[#0b0f19] border border-white/10 rounded-xl shadow-2xl overflow-hidden z-50 py-1.5 max-h-60 overflow-y-auto custom-scrollbar"
+                      className="absolute left-0 right-0 top-full mt-2 bg-white dark:bg-[#0b0f19] border border-slate-200 dark:border-white/10 rounded-xl shadow-2xl overflow-hidden z-50 py-1.5 max-h-60 overflow-y-auto custom-scrollbar"
                     >
                       {servicesList.map((item) => (
                         <div
@@ -271,8 +271,8 @@ export default function ContactForm() {
                           onClick={() => handleSelectService(item)}
                           className={`px-4 py-2.5 text-sm cursor-pointer transition-colors ${
                             formData.service === item
-                              ? "bg-accent-blue/20 text-white font-medium"
-                              : "text-slate-300 hover:bg-white/5 hover:text-white"
+                              ? "bg-accent-blue/20 text-[#008FE5] dark:text-white font-medium"
+                              : "text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-white/5 hover:text-[#0A0F1E] dark:hover:text-white"
                           }`}
                         >
                           {item}
@@ -282,13 +282,13 @@ export default function ContactForm() {
                   )}
                 </AnimatePresence>
                 {errors.service && (
-                  <span className="text-[10px] text-red-400 font-mono mt-1">Please select a service needed</span>
+                  <span className="text-[10px] text-red-500 dark:text-red-400 font-mono mt-1">Please select a service needed</span>
                 )}
               </div>
 
               {/* Budget */}
               <div className="flex flex-col gap-2 relative" ref={budgetRef}>
-                <label className="text-xs font-mono text-slate-400 uppercase tracking-wider">
+                <label className="text-xs font-mono text-slate-600 dark:text-slate-400 uppercase tracking-wider">
                   Approx Budget (INR) *
                 </label>
                 <button
@@ -297,18 +297,18 @@ export default function ContactForm() {
                     setBudgetOpen(!budgetOpen);
                     setServiceOpen(false);
                   }}
-                  className={`w-full bg-white/5 border text-left px-4 py-3 rounded-lg text-sm flex items-center justify-between transition-all duration-200 focus:outline-none focus:ring-1 focus:ring-accent-blue/30 ${
+                  className={`w-full bg-slate-50 dark:bg-white/5 border text-left px-4 py-3 rounded-lg text-sm flex items-center justify-between transition-all duration-200 focus:outline-none focus:ring-1 focus:ring-accent-blue/30 ${
                     errors.budget
-                      ? "border-red-500/50 text-red-200"
+                      ? "border-red-500/50 text-red-600 dark:text-red-200"
                       : budgetOpen
-                      ? "border-accent-blue text-white"
-                      : "border-white/10 text-white hover:bg-white/10 hover:border-accent-blue/30"
+                      ? "border-accent-blue text-[#0A0F1E] dark:text-white"
+                      : "border-slate-200 dark:border-white/10 text-[#0A0F1E] dark:text-white hover:bg-slate-100 dark:hover:bg-white/10 hover:border-accent-blue/30"
                   }`}
                 >
-                  <span className={formData.budget ? "text-white" : "text-slate-500"}>
+                  <span className={formData.budget ? "text-[#0A0F1E] dark:text-white" : "text-slate-400 dark:text-slate-500"}>
                     {formData.budget || "Select Budget Range"}
                   </span>
-                  <ChevronDown className={`w-4 h-4 text-slate-400 transition-transform duration-300 ${budgetOpen ? "transform rotate-180 text-accent-blue" : ""}`} />
+                  <ChevronDown className={`w-4 h-4 text-slate-500 dark:text-slate-400 transition-transform duration-300 ${budgetOpen ? "transform rotate-180 text-accent-blue" : ""}`} />
                 </button>
 
                 <AnimatePresence>
@@ -318,7 +318,7 @@ export default function ContactForm() {
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: 10 }}
                       transition={{ duration: 0.15 }}
-                      className="absolute left-0 right-0 top-full mt-2 bg-[#0b0f19] border border-white/10 rounded-xl shadow-2xl overflow-hidden z-50 py-1.5"
+                      className="absolute left-0 right-0 top-full mt-2 bg-white dark:bg-[#0b0f19] border border-slate-200 dark:border-white/10 rounded-xl shadow-2xl overflow-hidden z-50 py-1.5"
                     >
                       {budgetsList.map((item) => (
                         <div
@@ -326,8 +326,8 @@ export default function ContactForm() {
                           onClick={() => handleSelectBudget(item)}
                           className={`px-4 py-2.5 text-sm cursor-pointer transition-colors ${
                             formData.budget === item
-                              ? "bg-accent-blue/20 text-white font-medium"
-                              : "text-slate-300 hover:bg-white/5 hover:text-white"
+                              ? "bg-accent-blue/20 text-[#008FE5] dark:text-white font-medium"
+                              : "text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-white/5 hover:text-[#0A0F1E] dark:hover:text-white"
                           }`}
                         >
                           {item}
@@ -337,14 +337,14 @@ export default function ContactForm() {
                   )}
                 </AnimatePresence>
                 {errors.budget && (
-                  <span className="text-[10px] text-red-400 font-mono mt-1">Please select a budget range</span>
+                  <span className="text-[10px] text-red-500 dark:text-red-400 font-mono mt-1">Please select a budget range</span>
                 )}
               </div>
             </div>
 
             {/* Project Details */}
             <div className="flex flex-col gap-2">
-              <label htmlFor="details" className="text-xs font-mono text-slate-400 uppercase tracking-wider">
+              <label htmlFor="details" className="text-xs font-mono text-slate-600 dark:text-slate-400 uppercase tracking-wider">
                 Project Details *
               </label>
               <textarea
@@ -355,7 +355,7 @@ export default function ContactForm() {
                 value={formData.details}
                 onChange={handleChange}
                 placeholder="Describe your goals, requirements, timeline, etc."
-                className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white placeholder-slate-500 hover:bg-white/10 hover:border-accent-blue/30 focus:outline-none focus:border-accent-blue focus:ring-1 focus:ring-accent-blue/30 text-sm transition-all duration-200 resize-y"
+                className="w-full bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-lg px-4 py-3 text-[#0A0F1E] dark:text-white placeholder-slate-400 dark:placeholder-slate-500 hover:bg-slate-100 dark:hover:bg-white/10 hover:border-accent-blue/30 focus:outline-none focus:border-accent-blue focus:ring-1 focus:ring-accent-blue/30 text-sm transition-all duration-200 resize-y"
               />
             </div>
 
@@ -374,3 +374,4 @@ export default function ContactForm() {
     </div>
   );
 }
+

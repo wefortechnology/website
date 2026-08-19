@@ -42,7 +42,7 @@ export default function SectionHeading({
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6, delay: 0.1 }}
-        className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-white mb-6 leading-tight"
+        className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-[#0A0F1E] dark:text-white mb-6 leading-tight"
       >
         {title}
       </motion.h2>
@@ -53,7 +53,7 @@ export default function SectionHeading({
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-lg text-slate-400 font-light leading-relaxed"
+          className="text-lg text-slate-600 dark:text-slate-400 font-light leading-relaxed"
         >
           {description}
         </motion.p>
@@ -61,3 +61,4 @@ export default function SectionHeading({
     </div>
   );
 }
+

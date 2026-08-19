@@ -119,8 +119,8 @@ export default function TestimonialCarousel() {
             className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full"
           >
             {/* Card 1 */}
-            <div className="glow-card rounded-2xl p-8 sm:p-10 relative flex flex-col justify-between border border-white/5 bg-dark-card/20 h-full">
-              <div className="absolute top-8 right-8 text-white/5 select-none pointer-events-none">
+            <div className="glow-card rounded-2xl p-8 sm:p-10 relative flex flex-col justify-between border border-slate-200 dark:border-white/5 bg-white dark:bg-dark-card/20 h-full shadow-md dark:shadow-xl">
+              <div className="absolute top-8 right-8 text-slate-300/40 dark:text-white/5 select-none pointer-events-none">
                 <Quote className="w-16 h-16 transform rotate-180" />
               </div>
 
@@ -128,33 +128,33 @@ export default function TestimonialCarousel() {
                 {/* Rating Stars */}
                 <div className="flex gap-1 mb-6">
                   {Array.from({ length: test1.rating || 5 }).map((_, i) => (
-                    <Star key={i} className="w-4.5 h-4.5 fill-accent-blue text-accent-blue" />
+                    <Star key={i} className="w-4.5 h-4.5 fill-[#008FE5] text-[#008FE5] dark:fill-accent-blue dark:text-accent-blue" />
                   ))}
                 </div>
 
                 {/* Quote */}
-                <p className="text-slate-200 font-light text-base leading-relaxed mb-8 italic relative z-10">
+                <p className="text-slate-700 dark:text-slate-200 font-light text-base leading-relaxed mb-8 italic relative z-10">
                   "{test1.quote}"
                 </p>
               </div>
 
               {/* Author details */}
-              <div className="border-t border-white/5 pt-6 flex items-center gap-4">
+              <div className="border-t border-slate-200 dark:border-white/5 pt-6 flex items-center gap-4">
                 <div className="w-12 h-12 rounded-full bg-gradient-to-tr from-accent-blue to-accent-purple flex items-center justify-center font-bold text-white text-base select-none shadow-md shadow-accent-blue/10">
                   {test1.name.charAt(0)}
                 </div>
                 <div>
-                  <h4 className="text-base font-semibold text-white">{test1.name}</h4>
-                  <p className="text-xs sm:text-sm text-slate-400 font-light">
-                    {test1.role}, <span className="text-accent-cyan font-medium">{test1.company}</span>
+                  <h4 className="text-base font-semibold text-[#0A0F1E] dark:text-white">{test1.name}</h4>
+                  <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 font-light">
+                    {test1.role}, <span className="text-[#008FE5] dark:text-accent-cyan font-medium">{test1.company}</span>
                   </p>
                 </div>
               </div>
             </div>
 
             {/* Card 2 */}
-            <div className="hidden md:flex glow-card rounded-2xl p-8 sm:p-10 relative flex-col justify-between border border-white/5 bg-dark-card/20 h-full">
-              <div className="absolute top-8 right-8 text-white/5 select-none pointer-events-none">
+            <div className="hidden md:flex glow-card rounded-2xl p-8 sm:p-10 relative flex-col justify-between border border-slate-200 dark:border-white/5 bg-white dark:bg-dark-card/20 h-full shadow-md dark:shadow-xl">
+              <div className="absolute top-8 right-8 text-slate-300/40 dark:text-white/5 select-none pointer-events-none">
                 <Quote className="w-16 h-16 transform rotate-180" />
               </div>
 
@@ -162,25 +162,25 @@ export default function TestimonialCarousel() {
                 {/* Rating Stars */}
                 <div className="flex gap-1 mb-6">
                   {Array.from({ length: test2.rating || 5 }).map((_, i) => (
-                    <Star key={i} className="w-4.5 h-4.5 fill-accent-blue text-accent-blue" />
+                    <Star key={i} className="w-4.5 h-4.5 fill-[#008FE5] text-[#008FE5] dark:fill-accent-blue dark:text-accent-blue" />
                   ))}
                 </div>
 
                 {/* Quote */}
-                <p className="text-slate-200 font-light text-base leading-relaxed mb-8 italic relative z-10">
+                <p className="text-slate-700 dark:text-slate-200 font-light text-base leading-relaxed mb-8 italic relative z-10">
                   "{test2.quote}"
                 </p>
               </div>
 
               {/* Author details */}
-              <div className="border-t border-white/5 pt-6 flex items-center gap-4">
+              <div className="border-t border-slate-200 dark:border-white/5 pt-6 flex items-center gap-4">
                 <div className="w-12 h-12 rounded-full bg-gradient-to-tr from-accent-blue to-accent-purple flex items-center justify-center font-bold text-white text-base select-none shadow-md shadow-accent-blue/10">
                   {test2.name.charAt(0)}
                 </div>
                 <div>
-                  <h4 className="text-base font-semibold text-white">{test2.name}</h4>
-                  <p className="text-xs sm:text-sm text-slate-400 font-light">
-                    {test2.role}, <span className="text-accent-cyan font-medium">{test2.company}</span>
+                  <h4 className="text-base font-semibold text-[#0A0F1E] dark:text-white">{test2.name}</h4>
+                  <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 font-light">
+                    {test2.role}, <span className="text-[#008FE5] dark:text-accent-cyan font-medium">{test2.company}</span>
                   </p>
                 </div>
               </div>
@@ -193,14 +193,14 @@ export default function TestimonialCarousel() {
       <button
         onClick={prevSlide}
         aria-label="Previous testimonial"
-        className="absolute left-[-16px] sm:left-[-24px] top-1/2 -translate-y-1/2 p-2.5 rounded-full bg-white/5 border border-white/5 text-slate-400 hover:text-white hover:bg-white/10 hover:border-white/10 transition-all duration-300 z-20 shadow-lg"
+        className="absolute left-[-16px] sm:left-[-24px] top-1/2 -translate-y-1/2 p-2.5 rounded-full bg-white dark:bg-white/5 border border-slate-200 dark:border-white/5 text-slate-600 dark:text-slate-400 hover:text-[#0A0F1E] dark:hover:text-white hover:bg-slate-100 dark:hover:bg-white/10 transition-all duration-300 z-20 shadow-md"
       >
         <ChevronLeft className="w-5 h-5" />
       </button>
       <button
         onClick={nextSlide}
         aria-label="Next testimonial"
-        className="absolute right-[-16px] sm:right-[-24px] top-1/2 -translate-y-1/2 p-2.5 rounded-full bg-white/5 border border-white/5 text-slate-400 hover:text-white hover:bg-white/10 hover:border-white/10 transition-all duration-300 z-20 shadow-lg"
+        className="absolute right-[-16px] sm:right-[-24px] top-1/2 -translate-y-1/2 p-2.5 rounded-full bg-white dark:bg-white/5 border border-slate-200 dark:border-white/5 text-slate-600 dark:text-slate-400 hover:text-[#0A0F1E] dark:hover:text-white hover:bg-slate-100 dark:hover:bg-white/10 transition-all duration-300 z-20 shadow-md"
       >
         <ChevronRight className="w-5 h-5" />
       </button>
@@ -215,7 +215,7 @@ export default function TestimonialCarousel() {
             className={`h-2.5 rounded-full transition-all duration-300 ${
               idx === index 
                 ? "w-8 bg-gradient-to-r from-accent-blue to-accent-purple" 
-                : "w-2.5 bg-white/15 hover:bg-white/30"
+                : "w-2.5 bg-slate-300 dark:bg-white/15 hover:bg-slate-400 dark:hover:bg-white/30"
             }`}
           />
         ))}
@@ -223,3 +223,4 @@ export default function TestimonialCarousel() {
     </div>
   );
 }
+

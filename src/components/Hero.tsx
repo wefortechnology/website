@@ -25,9 +25,9 @@ export default function Hero() {
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs font-mono uppercase tracking-widest text-accent-cyan shadow-[0_4px_12px_rgba(34,211,238,0.15)]"
+              className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10 text-xs font-mono uppercase tracking-widest text-[#008FE5] dark:text-accent-cyan shadow-xs dark:shadow-[0_4px_12px_rgba(34,211,238,0.15)]"
             >
-              <Sparkles className="w-3.5 h-3.5 animate-pulse text-accent-cyan" />
+              <Sparkles className="w-3.5 h-3.5 animate-pulse text-[#008FE5] dark:text-accent-cyan" />
               <span>We For Technology</span>
             </motion.div>
 
@@ -36,7 +36,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-2xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white leading-[1.15] sm:leading-[1.1] max-w-2xl"
+              className="text-2xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-[#0A0F1E] dark:text-white leading-[1.15] sm:leading-[1.1] max-w-2xl"
             >
               Digital Solutions <br />
               <span className="text-gradient-cyan">That Build Brands.</span>
@@ -47,7 +47,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-base sm:text-xl text-slate-400 font-light max-w-xl leading-relaxed"
+              className="text-base sm:text-xl text-slate-600 dark:text-slate-400 font-light max-w-xl leading-relaxed"
             >
               We design and develop high-performance websites, applications, and digital solutions that help businesses grow, scale, and stand out.
             </motion.p>
@@ -79,8 +79,8 @@ export default function Hero() {
               className="relative w-full max-w-[280px] sm:max-w-md aspect-square my-2"
             >
               {/* Spinning Ring */}
-              <div className="absolute inset-0 rounded-full border border-dashed border-white/10 animate-[spin_60s_linear_infinite]" />
-              <div className="absolute inset-6 sm:inset-10 rounded-full border border-double border-accent-blue/15 animate-[spin_40s_linear_infinite_reverse]" />
+              <div className="absolute inset-0 rounded-full border border-dashed border-slate-300 dark:border-white/10 animate-[spin_60s_linear_infinite]" />
+              <div className="absolute inset-6 sm:inset-10 rounded-full border border-double border-accent-blue/20 dark:border-accent-blue/15 animate-[spin_40s_linear_infinite_reverse]" />
 
               {/* Floating UI Elements Mockup */}
               <motion.div
@@ -95,8 +95,8 @@ export default function Hero() {
                 className="absolute inset-0 flex items-center justify-center"
               >
                 {/* Center Sphere */}
-                <div className="w-36 h-36 sm:w-48 sm:h-48 rounded-full bg-gradient-to-tr from-accent-blue/20 to-accent-purple/20 border border-white/10 flex items-center justify-center shadow-[0_0_50px_rgba(14,165,233,0.15)] relative z-20 backdrop-blur-md">
-                  <div className="w-28 h-28 sm:w-40 sm:h-40 rounded-full bg-[#050b18]/85 border border-white/5 flex flex-col items-center justify-center p-3 sm:p-4 text-center">
+                <div className="w-36 h-36 sm:w-48 sm:h-48 rounded-full bg-white/80 dark:bg-gradient-to-tr dark:from-accent-blue/20 dark:to-accent-purple/20 border border-slate-200 dark:border-white/10 flex items-center justify-center shadow-lg dark:shadow-[0_0_50px_rgba(14,165,233,0.15)] relative z-20 backdrop-blur-md">
+                  <div className="w-28 h-28 sm:w-40 sm:h-40 rounded-full bg-white dark:bg-[#050b18]/85 border border-slate-200 dark:border-white/5 flex flex-col items-center justify-center p-3 sm:p-4 text-center shadow-inner">
                     <Image
                       src="/images/logo.svg"
                       alt="We For Technology Logo"
@@ -104,10 +104,10 @@ export default function Hero() {
                       height={32}
                       className="h-5 sm:h-7 w-auto object-contain mb-1.5 sm:mb-2.5 animate-pulse"
                     />
-                    <span className="text-[9px] sm:text-[10px] font-mono uppercase tracking-widest text-slate-400">
+                    <span className="text-[9px] sm:text-[10px] font-mono uppercase tracking-widest text-slate-500 dark:text-slate-400">
                       SYSTEM_OK
                     </span>
-                    <span className="text-[9px] sm:text-[10px] font-mono text-accent-cyan">
+                    <span className="text-[9px] sm:text-[10px] font-mono text-[#008FE5] dark:text-accent-cyan">
                       PING: 12ms
                     </span>
                   </div>
@@ -124,14 +124,14 @@ export default function Hero() {
                     ease: "easeInOut",
                     delay: 1,
                   }}
-                  className="absolute top-1 right-0 sm:top-2 bg-[#091122]/95 border border-white/15 p-3 sm:p-4 rounded-xl shadow-2xl backdrop-blur-md z-30 flex items-start gap-2.5 w-44 sm:w-56 select-none"
+                  className="absolute top-1 right-0 sm:top-2 bg-white/95 dark:bg-[#091122]/95 border border-slate-200 dark:border-white/15 p-3 sm:p-4 rounded-xl shadow-xl dark:shadow-2xl backdrop-blur-md z-30 flex items-start gap-2.5 w-44 sm:w-56 select-none"
                 >
                   <div className="p-1.5 sm:p-2 rounded-lg bg-accent-blue/10 text-accent-blue shrink-0">
                     <Terminal className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                   </div>
                   <div>
-                    <h4 className="text-[11px] sm:text-xs font-bold text-white font-mono">Deploy Pipeline</h4>
-                    <p className="text-[9px] sm:text-[10px] text-emerald-400 font-mono mt-0.5">
+                    <h4 className="text-[11px] sm:text-xs font-bold text-[#0A0F1E] dark:text-white font-mono">Deploy Pipeline</h4>
+                    <p className="text-[9px] sm:text-[10px] text-emerald-600 dark:text-emerald-400 font-mono mt-0.5">
                       status: success
                     </p>
                   </div>
@@ -148,14 +148,14 @@ export default function Hero() {
                     ease: "easeInOut",
                     delay: 2,
                   }}
-                  className="absolute bottom-1 left-0 sm:bottom-2 bg-[#091122]/95 border border-white/15 p-3 sm:p-4 rounded-xl shadow-2xl backdrop-blur-md z-30 flex flex-col gap-1.5 sm:gap-2 w-40 sm:w-48 select-none"
+                  className="absolute bottom-1 left-0 sm:bottom-2 bg-white/95 dark:bg-[#091122]/95 border border-slate-200 dark:border-white/15 p-3 sm:p-4 rounded-xl shadow-xl dark:shadow-2xl backdrop-blur-md z-30 flex flex-col gap-1.5 sm:gap-2 w-40 sm:w-48 select-none"
                 >
                   <span className="text-[9px] sm:text-[10px] font-mono text-slate-500 uppercase tracking-widest">
                     Live Traffic
                   </span>
                   <div className="flex items-baseline gap-1.5">
-                    <span className="text-xl sm:text-2xl font-bold text-white font-mono">99.8%</span>
-                    <span className="text-[9px] sm:text-[10px] text-emerald-400 font-mono">uptime</span>
+                    <span className="text-xl sm:text-2xl font-bold text-[#0A0F1E] dark:text-white font-mono">99.8%</span>
+                    <span className="text-[9px] sm:text-[10px] text-emerald-600 dark:text-emerald-400 font-mono">uptime</span>
                   </div>
                   {/* Miniature Sparkline */}
                   <div className="flex gap-1 items-end h-5 sm:h-6 pt-1">
@@ -175,3 +175,4 @@ export default function Hero() {
     </section>
   );
 }
+

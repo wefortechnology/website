@@ -100,8 +100,8 @@ export default function Timeline() {
               <div className="hidden md:block w-1/2 px-12" />
 
               {/* Central Glowing Icon Node */}
-              <div className="absolute left-8 md:left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-dark-bg border-2 border-accent-blue/30 flex items-center justify-center text-accent-blue shadow-[0_0_15px_rgba(14,165,233,0.15)] z-20 group">
-                <div className="absolute inset-0.5 rounded-full bg-accent-blue/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <div className="absolute left-8 md:left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white dark:bg-dark-bg border-2 border-accent-blue/40 dark:border-accent-blue/30 flex items-center justify-center text-[#008FE5] dark:text-accent-blue shadow-xs dark:shadow-[0_0_15px_rgba(14,165,233,0.15)] z-20 group">
+                <div className="absolute inset-0.5 rounded-full bg-accent-blue/10 dark:bg-accent-blue/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 <IconComponent className="w-5 h-5 relative z-10" />
               </div>
 
@@ -114,12 +114,12 @@ export default function Timeline() {
                   isEven ? "md:pl-0 md:pr-12" : "md:pl-12 md:pr-0"
                 }`}
               >
-                <div className="glow-card rounded-2xl p-6 md:p-8 border border-white/5 relative">
-                  <span className="text-xs font-mono text-accent-cyan uppercase tracking-widest block mb-2">
+                <div className="glow-card rounded-2xl p-6 md:p-8 border border-slate-200 dark:border-white/5 bg-white dark:bg-dark-card/60 relative">
+                  <span className="text-xs font-mono text-[#008FE5] dark:text-accent-cyan uppercase tracking-widest block mb-2">
                     {step.step}
                   </span>
-                  <h3 className="text-xl font-bold text-white mb-3">{step.title}</h3>
-                  <p className="text-slate-400 font-light text-sm leading-relaxed">
+                  <h3 className="text-xl font-bold text-[#0A0F1E] dark:text-white mb-3">{step.title}</h3>
+                  <p className="text-slate-600 dark:text-slate-400 font-light text-sm leading-relaxed">
                     {step.desc}
                   </p>
                 </div>
@@ -131,3 +131,4 @@ export default function Timeline() {
     </div>
   );
 }
+
