@@ -96,17 +96,50 @@ html:not(.dark) [class*="bg-[#0a1224]"],
 html:not(.dark) [class*="bg-[#070e1e]"],
 html:not(.dark) [class*="bg-[#0b162c]"],
 html:not(.dark) [class*="bg-[#060c1a]"],
-html:not(.dark) [class*="bg-[#0A0F1E]"] {
+html:not(.dark) [class*="bg-[#0A0F1E]"],
+html:not(.dark) [class*="bg-[#0b1528]"],
+html:not(.dark) [class*="bg-[#050b14]"],
+html:not(.dark) [class*="bg-[#0c1629]"],
+html:not(.dark) [class*="bg-[#040812]"],
+html:not(.dark) [class*="bg-[#120c29]"],
+html:not(.dark) [class*="bg-[#080412]"],
+html:not(.dark) [class*="bg-[#081020]"],
+html:not(.dark) [class*="bg-[#0b1830]"],
+html:not(.dark) [class*="bg-[#070f1f]"],
+html:not(.dark) [class*="bg-[#09152b]"],
+html:not(.dark) [class*="bg-[#040914]"] {
   background-color: #FFFFFF !important;
+  background-image: none !important;
 }
 
 html:not(.dark) [class*="bg-white/5"],
 html:not(.dark) [class*="bg-white/10"],
 html:not(.dark) [class*="bg-white/15"],
-html:not(.dark) [class*="bg-black/80"],
+html:not(.dark) [class*="bg-black/"],
 html:not(.dark) [class*="bg-[#050b18]/"],
 html:not(.dark) [class*="bg-[#091122]/"] {
-  background-color: #F5F7FA;
+  background-color: #F5F7FA !important;
+}
+
+html:not(.dark) [class*="from-accent-blue/15"] {
+  background: #E0F2FE !important;
+  color: #008FE5 !important;
+  border-color: #BAE6FD !important;
+}
+
+html:not(.dark) [class*="from-accent-blue/20"] {
+  background: #FFFFFF !important;
+  color: #008FE5 !important;
+  border-color: #008FE5 !important;
+  box-shadow: 0 4px 14px rgba(0, 143, 229, 0.12) !important;
+}
+
+html:not(.dark) .text-accent-cyan {
+  color: #008FE5 !important;
+}
+
+html:not(.dark) [class*="transparent_40%,#030712_85%"] {
+  background: radial-gradient(ellipse at center, transparent 40%, #FFFFFF 85%) !important;
 }
 
 /* Light Mode Typography Contrast Overrides */
