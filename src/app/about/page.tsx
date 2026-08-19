@@ -460,11 +460,11 @@ export default function AboutPage() {
                   key={step.id}
                   onClick={() => setActiveStep(step.id)}
                   className={`p-3.5 sm:p-5 rounded-2xl border text-left transition-all duration-300 relative overflow-hidden ${isActive
-                    ? "bg-gradient-to-r from-accent-blue/20 to-accent-purple/20 border-accent-blue text-white shadow-[0_0_20px_rgba(14,165,233,0.2)]"
-                    : "bg-white/[0.02] border-white/10 text-slate-400 hover:border-white/20 hover:text-slate-200"
+                    ? "bg-gradient-to-r from-accent-blue/20 to-accent-purple/20 border-accent-blue text-[#0A0F1E] dark:text-white shadow-md dark:shadow-[0_0_20px_rgba(14,165,233,0.2)] font-bold"
+                    : "bg-white dark:bg-white/[0.02] border-slate-200 dark:border-white/10 text-slate-600 dark:text-slate-400 hover:border-slate-300 dark:hover:border-white/20"
                     }`}
                 >
-                  <div className="text-[11px] sm:text-xs font-mono font-bold text-accent-cyan mb-0.5 sm:mb-1">{step.number}</div>
+                  <div className="text-[11px] sm:text-xs font-mono font-bold text-[#008FE5] dark:text-accent-cyan mb-0.5 sm:mb-1">{step.number}</div>
                   <div className="text-xs sm:text-base font-bold leading-tight">{step.title}</div>
                 </button>
               );
@@ -548,17 +548,17 @@ export default function AboutPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
-                className="glow-card rounded-3xl overflow-hidden border border-white/10 bg-gradient-to-b from-[#081020] to-[#040812] flex flex-col group hover:border-accent-blue/30 transition-all duration-300"
+                className="glow-card rounded-3xl overflow-hidden border border-slate-200 dark:border-white/10 bg-white dark:bg-gradient-to-b dark:from-[#081020] dark:to-[#040812] flex flex-col group hover:border-[#008FE5]/40 dark:hover:border-accent-blue/30 transition-all duration-300 shadow-md dark:shadow-2xl"
               >
                 {/* Image Frame */}
-                <div className="relative h-80 w-full bg-slate-950 overflow-hidden">
+                <div className="relative h-80 w-full bg-slate-100 dark:bg-slate-950 overflow-hidden">
                   <Image
                     src={member.image}
                     alt={member.name}
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-500"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#040812] via-transparent to-transparent opacity-90" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/50 dark:from-[#040812] via-transparent to-transparent opacity-90" />
 
                   {/* Social Overlays */}
                   <div className="absolute bottom-4 right-4 flex gap-2">
@@ -566,7 +566,7 @@ export default function AboutPage() {
                       href={member.linkedin}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="p-2.5 rounded-xl bg-black/60 backdrop-blur-md border border-white/10 text-slate-300 hover:text-[#0a66c2] hover:border-[#0a66c2]/40 transition-all duration-300"
+                      className="p-2.5 rounded-xl bg-white/90 dark:bg-black/60 backdrop-blur-md border border-slate-200 dark:border-white/10 text-slate-700 dark:text-slate-300 hover:text-[#0a66c2] dark:hover:text-[#0a66c2] hover:border-[#0a66c2]/40 transition-all duration-300 shadow-sm"
                       aria-label={`${member.name} LinkedIn`}
                     >
                       <FaLinkedin className="w-4 h-4" />
@@ -575,7 +575,7 @@ export default function AboutPage() {
                       href={member.github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="p-2.5 rounded-xl bg-black/60 backdrop-blur-md border border-white/10 text-slate-300 hover:text-white hover:border-white/40 transition-all duration-300"
+                      className="p-2.5 rounded-xl bg-white/90 dark:bg-black/60 backdrop-blur-md border border-slate-200 dark:border-white/10 text-slate-700 dark:text-slate-300 hover:text-black dark:hover:text-white hover:border-slate-400 dark:hover:border-white/40 transition-all duration-300 shadow-sm"
                       aria-label={`${member.name} GitHub`}
                     >
                       <FaGithub className="w-4 h-4" />
@@ -586,21 +586,21 @@ export default function AboutPage() {
                 {/* Card Content */}
                 <div className="p-6 flex-grow flex flex-col justify-between space-y-5">
                   <div className="space-y-2">
-                    <span className="text-xs font-mono font-bold text-accent-cyan uppercase tracking-widest">
+                    <span className="text-xs font-mono font-bold text-[#008FE5] dark:text-accent-cyan uppercase tracking-widest">
                       {member.role}
                     </span>
-                    <h3 className="text-2xl font-bold text-white">{member.name}</h3>
-                    <p className="text-sm text-slate-300 font-light leading-relaxed">
+                    <h3 className="text-2xl font-bold text-[#0A0F1E] dark:text-white">{member.name}</h3>
+                    <p className="text-sm text-slate-600 dark:text-slate-300 font-light leading-relaxed">
                       {member.bio}
                     </p>
                   </div>
 
                   {/* Skills tags */}
-                  <div className="pt-4 border-t border-white/5 flex flex-wrap gap-2">
+                  <div className="pt-4 border-t border-slate-200 dark:border-white/5 flex flex-wrap gap-2">
                     {member.skills.map((skill) => (
                       <span
                         key={skill}
-                        className="text-[11px] font-mono px-2.5 py-1 rounded-full bg-white/[0.04] border border-white/10 text-slate-300"
+                        className="text-[11px] font-mono px-2.5 py-1 rounded-full bg-slate-100 dark:bg-white/[0.04] border border-slate-200 dark:border-white/10 text-slate-700 dark:text-slate-300 font-medium"
                       >
                         {skill}
                       </span>
