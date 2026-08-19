@@ -214,18 +214,18 @@ html:not(.dark) [class*="bg-emerald-500/10"] [class*="text-emerald-400"] {
 }
 
 /* Light Mode Interactive Tab & Card Gradient Hover Effects */
-html:not(.dark) button:hover,
-html:not(.dark) [role="button"]:hover,
-html:not(.dark) [class*="rounded-2xl"][class*="border"]:hover {
+html:not(.dark) [class*="rounded-2xl"][class*="border"]:hover,
+html:not(.dark) [class*="rounded-xl"][class*="border"]:hover {
   border-color: #008FE5 !important;
   background: linear-gradient(135deg, rgba(0, 170, 255, 0.12) 0%, rgba(139, 92, 246, 0.12) 100%) !important;
   color: #008FE5 !important;
 }
 
-html:not(.dark) button:hover *,
-html:not(.dark) [role="button"]:hover *,
-html:not(.dark) [class*="rounded-2xl"][class*="border"]:hover * {
-  color: #008FE5 !important;
+html:not(.dark) .glow-card button:hover,
+html:not(.dark) button.w-full:hover,
+html:not(.dark) button[class*="text-left"]:hover {
+  background: transparent !important;
+  background-color: transparent !important;
 }
 
 html:not(.dark) .glow-card:hover {
