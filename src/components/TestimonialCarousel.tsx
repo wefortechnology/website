@@ -10,6 +10,8 @@ interface Testimonial {
   role: string;
   company: string;
   rating?: number;
+  verified?: boolean;
+  metricBadge?: string;
 }
 
 const testimonials: Testimonial[] = [
@@ -19,6 +21,8 @@ const testimonials: Testimonial[] = [
     role: "Operations Director",
     company: "Apex Retail Solutions",
     rating: 5,
+    verified: true,
+    metricBadge: "Saved 15+ hrs/week"
   },
   {
     quote: "The Next.js storefront they designed runs at incredible speeds. Our mobile search conversion rates rose by nearly 85% in the first two months.",
@@ -26,13 +30,17 @@ const testimonials: Testimonial[] = [
     role: "E-commerce Manager",
     company: "Velvet Apparel Group",
     rating: 5,
+    verified: true,
+    metricBadge: "+85% Mobile Conversion"
   },
   {
-    quote: "We For Technology built a robust conversational AI interface. The integration with our existing client databases was flawless, and the response latency is exceptionally low.",
+    quote: "We For Technology built a robust conversational AI interface. The integration with our existing client databases was flawless, and response latency dropped drastically.",
     name: "David Chen",
     role: "Chief Technology Officer",
     company: "MindFlow AI",
     rating: 5,
+    verified: true,
+    metricBadge: "< 200ms Latency SLA"
   },
   {
     quote: "Their data visualization dashboards enabled our leadership team to identify operational leaks in real time. Absolute game changer for our analytics workflow.",
@@ -40,13 +48,17 @@ const testimonials: Testimonial[] = [
     role: "Head of Operations",
     company: "Quantum Analytics",
     rating: 5,
+    verified: true,
+    metricBadge: "100% Real-time Insights"
   },
   {
-    quote: "They redesigned our payment gateways with enterprise-grade security. We For Technology is the most reliable development partner we have partnered with in the last five years.",
+    quote: "They redesigned our payment gateways with enterprise-grade security and zero downtime migration. We For Technology is our most reliable development partner.",
     name: "Marcus Thorne",
     role: "SecOps Lead",
     company: "Apex Fintech Dashboard",
     rating: 5,
+    verified: true,
+    metricBadge: "Zero-Downtime SLA"
   },
 ];
 
@@ -121,17 +133,24 @@ export default function TestimonialCarousel() {
               className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 w-full"
             >
               {/* Card 1 */}
-              <div className="glow-card rounded-2xl p-6 sm:p-10 relative flex flex-col justify-between border border-slate-200 dark:border-white/10 bg-white dark:bg-[#0B132B] h-full shadow-md dark:shadow-2xl">
-                <div className="absolute top-6 right-6 sm:top-8 sm:right-8 text-slate-300/40 dark:text-cyan-400/10 select-none pointer-events-none">
-                  <Quote className="w-12 h-12 sm:w-16 sm:h-16 transform rotate-180" />
+              <div className="glow-card rounded-2xl p-6 sm:p-10 relative flex flex-col justify-between border border-slate-200 dark:border-white/10 bg-white dark:bg-[#0B132B] h-full shadow-md dark:shadow-2xl overflow-hidden">
+                <div className="absolute top-5 right-5 text-slate-400/15 dark:text-cyan-400/5 select-none pointer-events-none z-0">
+                  <Quote className="w-10 h-10 sm:w-12 sm:h-12 transform rotate-180" />
                 </div>
 
-                <div>
-                  {/* Rating Stars */}
-                  <div className="flex gap-1 mb-5">
-                    {Array.from({ length: test1.rating || 5 }).map((_, i) => (
-                      <Star key={i} className="w-4.5 h-4.5 fill-[#008FE5] text-[#008FE5] dark:fill-accent-cyan dark:text-accent-cyan" />
-                    ))}
+                <div className="relative z-10">
+                  {/* Rating & Verified Badge */}
+                  <div className="flex flex-wrap items-center justify-between gap-3 mb-5 pr-10">
+                    <div className="flex gap-1">
+                      {Array.from({ length: test1.rating || 5 }).map((_, i) => (
+                        <Star key={i} className="w-4.5 h-4.5 fill-[#008FE5] text-[#008FE5] dark:fill-accent-cyan dark:text-accent-cyan" />
+                      ))}
+                    </div>
+                    {test1.metricBadge && (
+                      <span className="text-[10px] sm:text-xs font-mono font-semibold px-2.5 py-0.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-600 dark:text-emerald-400 shadow-xs">
+                        ✓ {test1.metricBadge}
+                      </span>
+                    )}
                   </div>
 
                   {/* Quote */}
@@ -141,12 +160,21 @@ export default function TestimonialCarousel() {
                 </div>
 
                 {/* Author details */}
-                <div className="border-t border-slate-200 dark:border-white/10 pt-5 flex items-center gap-4">
+                <div className="border-t border-slate-200 dark:border-white/10 pt-5 flex items-center gap-4 relative z-10">
                   <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-gradient-to-tr from-accent-blue to-accent-purple flex items-center justify-center font-bold text-white text-base select-none shadow-md shadow-accent-blue/20 flex-shrink-0">
                     {test1.name.charAt(0)}
                   </div>
                   <div>
-                    <h4 className="text-sm sm:text-base font-semibold text-[#0A0F1E] dark:text-white">{test1.name}</h4>
+                    <div className="flex items-center gap-1.5">
+                      <h4 className="text-sm sm:text-base font-semibold text-[#0A0F1E] dark:text-white">{test1.name}</h4>
+                      {test1.verified && (
+                        <span className="inline-flex items-center text-xs text-sky-500" title="Verified Client Partner">
+                          <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                            <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+                          </svg>
+                        </span>
+                      )}
+                    </div>
                     <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 font-light">
                       {test1.role}, <span className="text-[#008FE5] dark:text-accent-cyan font-medium">{test1.company}</span>
                     </p>
@@ -155,17 +183,24 @@ export default function TestimonialCarousel() {
               </div>
 
               {/* Card 2 */}
-              <div className="hidden md:flex glow-card rounded-2xl p-6 sm:p-10 relative flex-col justify-between border border-slate-200 dark:border-white/10 bg-white dark:bg-[#0B132B] h-full shadow-md dark:shadow-2xl">
-                <div className="absolute top-6 right-6 sm:top-8 sm:right-8 text-slate-300/40 dark:text-cyan-400/10 select-none pointer-events-none">
-                  <Quote className="w-12 h-12 sm:w-16 sm:h-16 transform rotate-180" />
+              <div className="hidden md:flex glow-card rounded-2xl p-6 sm:p-10 relative flex-col justify-between border border-slate-200 dark:border-white/10 bg-white dark:bg-[#0B132B] h-full shadow-md dark:shadow-2xl overflow-hidden">
+                <div className="absolute top-5 right-5 text-slate-400/15 dark:text-cyan-400/5 select-none pointer-events-none z-0">
+                  <Quote className="w-10 h-10 sm:w-12 sm:h-12 transform rotate-180" />
                 </div>
 
-                <div>
-                  {/* Rating Stars */}
-                  <div className="flex gap-1 mb-5">
-                    {Array.from({ length: test2.rating || 5 }).map((_, i) => (
-                      <Star key={i} className="w-4.5 h-4.5 fill-[#008FE5] text-[#008FE5] dark:fill-accent-cyan dark:text-accent-cyan" />
-                    ))}
+                <div className="relative z-10">
+                  {/* Rating & Verified Badge */}
+                  <div className="flex flex-wrap items-center justify-between gap-3 mb-5 pr-10">
+                    <div className="flex gap-1">
+                      {Array.from({ length: test2.rating || 5 }).map((_, i) => (
+                        <Star key={i} className="w-4.5 h-4.5 fill-[#008FE5] text-[#008FE5] dark:fill-accent-cyan dark:text-accent-cyan" />
+                      ))}
+                    </div>
+                    {test2.metricBadge && (
+                      <span className="text-[10px] sm:text-xs font-mono font-semibold px-2.5 py-0.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-600 dark:text-emerald-400 shadow-xs">
+                        ✓ {test2.metricBadge}
+                      </span>
+                    )}
                   </div>
 
                   {/* Quote */}
@@ -180,7 +215,16 @@ export default function TestimonialCarousel() {
                     {test2.name.charAt(0)}
                   </div>
                   <div>
-                    <h4 className="text-sm sm:text-base font-semibold text-[#0A0F1E] dark:text-white">{test2.name}</h4>
+                    <div className="flex items-center gap-1.5">
+                      <h4 className="text-sm sm:text-base font-semibold text-[#0A0F1E] dark:text-white">{test2.name}</h4>
+                      {test2.verified && (
+                        <span className="inline-flex items-center text-xs text-sky-500" title="Verified Client Partner">
+                          <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                            <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+                          </svg>
+                        </span>
+                      )}
+                    </div>
                     <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 font-light">
                       {test2.role}, <span className="text-[#008FE5] dark:text-accent-cyan font-medium">{test2.company}</span>
                     </p>

@@ -286,7 +286,7 @@ export default function AboutPage() {
               <div className="absolute w-[220px] h-[220px] sm:w-[360px] sm:h-[360px] rounded-full border border-dashed border-accent-purple/20 animate-[spin_60s_linear_infinite_reverse]" />
 
               {/* Main Card */}
-              <div className="relative z-10 w-full max-w-md rounded-3xl bg-gradient-to-b from-[#0b1528]/95 to-[#050b14]/95 border border-white/15 backdrop-blur-2xl shadow-[0_32px_80px_rgba(0,0,0,0.7)] overflow-hidden">
+              <div className="relative z-10 w-full max-w-md rounded-3xl bg-gradient-to-b from-[#0b1528]/95 to-[#050b14]/95 border border-white/15 backdrop-blur-2xl overflow-hidden">
                 {/* Header Bar */}
                 <div className="flex items-center justify-between px-6 py-4 border-b border-white/10 bg-white/[0.03]">
                   <div className="flex items-center gap-2">
@@ -321,18 +321,18 @@ export default function AboutPage() {
                     ))}
                   </div>
 
-                  <div className="p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-between">
+                  <div className="p-4 rounded-xl bg-emerald-950/80 dark:bg-emerald-950/60 border border-emerald-500/30 flex items-center justify-between">
                     <div className="flex items-center gap-3">
                       <span className="relative flex h-3 w-3">
                         <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
-                        <span className="relative inline-flex rounded-full h-3 w-3 bg-emerald-500" />
+                        <span className="relative inline-flex rounded-full h-3 w-3 bg-emerald-400" />
                       </span>
                       <div>
-                        <div className="text-xs font-bold font-mono" style={{ color: "#FFFFFF" }}>Development Operations</div>
-                        <div className="text-[11px] font-mono font-medium" style={{ color: "#34D399" }}>All Systems 100% Operational</div>
+                        <div className="text-xs font-bold font-mono text-white">Development Operations</div>
+                        <div className="text-[11px] font-mono font-semibold text-emerald-300">All Systems 100% Operational</div>
                       </div>
                     </div>
-                    <CheckCircle2 className="w-5 h-5 text-emerald-400" />
+                    <CheckCircle2 className="w-5 h-5 text-emerald-400 shrink-0" />
                   </div>
                 </div>
               </div>

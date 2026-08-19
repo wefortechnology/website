@@ -394,6 +394,64 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Client Trust & Guarantee Section */}
+      <section className="py-20 relative z-10 border-t border-slate-200 dark:border-white/5 bg-gradient-to-b from-[#F8FAFC] to-[#F1F5F9] dark:from-[#081020] dark:to-[#030712]">
+        <div className="max-w-7xl mx-auto px-6">
+          <SectionHeading
+            title="Our Ironclad Client Guarantee"
+            subtitle="Built For Trust"
+            description="We eliminate client risk through transparent milestones, guaranteed SLAs, and enterprise-grade security."
+          />
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+            <div className="glow-card rounded-2xl p-6 sm:p-8 border border-slate-200 dark:border-white/10 bg-white dark:bg-white/[0.02] shadow-sm flex flex-col justify-between">
+              <div className="space-y-4">
+                <div className="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-500 flex items-center justify-center font-bold">
+                  <Shield className="w-6 h-6" />
+                </div>
+                <h3 className="text-xl font-bold text-[#0A0F1E] dark:text-white">Strict NDA & Code Ownership</h3>
+                <p className="text-slate-600 dark:text-slate-300 font-light text-sm leading-relaxed">
+                  100% intellectual property & source code transfer upon project delivery. We sign non-disclosure agreements before reviewing your proprietary specifications.
+                </p>
+              </div>
+              <div className="mt-6 pt-4 border-t border-slate-100 dark:border-white/5 flex items-center gap-2 text-xs font-mono text-emerald-600 dark:text-emerald-400 font-semibold">
+                <span>✓ Verified Legal Protection</span>
+              </div>
+            </div>
+
+            <div className="glow-card rounded-2xl p-6 sm:p-8 border border-slate-200 dark:border-white/10 bg-white dark:bg-white/[0.02] shadow-sm flex flex-col justify-between">
+              <div className="space-y-4">
+                <div className="w-12 h-12 rounded-xl bg-sky-500/10 border border-sky-500/20 text-sky-500 flex items-center justify-center font-bold">
+                  <Clock className="w-6 h-6" />
+                </div>
+                <h3 className="text-xl font-bold text-[#0A0F1E] dark:text-white">Milestone Sprint Guarantee</h3>
+                <p className="text-slate-600 dark:text-slate-300 font-light text-sm leading-relaxed">
+                  You approve every stage before payment release. Weekly demo calls and live staging environments ensure complete visibility throughout development.
+                </p>
+              </div>
+              <div className="mt-6 pt-4 border-t border-slate-100 dark:border-white/5 flex items-center gap-2 text-xs font-mono text-sky-600 dark:text-sky-400 font-semibold">
+                <span>✓ 100% Milestone Assurance</span>
+              </div>
+            </div>
+
+            <div className="glow-card rounded-2xl p-6 sm:p-8 border border-slate-200 dark:border-white/10 bg-white dark:bg-white/[0.02] shadow-sm flex flex-col justify-between">
+              <div className="space-y-4">
+                <div className="w-12 h-12 rounded-xl bg-purple-500/10 border border-purple-500/20 text-purple-500 flex items-center justify-center font-bold">
+                  <Award className="w-6 h-6" />
+                </div>
+                <h3 className="text-xl font-bold text-[#0A0F1E] dark:text-white">99.9% Uptime & 24/7 Support</h3>
+                <p className="text-slate-600 dark:text-slate-300 font-light text-sm leading-relaxed">
+                  Dedicated post-launch bug fixes and monitoring. Our engineering desk in Ghaziabad handles real-time cloud updates and technical maintenance.
+                </p>
+              </div>
+              <div className="mt-6 pt-4 border-t border-slate-100 dark:border-white/5 flex items-center gap-2 text-xs font-mono text-purple-600 dark:text-purple-400 font-semibold">
+                <span>✓ Production SLA Guaranteed</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Testimonials */}
       <section className="py-24 bg-[#F5F7FA] dark:bg-white/[0.02] border-y border-slate-200 dark:border-white/5 relative z-10">
         <div className="max-w-7xl mx-auto px-6">
