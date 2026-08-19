@@ -630,21 +630,23 @@ export default function AboutPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
-                className="glow-card rounded-2xl p-6 border border-white/10 bg-gradient-to-b from-[#081020] to-[#030712] relative space-y-4"
+                className="glow-card rounded-2xl p-6 border border-white/10 bg-gradient-to-b from-[#081020] to-[#030712] relative space-y-4 flex flex-col justify-between"
               >
-                <div className="flex items-center justify-between">
-                  <span className="text-3xl font-black text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-blue-500 font-mono">
-                    {m.year}
-                  </span>
-                  <span className="text-xs font-mono px-2.5 py-1 rounded-full bg-accent-blue/10 border border-accent-blue/20 text-accent-cyan">
-                    {m.metric}
-                  </span>
-                </div>
+                <div className="space-y-4">
+                  <div className="flex flex-wrap items-center justify-between gap-2">
+                    <span className="text-3xl sm:text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-blue-500 font-mono">
+                      {m.year}
+                    </span>
+                    <span className="text-[11px] sm:text-xs font-mono px-2.5 py-1 rounded-lg bg-accent-blue/15 border border-accent-blue/30 text-accent-cyan whitespace-nowrap w-fit shadow-sm">
+                      {m.metric}
+                    </span>
+                  </div>
 
-                <h3 className="text-lg font-bold text-white">{m.title}</h3>
-                <p className="text-xs text-slate-300 font-light leading-relaxed">
-                  {m.desc}
-                </p>
+                  <h3 className="text-lg font-bold text-white leading-snug">{m.title}</h3>
+                  <p className="text-xs text-slate-300 font-light leading-relaxed">
+                    {m.desc}
+                  </p>
+                </div>
               </motion.div>
             ))}
           </div>
