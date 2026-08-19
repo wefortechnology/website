@@ -551,22 +551,22 @@ export default function AboutPage() {
                 className="glow-card rounded-3xl overflow-hidden border border-slate-200 dark:border-white/10 bg-white dark:bg-gradient-to-b dark:from-[#081020] dark:to-[#040812] flex flex-col group hover:border-[#008FE5]/40 dark:hover:border-accent-blue/30 transition-all duration-300 shadow-md dark:shadow-2xl"
               >
                 {/* Image Frame */}
-                <div className="relative h-80 w-full bg-slate-100 dark:bg-slate-950 overflow-hidden">
+                <div className="relative h-80 w-full bg-slate-200 dark:bg-slate-900 overflow-hidden">
                   <Image
                     src={member.image}
                     alt={member.name}
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-500"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/50 dark:from-[#040812] via-transparent to-transparent opacity-90" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-80 pointer-events-none" />
 
                   {/* Social Overlays */}
-                  <div className="absolute bottom-4 right-4 flex gap-2">
+                  <div className="absolute bottom-4 right-4 flex gap-2 z-10">
                     <a
                       href={member.linkedin}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="p-2.5 rounded-xl bg-white/90 dark:bg-black/60 backdrop-blur-md border border-slate-200 dark:border-white/10 text-slate-700 dark:text-slate-300 hover:text-[#0a66c2] dark:hover:text-[#0a66c2] hover:border-[#0a66c2]/40 transition-all duration-300 shadow-sm"
+                      className="p-2.5 rounded-xl bg-white/90 dark:bg-black/60 backdrop-blur-md border border-slate-200 dark:border-white/10 text-slate-800 dark:text-slate-200 hover:text-[#0a66c2] dark:hover:text-[#0a66c2] hover:border-[#0a66c2]/40 transition-all duration-300 shadow-sm"
                       aria-label={`${member.name} LinkedIn`}
                     >
                       <FaLinkedin className="w-4 h-4" />
@@ -575,7 +575,7 @@ export default function AboutPage() {
                       href={member.github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="p-2.5 rounded-xl bg-white/90 dark:bg-black/60 backdrop-blur-md border border-slate-200 dark:border-white/10 text-slate-700 dark:text-slate-300 hover:text-black dark:hover:text-white hover:border-slate-400 dark:hover:border-white/40 transition-all duration-300 shadow-sm"
+                      className="p-2.5 rounded-xl bg-white/90 dark:bg-black/60 backdrop-blur-md border border-slate-200 dark:border-white/10 text-slate-800 dark:text-slate-200 hover:text-black dark:hover:text-white hover:border-slate-400 dark:hover:border-white/40 transition-all duration-300 shadow-sm"
                       aria-label={`${member.name} GitHub`}
                     >
                       <FaGithub className="w-4 h-4" />
@@ -596,11 +596,11 @@ export default function AboutPage() {
                   </div>
 
                   {/* Skills tags */}
-                  <div className="pt-4 border-t border-slate-200 dark:border-white/5 flex flex-wrap gap-2">
+                  <div className="pt-4 border-t border-slate-200 dark:border-white/10 flex flex-wrap gap-2">
                     {member.skills.map((skill) => (
                       <span
                         key={skill}
-                        className="text-[11px] font-mono px-2.5 py-1 rounded-full bg-slate-100 dark:bg-white/[0.04] border border-slate-200 dark:border-white/10 text-slate-700 dark:text-slate-300 font-medium"
+                        className="text-[11px] font-mono px-2.5 py-1 rounded-full bg-slate-100 dark:bg-white/[0.06] border border-slate-200 dark:border-white/10 text-slate-800 dark:text-slate-200 font-semibold"
                       >
                         {skill}
                       </span>

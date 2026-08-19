@@ -159,13 +159,13 @@ html:not(.dark) [class*="from-white/[0.06]"] {
   color: #0F172A !important;
 }
 
-html:not(.dark) [class*="from-[#081224]"],
-html:not(.dark) [class*="from-[#0b162b]"],
-html:not(.dark) [class*="from-[#09152a]"],
-html:not(.dark) [class*="from-[#081020]"],
-html:not(.dark) [class*="from-[#081224]/90"],
-html:not(.dark) [class*="from-[#040812]"],
-html:not(.dark) [class*="from-[#050b16]"] {
+html:not(.dark) [class*="from-[#081224]"]:not([class*="dark:from-"]),
+html:not(.dark) [class*="from-[#0b162b]"]:not([class*="dark:from-"]),
+html:not(.dark) [class*="from-[#09152a]"]:not([class*="dark:from-"]),
+html:not(.dark) [class*="from-[#081020]"]:not([class*="dark:from-"]),
+html:not(.dark) [class*="from-[#081224]/90"]:not([class*="dark:from-"]),
+html:not(.dark) [class*="from-[#040812]"]:not([class*="dark:from-"]),
+html:not(.dark) [class*="from-[#050b16]"]:not([class*="dark:from-"]) {
   background: #FFFFFF !important;
 }
 
@@ -230,12 +230,12 @@ html:not(.dark) [class*="from-accent-blue/40"] [class*="text-slate-500"] {
   color: #008FE5 !important;
 }
 
-/* Light Mode Interactive Tab & Card Gradient Hover Effects */
+/* Light Mode Interactive Tab & Card Hover Effects */
 html:not(.dark) [class*="rounded-2xl"][class*="border"]:hover,
-html:not(.dark) [class*="rounded-xl"][class*="border"]:hover {
+html:not(.dark) [class*="rounded-xl"][class*="border"]:hover,
+html:not(.dark) [class*="rounded-3xl"][class*="border"]:hover {
   border-color: #008FE5 !important;
-  background: linear-gradient(135deg, rgba(0, 170, 255, 0.12) 0%, rgba(139, 92, 246, 0.12) 100%) !important;
-  color: #008FE5 !important;
+  box-shadow: 0 10px 30px -10px rgba(0, 143, 229, 0.12) !important;
 }
 
 html:not(.dark) .glow-card button:hover,
