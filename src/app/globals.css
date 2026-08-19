@@ -159,6 +159,31 @@ html:not(.dark) .glow-card {
   box-shadow: none !important;
 }
 
+/* Light Mode Widget Text Contrast Overrides */
+html:not(.dark) [class*="bg-black/"] .text-white,
+html:not(.dark) [class*="bg-black/"] [class*="text-white"] {
+  color: #0A0F1E !important;
+}
+
+html:not(.dark) [class*="bg-emerald-500/10"] {
+  background-color: #ECFDF5 !important;
+  color: #059669 !important;
+  border-color: #A7F3D0 !important;
+}
+
+/* Light Mode Interactive Tab & Card Hover Effects */
+html:not(.dark) button:hover,
+html:not(.dark) [role="button"]:hover,
+html:not(.dark) [class*="rounded-2xl"][class*="border"]:hover {
+  border-color: rgba(0, 143, 229, 0.4) !important;
+  background-color: #F0F9FF !important;
+}
+
+html:not(.dark) .glow-card:hover {
+  border-color: rgba(0, 143, 229, 0.3) !important;
+  box-shadow: 0 10px 25px -5px rgba(0, 143, 229, 0.08) !important;
+}
+
 /* Light Mode Typography Contrast Overrides */
 html:not(.dark) h1:not([class*="text-transparent"]),
 html:not(.dark) h2:not([class*="text-transparent"]),
