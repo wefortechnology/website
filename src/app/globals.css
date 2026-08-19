@@ -107,7 +107,13 @@ html:not(.dark) [class*="bg-[#081020]"],
 html:not(.dark) [class*="bg-[#0b1830]"],
 html:not(.dark) [class*="bg-[#070f1f]"],
 html:not(.dark) [class*="bg-[#09152b]"],
-html:not(.dark) [class*="bg-[#040914]"] {
+html:not(.dark) [class*="bg-[#040914]"],
+html:not(.dark) [class*="from-[#0b1528]"],
+html:not(.dark) [class*="from-[#0c1629]"],
+html:not(.dark) [class*="from-[#120c29]"],
+html:not(.dark) [class*="from-[#081020]"],
+html:not(.dark) [class*="from-[#081224]"],
+html:not(.dark) [class*="from-[#070f1f]"] {
   background-color: #FFFFFF !important;
   background-image: none !important;
 }
