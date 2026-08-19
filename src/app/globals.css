@@ -123,10 +123,10 @@ html:not(.dark) [class*="bg-[#040914]"] {
   background-image: none !important;
 }
 
-html:not(.dark) [class*="bg-white/5"],
-html:not(.dark) [class*="bg-white/10"],
-html:not(.dark) [class*="bg-white/15"],
-html:not(.dark) [class*="bg-black/"],
+html:not(.dark) [class*="bg-white/5"]:not([class*="dark:bg-white/5"]),
+html:not(.dark) [class*="bg-white/10"]:not([class*="dark:bg-white/10"]),
+html:not(.dark) [class*="bg-white/15"]:not([class*="dark:bg-white/15"]),
+html:not(.dark) [class*="bg-black/"]:not([class*="dark:bg-black/"]),
 html:not(.dark) [class*="bg-[#050b18]/"],
 html:not(.dark) [class*="bg-[#091122]/"] {
   background-color: #F5F7FA !important;
@@ -160,15 +160,15 @@ html:not(.dark) .glow-card {
 }
 
 /* Light Mode Container Text Contrast Overrides */
-html:not(.dark) [class*="bg-black/"] .text-white,
-html:not(.dark) [class*="bg-black/"] [class*="text-white"],
-html:not(.dark) [class*="bg-white/"] .text-white,
-html:not(.dark) [class*="bg-white/"] [class*="text-white"] {
+html:not(.dark) [class*="bg-black/"]:not([class*="dark:bg-black/"]) .text-white,
+html:not(.dark) [class*="bg-black/"]:not([class*="dark:bg-black/"]) [class*="text-white"],
+html:not(.dark) [class*="bg-white/"]:not([class*="dark:bg-white/"]) .text-white,
+html:not(.dark) [class*="bg-white/"]:not([class*="dark:bg-white/"]) [class*="text-white"] {
   color: #0A0F1E !important;
 }
 
-html:not(.dark) [class*="bg-white/"] .text-slate-400,
-html:not(.dark) [class*="bg-white/"] [class*="text-slate-400"] {
+html:not(.dark) [class*="bg-white/"]:not([class*="dark:bg-white/"]) .text-slate-400,
+html:not(.dark) [class*="bg-white/"]:not([class*="dark:bg-white/"]) [class*="text-slate-400"] {
   color: #475569 !important;
 }
 
