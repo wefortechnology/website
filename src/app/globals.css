@@ -171,17 +171,23 @@ html:not(.dark) [class*="bg-emerald-500/10"] {
   border-color: #A7F3D0 !important;
 }
 
-/* Light Mode Interactive Tab & Card Hover Effects */
+/* Light Mode Interactive Tab & Card Gradient Hover Effects */
 html:not(.dark) button:hover,
 html:not(.dark) [role="button"]:hover,
 html:not(.dark) [class*="rounded-2xl"][class*="border"]:hover {
-  border-color: rgba(0, 143, 229, 0.4) !important;
-  background-color: #F0F9FF !important;
+  border-color: #008FE5 !important;
+  background: linear-gradient(135deg, rgba(0, 170, 255, 0.12) 0%, rgba(139, 92, 246, 0.12) 100%) !important;
+  color: #008FE5 !important;
+}
+
+html:not(.dark) button:hover *,
+html:not(.dark) [role="button"]:hover *,
+html:not(.dark) [class*="rounded-2xl"][class*="border"]:hover * {
+  color: #008FE5 !important;
 }
 
 html:not(.dark) .glow-card:hover {
   border-color: rgba(0, 143, 229, 0.3) !important;
-  box-shadow: 0 10px 25px -5px rgba(0, 143, 229, 0.08) !important;
 }
 
 /* Light Mode Typography Contrast Overrides */
