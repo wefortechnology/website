@@ -119,10 +119,6 @@ html:not(.dark) h6:not([class*="text-transparent"]) {
   color: #0A0F1E;
 }
 
-html:not(.dark) .text-white:not(button *):not(a *):not([class*="bg-accent"]):not([class*="bg-gradient"]) {
-  color: #0A0F1E;
-}
-
 html:not(.dark) .text-slate-100 {
   color: #0A0F1E;
 }
