@@ -95,8 +95,8 @@ export default function Hero() {
                 className="absolute inset-0 flex items-center justify-center"
               >
                 {/* Center Sphere */}
-                <div className="w-36 h-36 sm:w-48 sm:h-48 rounded-full bg-white/80 dark:bg-gradient-to-tr dark:from-accent-blue/20 dark:to-accent-purple/20 border border-slate-200 dark:border-white/10 flex items-center justify-center shadow-lg dark:shadow-[0_0_50px_rgba(14,165,233,0.15)] relative z-20 backdrop-blur-md">
-                  <div className="w-28 h-28 sm:w-40 sm:h-40 rounded-full bg-white dark:bg-[#050b18]/85 border border-slate-200 dark:border-white/5 flex flex-col items-center justify-center p-3 sm:p-4 text-center shadow-inner">
+                <div className="w-36 h-36 sm:w-48 sm:h-48 rounded-full bg-slate-900/10 dark:bg-[#0c1527]/90 border border-slate-300/60 dark:border-accent-blue/30 flex items-center justify-center shadow-lg dark:shadow-[0_0_50px_rgba(14,165,233,0.2)] relative z-20 backdrop-blur-md">
+                  <div className="w-28 h-28 sm:w-40 sm:h-40 rounded-full bg-white dark:bg-[#050b18] border border-slate-200 dark:border-white/10 flex flex-col items-center justify-center p-3 sm:p-4 text-center shadow-inner">
                     <Image
                       src="/images/logo.svg"
                       alt="We For Technology Logo"
