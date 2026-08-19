@@ -159,16 +159,32 @@ html:not(.dark) .glow-card {
   box-shadow: none !important;
 }
 
-/* Light Mode Widget Text Contrast Overrides */
+/* Light Mode Container Text Contrast Overrides */
 html:not(.dark) [class*="bg-black/"] .text-white,
-html:not(.dark) [class*="bg-black/"] [class*="text-white"] {
+html:not(.dark) [class*="bg-black/"] [class*="text-white"],
+html:not(.dark) [class*="bg-white/"] .text-white,
+html:not(.dark) [class*="bg-white/"] [class*="text-white"] {
   color: #0A0F1E !important;
+}
+
+html:not(.dark) [class*="bg-white/"] .text-slate-400,
+html:not(.dark) [class*="bg-white/"] [class*="text-slate-400"] {
+  color: #475569 !important;
 }
 
 html:not(.dark) [class*="bg-emerald-500/10"] {
   background-color: #ECFDF5 !important;
-  color: #059669 !important;
   border-color: #A7F3D0 !important;
+}
+
+html:not(.dark) [class*="bg-emerald-500/10"] .text-white,
+html:not(.dark) [class*="bg-emerald-500/10"] [class*="text-white"] {
+  color: #065F46 !important;
+}
+
+html:not(.dark) [class*="bg-emerald-500/10"] .text-emerald-400,
+html:not(.dark) [class*="bg-emerald-500/10"] [class*="text-emerald-400"] {
+  color: #059669 !important;
 }
 
 /* Light Mode Interactive Tab & Card Gradient Hover Effects */
