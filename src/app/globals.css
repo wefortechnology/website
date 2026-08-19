@@ -213,6 +213,23 @@ html:not(.dark) [class*="bg-emerald-500/10"] [class*="text-emerald-400"] {
   color: #059669 !important;
 }
 
+/* Solutions Page & Interactive Active Tab Text Contrast Overrides */
+html:not(.dark) [class*="from-accent-blue/30"] .text-white,
+html:not(.dark) [class*="from-accent-blue/30"] [class*="text-white"],
+html:not(.dark) [class*="from-accent-blue/40"] .text-white,
+html:not(.dark) [class*="from-accent-blue/40"] [class*="text-white"],
+html:not(.dark) [class*="from-accent-blue/30"],
+html:not(.dark) [class*="from-accent-blue/40"] {
+  color: #0A0F1E !important;
+}
+
+html:not(.dark) [class*="from-accent-blue/30"] .text-slate-500,
+html:not(.dark) [class*="from-accent-blue/30"] [class*="text-slate-500"],
+html:not(.dark) [class*="from-accent-blue/40"] .text-slate-500,
+html:not(.dark) [class*="from-accent-blue/40"] [class*="text-slate-500"] {
+  color: #008FE5 !important;
+}
+
 /* Light Mode Interactive Tab & Card Gradient Hover Effects */
 html:not(.dark) [class*="rounded-2xl"][class*="border"]:hover,
 html:not(.dark) [class*="rounded-xl"][class*="border"]:hover {
