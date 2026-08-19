@@ -409,3 +409,97 @@ html:not(.dark) .radial-overlay {
 .animate-marquee:hover {
   animation-play-state: paused;
 }
+
+/* ==========================================================================
+   Light Mode Footer Overrides
+   ========================================================================== */
+html:not(.dark) footer {
+  background-color: #F8FAFC !important;
+  background: linear-gradient(180deg, #F8FAFC 0%, #F1F5F9 100%) !important;
+  border-top: 1px solid #E2E8F0 !important;
+}
+
+/* Footer Grid Lines in Light Mode */
+html:not(.dark) footer .tech-grid {
+  opacity: 0.25 !important;
+  background-image: linear-gradient(to right, rgba(0, 143, 229, 0.08) 1px, transparent 1px),
+                    linear-gradient(to bottom, rgba(0, 143, 229, 0.08) 1px, transparent 1px) !important;
+}
+
+/* Footer Section Headings */
+html:not(.dark) footer h4,
+html:not(.dark) footer .text-white {
+  color: #0F172A !important;
+}
+
+/* Footer Paragraphs & Description Text */
+html:not(.dark) footer p,
+html:not(.dark) footer .text-slate-400 {
+  color: #475569 !important;
+}
+
+/* Footer Links */
+html:not(.dark) footer a:not([aria-label]) {
+  color: #475569 !important;
+}
+
+html:not(.dark) footer a:not([aria-label]):hover {
+  color: #008FE5 !important;
+}
+
+/* Newsletter Input Field */
+html:not(.dark) footer input[type="email"] {
+  background-color: #FFFFFF !important;
+  border-color: #CBD5E1 !important;
+  color: #0F172A !important;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04) !important;
+}
+
+html:not(.dark) footer input[type="email"]::placeholder {
+  color: #94A3B8 !important;
+}
+
+html:not(.dark) footer input[type="email"]:focus {
+  border-color: #008FE5 !important;
+  box-shadow: 0 0 0 2px rgba(0, 143, 229, 0.2) !important;
+}
+
+html:not(.dark) footer form .text-slate-500 {
+  color: #64748B !important;
+}
+
+/* Social Media Icon Buttons */
+html:not(.dark) footer a[aria-label] {
+  background-color: #FFFFFF !important;
+  border: 1px solid #E2E8F0 !important;
+  color: #475569 !important;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05) !important;
+}
+
+html:not(.dark) footer a[aria-label]:hover {
+  color: #008FE5 !important;
+  border-color: #008FE5 !important;
+  background-color: rgba(0, 143, 229, 0.08) !important;
+}
+
+/* Footer Contact Section Details */
+html:not(.dark) footer .font-mono.text-slate-300 {
+  color: #0F172A !important;
+}
+
+html:not(.dark) footer .text-slate-300 {
+  color: #334155 !important;
+}
+
+/* Footer Bottom Divider & Legal Section */
+html:not(.dark) footer .border-t {
+  border-top-color: #E2E8F0 !important;
+}
+
+html:not(.dark) footer .text-slate-500 {
+  color: #64748B !important;
+}
+
+html:not(.dark) footer .text-slate-500:hover {
+  color: #0F172A !important;
+}
