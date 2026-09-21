@@ -19,7 +19,7 @@ export default function ThemeToggle({ className = "" }: ThemeToggleProps) {
 
   if (!mounted) {
     return (
-      <div className={`w-9 h-9 rounded-full bg-white/5 border border-white/10 ${className}`} />
+      <div className={`w-9 h-9 rounded-full bg-slate-900/5 dark:bg-white/5 border border-slate-900/10 dark:border-white/10 ${className}`} />
     );
   }
 
