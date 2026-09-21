@@ -1,4 +1,5 @@
 import React from "react";
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { ArrowLeft, Calendar, Clock, User, ChevronRight } from "lucide-react";
@@ -8,6 +9,62 @@ import { blogPosts } from "@/lib/blog";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
+}
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { slug } = await params;
+  const post = blogPosts.find((p) => p.slug === slug);
+
+  if (!post) {
+    return {
+      title: "Blog Post Not Found",
+    };
+  }
+
+  const title = `${post.title} | We For Technology Blog`;
+  const description = post.excerpt;
+
+  return {
+    title,
+    description,
+    keywords: [
+      post.title,
+      post.category,
+      "We For Technology Blog",
+      "Software Development Articles",
+      "Tech Insights India",
+      "Web & Mobile Architecture",
+    ],
+    alternates: {
+      canonical: `/blog/${slug}`,
+    },
+    openGraph: {
+      type: "article",
+      locale: "en_IN",
+      url: `https://wefortechnology.com/blog/${slug}`,
+      siteName: "We For Technology",
+      title,
+      description,
+      authors: [post.author],
+      publishedTime: new Date(post.date).toISOString(),
+      images: [
+        {
+          url: post.imageUrl.startsWith("http")
+            ? post.imageUrl
+            : "/images/og-image.png",
+          width: 1200,
+          height: 630,
+          alt: `${post.title} - We For Technology`,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: ["/images/og-image.png"],
+    },
+  };
 }
 
 export async function generateStaticParams() {
@@ -29,8 +86,35 @@ export default async function BlogPostDetailPage({ params }: PageProps) {
     .filter((p) => post.relatedSlugs.includes(p.slug))
     .slice(0, 2);
 
+  const articleJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: post.title,
+    description: post.excerpt,
+    url: `https://wefortechnology.com/blog/${slug}`,
+    image: post.imageUrl.startsWith("http")
+      ? post.imageUrl
+      : "https://wefortechnology.com/images/og-image.png",
+    author: {
+      "@type": "Person",
+      name: post.author,
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "We For Technology",
+      url: "https://wefortechnology.com",
+      logo: "https://wefortechnology.com/images/image%206.png",
+    },
+    datePublished: new Date(post.date).toISOString(),
+    inLanguage: "en-IN",
+  };
+
   return (
     <PageTransition>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
+      />
       {/* Back Link */}
       <div className="max-w-4xl mx-auto px-6 pt-32 pb-4">
         <Link

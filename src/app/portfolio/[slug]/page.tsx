@@ -1,4 +1,5 @@
 import React from "react";
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { ArrowLeft, CheckCircle2, ChevronRight, AlertCircle, TrendingUp, Cpu } from "lucide-react";
@@ -9,6 +10,60 @@ import { portfolioItems } from "@/lib/portfolio";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
+}
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { slug } = await params;
+  const project = portfolioItems.find((p) => p.slug === slug);
+
+  if (!project) {
+    return {
+      title: "Case Study Not Found",
+    };
+  }
+
+  const title = `${project.title} — ${project.category} Case Study | We For Technology`;
+  const description = `${project.subTitle} Learn how We For Technology delivered ${project.title} using ${project.technologies.slice(0, 3).join(", ")}.`;
+
+  return {
+    title,
+    description,
+    keywords: [
+      project.title,
+      `${project.category} case study`,
+      ...project.technologies,
+      "We For Technology Case Studies",
+      "Software Development Portfolio",
+      "Software Agency Ghaziabad",
+    ],
+    alternates: {
+      canonical: `/portfolio/${slug}`,
+    },
+    openGraph: {
+      type: "website",
+      locale: "en_IN",
+      url: `https://wefortechnology.com/portfolio/${slug}`,
+      siteName: "We For Technology",
+      title,
+      description,
+      images: [
+        {
+          url: project.imageUrl.startsWith("http")
+            ? project.imageUrl
+            : "/images/og-image.png",
+          width: 1200,
+          height: 630,
+          alt: `${project.title} - We For Technology`,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: ["/images/og-image.png"],
+    },
+  };
 }
 
 export async function generateStaticParams() {

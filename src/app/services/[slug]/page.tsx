@@ -1,4 +1,5 @@
 import React from "react";
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import {
@@ -32,9 +33,154 @@ interface PageProps {
   params: Promise<{ slug: string }>;
 }
 
+const serviceKeywordsMap: Record<string, string[]> = {
+  "web-development": [
+    "custom web development company",
+    "Next.js development agency India",
+    "React developer Ghaziabad",
+    "responsive website design Delhi NCR",
+    "full stack web development",
+    "performance web development",
+    "web portal development Ghaziabad"
+  ],
+  "app-development": [
+    "mobile app development company",
+    "React Native developers India",
+    "iOS app development Delhi NCR",
+    "Android app agency Ghaziabad",
+    "cross platform mobile apps",
+    "Flutter app developers India"
+  ],
+  "software-development": [
+    "custom software development company India",
+    "enterprise software solutions Ghaziabad",
+    "SaaS application development",
+    "cloud software developers Delhi NCR",
+    "ERP CRM software India"
+  ],
+  "ui-ux-design": [
+    "UI UX design studio India",
+    "Figma product design Ghaziabad",
+    "web app wireframing Delhi NCR",
+    "design system development",
+    "user experience design studio"
+  ],
+  "ecommerce": [
+    "ecommerce website development India",
+    "Shopify developers Ghaziabad",
+    "headless ecommerce Next.js",
+    "custom online store Delhi NCR",
+    "ecommerce payment gateway integration"
+  ],
+  "zoho-solutions": [
+    "Zoho partner India",
+    "Zoho CRM customization Ghaziabad",
+    "Zoho Creator developer Delhi NCR",
+    "Deluge script automation",
+    "Zoho Books Zoho Desk integration"
+  ],
+  "ai-integration": [
+    "AI integration company India",
+    "custom LLM development Ghaziabad",
+    "generative AI solutions Delhi NCR",
+    "RAG pipeline development",
+    "AI customer support chatbot",
+    "OpenAI API integration India"
+  ],
+  "software-testing": [
+    "software testing company India",
+    "QA automation services Ghaziabad",
+    "end to end web testing Delhi NCR",
+    "performance security testing",
+    "Cypress Playwright testing services"
+  ],
+  "cms-development": [
+    "custom CMS development India",
+    "Strapi Sanity developers Ghaziabad",
+    "headless CMS solutions Delhi NCR",
+    "content management systems India"
+  ],
+  "api-development": [
+    "RESTful API development company",
+    "GraphQL API developers India",
+    "microservices architecture Ghaziabad",
+    "secure backend API Delhi NCR"
+  ],
+  "branding": [
+    "brand identity design agency",
+    "corporate branding Ghaziabad",
+    "logo design Delhi NCR",
+    "brand guidelines typography palette"
+  ],
+  "maintenance": [
+    "website maintenance services India",
+    "software support retainer Ghaziabad",
+    "Next.js app maintenance Delhi NCR",
+    "security updates bug fixes retainer"
+  ],
+};
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { slug } = await params;
+  const service = services.find((s) => s.slug === slug);
+
+  if (!service) {
+    return {
+      title: "Service Not Found",
+    };
+  }
+
+  const customKeywords = serviceKeywordsMap[slug] || [
+    `${service.title} services`,
+    `${service.title} company Ghaziabad`,
+    `${service.title} agency India`,
+  ];
+
+  const title = `${service.title} Company in Ghaziabad & Delhi NCR | We For Technology`;
+  const description = `${service.shortDesc} Partner with We For Technology for reliable ${service.title.toLowerCase()} powered by ${service.technologies.slice(0, 3).join(", ")}. Delivering scalable, modern digital solutions.`;
+
+  return {
+    title,
+    description,
+    keywords: [
+      ...customKeywords,
+      ...service.technologies,
+      "We For Technology",
+      "Software Agency Ghaziabad",
+      "Tech Agency Delhi NCR",
+    ],
+    alternates: {
+      canonical: `/services/${slug}`,
+    },
+    openGraph: {
+      type: "website",
+      locale: "en_IN",
+      url: `https://wefortechnology.com/services/${slug}`,
+      siteName: "We For Technology",
+      title,
+      description,
+      images: [
+        {
+          url: "/images/og-image.png",
+          width: 1200,
+          height: 630,
+          alt: `${service.title} - We For Technology`,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: ["/images/og-image.png"],
+    },
+  };
+}
+
 export async function generateStaticParams() {
   return services.map((service) => ({ slug: service.slug }));
 }
+
 
 // Service specific metric highlights for visual punch
 const serviceMetrics: Record<string, { label: string; value: string; color: string }[]> = {
@@ -113,8 +259,58 @@ export default async function ServiceDetailPage({ params }: PageProps) {
 
   const relatedServices = services.filter((s) => s.slug !== slug).slice(0, 3);
 
+  const serviceJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: service.title,
+    description: service.shortDesc,
+    url: `https://wefortechnology.com/services/${slug}`,
+    provider: {
+      "@type": "ProfessionalService",
+      name: "We For Technology",
+      url: "https://wefortechnology.com",
+    },
+    areaServed: [
+      { "@type": "City", name: "Ghaziabad" },
+      { "@type": "City", name: "Noida" },
+      { "@type": "City", name: "Delhi" },
+      { "@type": "AdministrativeArea", name: "Delhi NCR" },
+      { "@type": "Country", name: "India" },
+    ],
+    hasOfferCatalog: {
+      "@type": "OfferCatalog",
+      name: service.title,
+      itemListElement: service.features.map((f) => ({
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: f,
+        },
+      })),
+    },
+  };
+
+  const faqJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: service.faqs.map((faq) => ({
+      "@type": "Question",
+      name: faq.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: faq.answer,
+      },
+    })),
+  };
+
   return (
     <PageTransition>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify([serviceJsonLd, faqJsonLd]),
+        }}
+      />
       {/* ── 1. Premium Glassmorphic Hero ── */}
       <section className="relative pt-28 sm:pt-32 pb-16 sm:pb-24 overflow-hidden min-h-[80vh] sm:min-h-[85vh] flex items-center w-full max-w-full">
         {/* Layered Aurora Light Halos */}
