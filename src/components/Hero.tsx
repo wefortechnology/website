@@ -1,9 +1,11 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight, Sparkles, Terminal, Code2 } from "lucide-react";
+import { ArrowRight, Sparkles, Terminal, Phone, MessageCircle } from "lucide-react";
 import Image from "next/image";
 import Button from "./Button";
+import TrackedLink from "./TrackedLink";
+import { contact, whatsappUrl } from "@/lib/site";
 
 export default function Hero() {
   return (
@@ -21,63 +23,68 @@ export default function Hero() {
           <div className="lg:col-span-7 space-y-8 flex flex-col items-center lg:items-start text-center lg:text-left">
 
             {/* Tagline Badge */}
-            <motion.div
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10 text-xs font-mono uppercase tracking-widest text-[#008FE5] dark:text-accent-cyan shadow-xs dark:shadow-[0_4px_12px_rgba(34,211,238,0.15)]"
+            <div
+              className="animate-fade-up inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10 text-xs uppercase tracking-widest text-[#0369A1] dark:text-accent-cyan shadow-xs dark:shadow-[0_4px_12px_rgba(34,211,238,0.15)] font-semibold"
             >
-              <Sparkles className="w-3.5 h-3.5 animate-pulse text-[#008FE5] dark:text-accent-cyan" />
+              <Sparkles className="w-3.5 h-3.5 animate-pulse text-[#0369A1] dark:text-accent-cyan" />
               <span>We For Technology</span>
-            </motion.div>
+            </div>
 
             {/* Headline */}
-            <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
+            <h1
               className="text-2xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-[#0A0F1E] dark:text-white leading-[1.15] sm:leading-[1.1] max-w-2xl"
             >
               Digital Solutions <br />
               <span className="text-gradient-cyan">That Build Brands.</span>
-            </motion.h1>
+            </h1>
 
             {/* Supporting Text */}
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
+            <p
               className="text-base sm:text-xl text-slate-600 dark:text-slate-400 font-light max-w-xl leading-relaxed"
             >
               We design and develop high-performance websites, applications, and digital solutions that help businesses grow, scale, and stand out.
-            </motion.p>
+            </p>
 
             {/* CTAs */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3.5 w-full"
-            >
-              <Button href="/contact" variant="accent" size="lg" className="w-full sm:w-auto gap-2 justify-center">
-                <span>Start Your Project</span>
+            {/* CSS entrance animation: this row is the LCP element on mobile, so it must not wait for JS. */}
+            <div className="animate-fade-up [animation-delay:150ms] flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3.5 w-full">
+              <Button href="/contact?ref=consultation" variant="accent" size="lg" className="w-full sm:w-auto gap-2 justify-center">
+                <span>Get a Free Consultation</span>
                 <ArrowRight className="w-5 h-5" />
               </Button>
               <Button href="/portfolio" variant="secondary" size="lg" className="w-full sm:w-auto justify-center">
                 Explore Our Work
               </Button>
-            </motion.div>
+            </div>
+
+            {/* Direct contact options */}
+            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-x-5 gap-y-2 text-sm text-slate-600">
+              <span className="w-full sm:w-auto text-xs font-semibold uppercase tracking-wider text-slate-500">Or reach us directly:</span>
+              <TrackedLink
+                event="whatsapp_click"
+                location="hero"
+                href={whatsappUrl()}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 font-medium text-emerald-700 hover:text-emerald-600"
+              >
+                <MessageCircle className="w-4 h-4" /> WhatsApp
+              </TrackedLink>
+              <TrackedLink
+                event="phone_click"
+                location="hero"
+                href={contact.phoneTel}
+                className="inline-flex items-center gap-1.5 font-medium text-[#0369A1] hover:text-[#0077c2]"
+              >
+                <Phone className="w-4 h-4" /> {contact.phoneDisplay}
+              </TrackedLink>
+            </div>
 
           </div>
 
           {/* Right Column: Visual Technology Element */}
           <div className="lg:col-span-5 relative w-full flex items-center justify-center py-6 lg:py-8 max-w-full">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="relative w-full max-w-[280px] sm:max-w-md aspect-square my-2"
-            >
+            <div className="animate-fade-up [animation-delay:100ms] relative w-full max-w-[280px] sm:max-w-md aspect-square my-2">
               {/* Spinning Ring */}
               <div className="absolute inset-0 rounded-full border border-dashed border-slate-300 dark:border-white/10 animate-[spin_60s_linear_infinite]" />
               <div className="absolute inset-6 sm:inset-10 rounded-full border border-double border-accent-blue/20 dark:border-accent-blue/15 animate-[spin_40s_linear_infinite_reverse]" />
@@ -98,7 +105,7 @@ export default function Hero() {
                 <div className="w-36 h-36 sm:w-48 sm:h-48 rounded-full bg-slate-900/10 dark:bg-[#0c1527]/90 border border-slate-300/60 dark:border-accent-blue/30 flex items-center justify-center shadow-lg dark:shadow-[0_0_50px_rgba(14,165,233,0.2)] relative z-20 backdrop-blur-md">
                   <div className="w-28 h-28 sm:w-40 sm:h-40 rounded-full bg-white dark:bg-[#050b18] border border-slate-200 dark:border-white/10 flex flex-col items-center justify-center p-3 sm:p-4 text-center shadow-inner">
                     <Image
-                      src="/images/logo.svg"
+                      src="/images/logo.png"
                       alt="We For Technology Logo"
                       width={120}
                       height={32}
@@ -107,7 +114,7 @@ export default function Hero() {
                     <span className="text-[9px] sm:text-[10px] font-mono uppercase tracking-widest text-slate-500 dark:text-slate-400">
                       SYSTEM_OK
                     </span>
-                    <span className="text-[9px] sm:text-[10px] font-mono text-[#008FE5] dark:text-accent-cyan">
+                    <span className="text-[9px] sm:text-[10px] font-mono text-[#0369A1] dark:text-accent-cyan">
                       PING: 12ms
                     </span>
                   </div>
@@ -168,7 +175,7 @@ export default function Hero() {
                 </motion.div>
 
               </motion.div>
-            </motion.div>
+            </div>
           </div>
         </div>
       </div>

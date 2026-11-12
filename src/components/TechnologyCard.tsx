@@ -1,7 +1,9 @@
 "use client";
 
+import { createElement } from "react";
 import { motion } from "framer-motion";
-import * as LucideIcons from "lucide-react";
+import { Cpu } from "lucide-react";
+import { getIcon } from "@/lib/icons";
 
 interface TechnologyCardProps {
   name: string;
@@ -18,7 +20,7 @@ export default function TechnologyCard({
   iconName,
   index,
 }: TechnologyCardProps) {
-  const IconComponent = (LucideIcons as any)[iconName] || LucideIcons.Cpu;
+  const icon = createElement(getIcon(iconName, Cpu), { className: "w-6 h-6" });
 
   return (
     <motion.div
@@ -30,7 +32,7 @@ export default function TechnologyCard({
       className="glow-card rounded-xl p-6 flex items-start gap-4 border border-white/5"
     >
       <div className="flex-shrink-0 p-3 rounded-lg bg-white/5 border border-white/10 text-accent-blue group-hover:text-white transition-colors duration-300">
-        <IconComponent className="w-6 h-6" />
+        {icon}
       </div>
       <div>
         <h4 className="text-lg font-semibold text-white mb-1">{name}</h4>

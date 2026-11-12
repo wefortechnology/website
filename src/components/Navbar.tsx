@@ -7,7 +7,8 @@ import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ArrowRight } from "lucide-react";
 import Button from "./Button";
-import ThemeToggle from "./ThemeToggle";
+import TrackedLink from "./TrackedLink";
+import { contact, whatsappUrl } from "@/lib/site";
 
 const navLinks = [
   { label: "Home", href: "/" },
@@ -37,10 +38,12 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Close mobile menu on navigate
-  useEffect(() => {
+  // Close the mobile menu when the route changes (state derived from a prop, no effect needed).
+  const [prevPathname, setPrevPathname] = useState(pathname);
+  if (pathname !== prevPathname) {
+    setPrevPathname(pathname);
     setMobileMenuOpen(false);
-  }, [pathname]);
+  }
 
   // Lock body scroll when mobile menu is open
   useEffect(() => {
@@ -67,7 +70,7 @@ export default function Navbar() {
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3 group select-none">
             <Image
-              src="/images/logo.svg"
+              src="/images/logo.png"
               alt="We For Technology Logo"
               width={160}
               height={40}
@@ -85,7 +88,7 @@ export default function Navbar() {
                   key={link.label}
                   href={link.href}
                   className={`relative px-4 py-2 text-sm font-medium transition-colors duration-300 rounded-full select-none ${
-                    isActive ? "text-[#008FE5] dark:text-white font-semibold" : "text-slate-700 dark:text-slate-400 hover:text-[#0A0F1E] dark:hover:text-white"
+                    isActive ? "text-[#0369A1] dark:text-white font-semibold" : "text-slate-700 dark:text-slate-400 hover:text-[#0A0F1E] dark:hover:text-white"
                   }`}
                 >
                   {isActive && (
@@ -103,15 +106,14 @@ export default function Navbar() {
 
           {/* CTA & Theme Toggle & Mobile Hamburger */}
           <div className="flex items-center gap-3 sm:gap-4">
-            <ThemeToggle />
             <div className="hidden lg:block">
               <Button
-                href="/contact"
+                href="/contact?ref=consultation"
                 variant="accent"
                 size="sm"
                 className="gap-1"
               >
-                <span>Start Your Project</span>
+                <span>Get a Free Consultation</span>
                 <ArrowRight className="w-4 h-4" />
               </Button>
             </div>
@@ -143,14 +145,14 @@ export default function Navbar() {
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ type: "spring", damping: 25, stiffness: 200 }}
-              className="absolute right-0 top-0 h-full w-full max-w-sm bg-slate-900 dark:bg-[#050b18] border-l border-white/10 flex flex-col z-[100] shadow-2xl overflow-hidden"
+              className="absolute right-0 top-0 h-full w-full max-w-sm bg-white border-l border-slate-200 flex flex-col z-[100] shadow-2xl overflow-hidden"
               onClick={(e) => e.stopPropagation()}
             >
               {/* Sticky Header inside drawer */}
-              <div className="flex items-center justify-between p-6 shrink-0 bg-slate-900 dark:bg-[#050b18] border-b border-white/5 z-10">
+              <div className="flex items-center justify-between p-6 shrink-0 bg-white border-b border-slate-200 z-10">
                 <Link href="/" onClick={() => setMobileMenuOpen(false)} className="flex items-center">
                   <Image
-                    src="/images/logo.svg"
+                    src="/images/logo.png"
                     alt="We For Technology Logo"
                     width={140}
                     height={35}
@@ -158,10 +160,9 @@ export default function Navbar() {
                   />
                 </Link>
                 <div className="flex items-center gap-3">
-                  <ThemeToggle />
                   <button
                     onClick={() => setMobileMenuOpen(false)}
-                    className="p-2 rounded-lg bg-white/5 border border-white/5 text-slate-400 hover:text-white cursor-pointer"
+                    className="p-2 rounded-lg bg-slate-100 border border-slate-200 text-slate-600 hover:text-slate-900 cursor-pointer"
                   >
                     <X className="w-5 h-5" />
                   </button>
@@ -184,7 +185,7 @@ export default function Navbar() {
                         <Link
                           href={link.href}
                           className={`text-lg font-medium flex items-center justify-between py-2.5 border-b border-white/5 ${
-                            isActive ? "text-accent-blue font-bold" : "text-slate-400"
+                            isActive ? "text-accent-blue font-bold" : "text-slate-700"
                           }`}
                         >
                           <span>{link.label}</span>
@@ -197,24 +198,38 @@ export default function Navbar() {
 
                 {/* Bottom Drawer CTA & Quick Contact */}
                 <div className="space-y-4 pt-4 border-t border-white/10">
-                  <Button href="/contact" variant="accent" className="w-full gap-2 py-3.5 justify-center">
-                    <span>Start Your Project</span>
+                  <Button href="/contact?ref=consultation" variant="accent" className="w-full gap-2 py-3.5 justify-center">
+                    <span>Get a Free Consultation</span>
                     <ArrowRight className="w-4.5 h-4.5" />
                   </Button>
 
-                  <div className="grid grid-cols-2 gap-2 text-center text-xs font-mono">
-                    <a
-                      href="tel:+918510070940"
-                      className="p-2.5 rounded-xl bg-white/5 border border-white/10 text-slate-300 hover:text-white hover:border-accent-cyan/40 transition-all"
+                  <div className="grid grid-cols-3 gap-2 text-center text-xs font-mono">
+                    <TrackedLink
+                      event="phone_click"
+                      location="mobile-menu"
+                      href={contact.phoneTel}
+                      className="p-2.5 rounded-xl bg-slate-50 border border-slate-200 text-slate-700 hover:text-slate-900 hover:border-accent-cyan/40 transition-all"
                     >
-                      📞 Call Us
-                    </a>
-                    <a
-                      href="mailto:wefortechnology.ai@gmail.com"
-                      className="p-2.5 rounded-xl bg-white/5 border border-white/10 text-slate-300 hover:text-white hover:border-accent-purple/40 transition-all truncate"
+                      📞 Call
+                    </TrackedLink>
+                    <TrackedLink
+                      event="whatsapp_click"
+                      location="mobile-menu"
+                      href={whatsappUrl()}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="p-2.5 rounded-xl bg-slate-50 border border-slate-200 text-slate-700 hover:text-slate-900 hover:border-emerald-400/40 transition-all"
                     >
-                      ✉️ Email Us
-                    </a>
+                      💬 WhatsApp
+                    </TrackedLink>
+                    <TrackedLink
+                      event="email_click"
+                      location="mobile-menu"
+                      href={contact.emailHref}
+                      className="p-2.5 rounded-xl bg-slate-50 border border-slate-200 text-slate-700 hover:text-slate-900 hover:border-accent-purple/40 transition-all truncate"
+                    >
+                      ✉️ Email
+                    </TrackedLink>
                   </div>
 
                   <div className="text-center">

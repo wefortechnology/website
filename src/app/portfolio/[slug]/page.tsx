@@ -26,7 +26,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const description = `${project.subTitle} Learn how We For Technology delivered ${project.title} using ${project.technologies.slice(0, 3).join(", ")}.`;
 
   return {
-    title,
+    title: { absolute: title },
     description,
     keywords: [
       project.title,
@@ -42,7 +42,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     openGraph: {
       type: "website",
       locale: "en_IN",
-      url: `https://wefortechnology.com/portfolio/${slug}`,
+      url: `https://wefortechnology.in/portfolio/${slug}`,
       siteName: "We For Technology",
       title,
       description,
@@ -85,16 +85,11 @@ export default async function CaseStudyDetailPage({ params }: PageProps) {
     .filter((p) => p.slug !== slug)
     .slice(0, 2);
 
-  // Generate distinct colors for visual indicators
-  const isZoho = project.category === "Zoho";
-  const isAI = project.category === "AI";
-  const isSoftware = project.category === "Software";
-  const accentColor = isZoho ? "text-amber-400" : isAI ? "text-accent-cyan" : "text-accent-blue";
 
   return (
     <PageTransition>
       {/* ── Hero Section ── */}
-      <section className="relative pt-28 sm:pt-32 pb-16 sm:pb-20 overflow-hidden w-full max-w-full">
+      <section className="relative pt-28 sm:pt-32 lg:pt-36 pb-16 sm:pb-20 overflow-hidden w-full max-w-full">
         {/* Glow Effects */}
         <div className="absolute top-[-10%] left-[-5%] w-[300px] sm:w-[600px] h-[300px] sm:h-[600px] bg-accent-blue/10 rounded-full blur-[100px] sm:blur-[150px] pointer-events-none" />
         <div className="absolute bottom-[-10%] right-[-5%] w-[250px] sm:w-[500px] h-[250px] sm:h-[500px] bg-accent-purple/10 rounded-full blur-[90px] sm:blur-[140px] pointer-events-none" />
@@ -109,7 +104,7 @@ export default async function CaseStudyDetailPage({ params }: PageProps) {
         />
         <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(ellipse_at_center,transparent_40%,#030712_85%)]" />
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10 w-full">
+        <div className="max-w-7xl mx-auto px-6 relative z-10 w-full">
           
           {/* Top Symmetrical Navigation Header */}
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 pb-6 sm:pb-8 border-b border-white/5 mb-8 sm:mb-10">
@@ -123,7 +118,7 @@ export default async function CaseStudyDetailPage({ params }: PageProps) {
 
             <div className="flex items-center gap-2 sm:gap-3">
               <span className="text-xs font-mono text-slate-400">Category:</span>
-              <span className="text-xs font-mono font-semibold uppercase tracking-wider text-accent-cyan bg-accent-cyan/10 px-3 py-1 rounded-full border border-accent-cyan/20">
+              <span className="text-xs font-semibold uppercase tracking-wider text-accent-cyan bg-accent-cyan/10 px-3 py-1 rounded-full border border-accent-cyan/20">
                 {project.category}
               </span>
             </div>
@@ -134,7 +129,7 @@ export default async function CaseStudyDetailPage({ params }: PageProps) {
             {/* Left Content */}
             <div className="lg:col-span-7 space-y-6 sm:space-y-8">
               <div className="space-y-3 sm:space-y-4">
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.04] border border-white/10 text-slate-400 text-[10px] sm:text-xs font-mono uppercase tracking-wider sm:tracking-widest">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.04] border border-white/10 text-slate-400 text-[11px] sm:text-xs uppercase tracking-wider sm:tracking-widest font-semibold">
                   <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse flex-shrink-0" />
                   Verified Case Study
                 </div>
@@ -267,7 +262,7 @@ export default async function CaseStudyDetailPage({ params }: PageProps) {
 
       {/* ── Main Breakdown Section ── */}
       <section className="py-12 sm:py-20 bg-white/[0.01] border-y border-white/5 relative z-10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+        <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-12 lg:gap-16">
             
             {/* Left Col: Problem, Solution, Challenges */}
@@ -277,7 +272,7 @@ export default async function CaseStudyDetailPage({ params }: PageProps) {
               <div className="glow-card rounded-3xl p-5 sm:p-8 border border-rose-500/20 bg-rose-500/[0.02] space-y-3 sm:space-y-4">
                 <h3 className="text-lg sm:text-2xl font-bold text-white flex items-center gap-2.5 sm:gap-3">
                   <AlertCircle className="w-5 h-5 sm:w-6 sm:h-6 text-rose-500 flex-shrink-0" />
-                  <span>The Client's Challenge</span>
+                  <span>The Client&apos;s Challenge</span>
                 </h3>
                 <p className="text-slate-300 font-light leading-relaxed text-xs sm:text-base">
                   {project.clientProblem}
@@ -358,9 +353,9 @@ export default async function CaseStudyDetailPage({ params }: PageProps) {
 
       {/* ── Architectural Execution Roadmap (4-Step Pipeline) ── */}
       <section className="py-12 sm:py-20 relative z-10 border-b border-white/5">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+        <div className="max-w-7xl mx-auto px-6">
           <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-14 space-y-2.5 sm:space-y-3">
-            <span className="inline-block text-[10px] sm:text-xs font-mono text-accent-cyan uppercase tracking-wider sm:tracking-widest bg-accent-cyan/10 px-3 sm:px-3.5 py-1 sm:py-1.5 rounded-full border border-accent-cyan/20 mb-2">
+            <span className="inline-block text-[11px] sm:text-xs text-accent-cyan uppercase tracking-wider sm:tracking-widest bg-accent-cyan/10 px-3 sm:px-3.5 py-1 sm:py-1.5 rounded-full border border-accent-cyan/20 mb-2 font-semibold">
               Execution Strategy
             </span>
             <h2 className="text-2xl sm:text-3xl font-bold text-white">How We Delivered This Solution</h2>
@@ -415,12 +410,12 @@ export default async function CaseStudyDetailPage({ params }: PageProps) {
 
       {/* ── Technical Specifications Grid ── */}
       <section className="py-12 sm:py-20 relative z-10 border-b border-white/5 bg-white/[0.01]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+        <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-12 items-center">
             
             <div className="lg:col-span-5 space-y-3.5 sm:space-y-4">
               <div>
-                <span className="inline-block text-[10px] sm:text-xs font-mono text-accent-blue uppercase tracking-wider sm:tracking-widest bg-accent-blue/10 px-3 sm:px-3.5 py-1 sm:py-1.5 rounded-full border border-accent-blue/20 mb-2">
+                <span className="inline-block text-[11px] sm:text-xs text-accent-blue uppercase tracking-wider sm:tracking-widest bg-accent-blue/10 px-3 sm:px-3.5 py-1 sm:py-1.5 rounded-full border border-accent-blue/20 mb-2 font-semibold">
                   Technical Blueprint
                 </span>
               </div>
@@ -458,7 +453,7 @@ export default async function CaseStudyDetailPage({ params }: PageProps) {
 
       {/* Related Projects */}
       <section className="py-12 sm:py-20 relative z-10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+        <div className="max-w-7xl mx-auto px-6">
           <h3 className="text-lg sm:text-xl font-bold text-white mb-6 sm:mb-8">Other Case Studies</h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 max-w-4xl">
             {relatedProjects.map((rel) => (

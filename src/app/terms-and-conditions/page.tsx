@@ -1,5 +1,3 @@
-"use client";
-
 import React from "react";
 import PageTransition from "@/components/PageTransition";
 
@@ -20,7 +18,7 @@ export default function TermsAndConditionsPage() {
 
           <div className="text-sm text-slate-400 font-light leading-relaxed space-y-6">
             <p>
-              Welcome to We For Technology! These terms and conditions outline the rules and regulations for the use of We For Technology's Website, located at https://wefortechnology.com.
+              Welcome to We For Technology! These terms and conditions outline the rules and regulations for the use of We For Technology&apos;s Website, located at https://wefortechnology.in.
             </p>
             <p>
               By accessing this website, we assume you accept these terms and conditions. Do not continue to use We For Technology if you do not agree to take all of the terms and conditions stated on this page.

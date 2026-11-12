@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
+import { withSeo } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withSeo({
   title: "Transparent Software & Retainer Pricing | We For Technology",
   description:
     "Review transparent development pricing and monthly retainer plans for startups and enterprises. Fixed-scope projects, dedicated developer pods, and Zoho maintenance retainers.",
@@ -8,13 +9,13 @@ export const metadata: Metadata = {
     canonical: "/pricing",
   },
   openGraph: {
-    url: "https://wefortechnology.com/pricing",
+    url: "https://wefortechnology.in/pricing",
     title: "Transparent Software & Retainer Pricing | We For Technology",
     description:
       "Predictable, flexible software engineering pricing tailored for high-growth businesses and scaling brands.",
     images: ["/images/og-image.png"],
   },
-};
+});
 
 export default function PricingLayout({
   children,

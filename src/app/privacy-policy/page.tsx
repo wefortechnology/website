@@ -1,56 +1,17 @@
-"use client";
-
-import React, { useState, useEffect } from "react";
-import { motion } from "framer-motion";
-import { Shield, ChevronRight, Mail, MapPin, Phone } from "lucide-react";
+import { Shield, Mail, MapPin, Phone } from "lucide-react";
+import { MotionDiv } from "@/components/motion";
 import PageTransition from "@/components/PageTransition";
-
-const sections = [
-  { id: "introduction",       title: "Introduction" },
-  { id: "information",        title: "Information We Collect" },
-  { id: "how-we-use",        title: "How We Use Your Information" },
-  { id: "sharing",            title: "Sharing Your Information" },
-  { id: "cookies",            title: "Cookies & Tracking" },
-  { id: "data-retention",     title: "Data Retention" },
-  { id: "third-party",        title: "Third-Party Services" },
-  { id: "security",           title: "Data Security" },
-  { id: "rights",             title: "Your Rights" },
-  { id: "children",           title: "Children's Privacy" },
-  { id: "changes",            title: "Policy Changes" },
-  { id: "contact",            title: "Contact Us" },
-];
+import PolicyToc from "./PolicyToc";
 
 export default function PrivacyPolicyPage() {
-  const [activeSection, setActiveSection] = useState("introduction");
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) setActiveSection(entry.target.id);
-        });
-      },
-      { rootMargin: "-30% 0px -60% 0px" }
-    );
-    sections.forEach(({ id }) => {
-      const el = document.getElementById(id);
-      if (el) observer.observe(el);
-    });
-    return () => observer.disconnect();
-  }, []);
-
-  const scrollTo = (id: string) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
-  };
-
   return (
     <PageTransition>
       {/* ── Hero banner ── */}
-      <section className="relative pt-28 sm:pt-32 lg:pt-36 pb-12 overflow-hidden">
+      <section className="relative pt-28 sm:pt-32 lg:pt-36 pb-12 sm:pb-16 overflow-hidden">
         <div className="absolute top-0 inset-x-0 h-64 bg-gradient-to-b from-[#091122]/60 to-transparent pointer-events-none" />
         <div className="absolute top-0 left-0 w-[400px] h-[400px] bg-accent-blue/[0.06] rounded-full blur-[130px] pointer-events-none" />
         <div className="max-w-7xl mx-auto px-6 relative z-10">
-          <motion.div
+          <MotionDiv
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             className="flex items-center gap-4 mb-6"
@@ -62,7 +23,7 @@ export default function PrivacyPolicyPage() {
               <p className="text-xs font-mono text-accent-blue uppercase tracking-widest">Legal Document</p>
               <h1 className="text-3xl sm:text-4xl font-black text-white tracking-tight">Privacy Policy</h1>
             </div>
-          </motion.div>
+          </MotionDiv>
 
           <div className="flex flex-wrap gap-4 text-xs font-mono text-slate-500">
             <span>Last Updated: <span className="text-slate-300">August 18, 2026</span></span>
@@ -79,27 +40,7 @@ export default function PrivacyPolicyPage() {
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-[260px_1fr] gap-12 items-start">
 
-            {/* ── Sticky TOC sidebar ── */}
-            <aside className="hidden lg:block sticky top-28 self-start">
-              <div className="rounded-2xl border border-white/[0.07] bg-[#070f1f]/80 backdrop-blur-xl p-5 space-y-1">
-                <p className="text-[10px] font-mono text-slate-600 uppercase tracking-widest mb-3">Table of Contents</p>
-                {sections.map((s, i) => (
-                  <button
-                    key={s.id}
-                    onClick={() => scrollTo(s.id)}
-                    className={`w-full text-left flex items-center gap-2.5 px-3 py-2 rounded-lg text-xs transition-all duration-200 ${
-                      activeSection === s.id
-                        ? "bg-accent-blue/10 text-accent-blue border border-accent-blue/20 font-semibold"
-                        : "text-slate-500 hover:text-white hover:bg-white/[0.04]"
-                    }`}
-                  >
-                    <span className="font-mono text-[10px] text-slate-600 w-4 shrink-0">{String(i + 1).padStart(2, "0")}</span>
-                    {s.title}
-                    {activeSection === s.id && <ChevronRight className="w-3 h-3 ml-auto" />}
-                  </button>
-                ))}
-              </div>
-            </aside>
+            <PolicyToc />
 
             {/* ── Main content ── */}
             <div className="space-y-12">
@@ -107,10 +48,10 @@ export default function PrivacyPolicyPage() {
               {/* ── 1. Introduction ── */}
               <PolicySection id="introduction" number="01" title="Introduction">
                 <p>
-                  We For Technology (<strong className="text-white">"we"</strong>, <strong className="text-white">"us"</strong>, or <strong className="text-white">"our"</strong>) is a software and digital solutions agency headquartered in Ghaziabad, Uttar Pradesh, India. We are committed to protecting the privacy and personal data of our clients, website visitors, project collaborators, and anyone who interacts with our digital properties.
+                  We For Technology (<strong className="text-slate-800">&quot;we&quot;</strong>, <strong className="text-slate-800">&quot;us&quot;</strong>, or <strong className="text-slate-800">&quot;our&quot;</strong>) is a software and digital solutions agency headquartered in Ghaziabad, Uttar Pradesh, India. We are committed to protecting the privacy and personal data of our clients, website visitors, project collaborators, and anyone who interacts with our digital properties.
                 </p>
                 <p>
-                  This Privacy Policy explains what personal information we collect, why we collect it, how we use and protect it, and what rights you have regarding your data. This policy applies to all services delivered under the We For Technology brand, including our website at <span className="text-accent-blue">wefortechnology.com</span>, client project portals, and any associated digital properties.
+                  This Privacy Policy explains what personal information we collect, why we collect it, how we use and protect it, and what rights you have regarding your data. This policy applies to all services delivered under the We For Technology brand, including our website at <span className="text-accent-blue">wefortechnology.in</span>, client project portals, and any associated digital properties.
                 </p>
                 <p>
                   By accessing our website or engaging our services, you acknowledge that you have read, understood, and agree to be bound by this Privacy Policy. If you do not agree, please discontinue use of our website and services immediately.
@@ -226,11 +167,11 @@ export default function PrivacyPolicyPage() {
               <PolicySection id="third-party" number="07" title="Third-Party Services">
                 <p>Our website and project portals may integrate with the following third-party platforms. Each provider maintains their own independent privacy policies:</p>
                 <ul>
-                  <li><strong>Google Analytics:</strong> Used for anonymised website traffic analysis. Data is processed per Google's Privacy Policy and their EU Standard Contractual Clauses.</li>
+                  <li><strong>Google Analytics:</strong> Used for anonymised website traffic analysis. Data is processed per Google&apos;s Privacy Policy and their EU Standard Contractual Clauses.</li>
                   <li><strong>Zoho CRM / Zoho Creator:</strong> Used internally for project management and client relationship tracking. Zoho is compliant with GDPR and Indian IT Act requirements.</li>
                   <li><strong>Razorpay / Stripe:</strong> Payment processing. Card data is tokenized and never stored on We For Technology servers.</li>
                   <li><strong>AWS / Vercel:</strong> Cloud infrastructure and static site hosting. Data centres are located in India (ap-south-1) and the US. Data Transfer Agreements are in place.</li>
-                  <li><strong>WhatsApp Business:</strong> Used for project communication at the client's request. Messages are end-to-end encrypted by WhatsApp's protocol.</li>
+                  <li><strong>WhatsApp Business:</strong> Used for project communication at the client&apos;s request. Messages are end-to-end encrypted by WhatsApp&apos;s protocol.</li>
                 </ul>
                 <p>
                   We recommend reviewing the privacy policies of any third-party services you interact with through our platforms.
@@ -245,7 +186,7 @@ export default function PrivacyPolicyPage() {
                   <li><strong>Encryption at Rest:</strong> Sensitive data fields (passwords, credentials) are encrypted using AES-256 or bcrypt hashing before storage.</li>
                   <li><strong>Access Controls:</strong> Role-based access control (RBAC) limits internal access to client data on a need-to-know basis. All staff access is logged.</li>
                   <li><strong>Secure Development Practices:</strong> We follow OWASP Top 10 secure coding guidelines in all projects and conduct code reviews before production deployments.</li>
-                  <li><strong>Incident Response:</strong> In the event of a confirmed data breach affecting your personal data, we will notify affected parties within 72 hours of discovery, in line with emerging obligations under India's DPDPA.</li>
+                  <li><strong>Incident Response:</strong> In the event of a confirmed data breach affecting your personal data, we will notify affected parties within 72 hours of discovery, in line with emerging obligations under India&apos;s DPDPA.</li>
                 </ul>
                 <p>
                   While we take all reasonable precautions, no data transmission over the internet can be guaranteed 100% secure. You share data with us at your own risk, and we encourage you to use strong passwords and secure networks when accessing any online portal.
@@ -258,7 +199,7 @@ export default function PrivacyPolicyPage() {
                 <ul>
                   <li><strong>Right of Access:</strong> You may request a copy of all personal data we hold about you at any time.</li>
                   <li><strong>Right to Correction:</strong> You may request that inaccurate or incomplete personal data be corrected or updated.</li>
-                  <li><strong>Right to Erasure ("Right to be Forgotten"):</strong> You may request deletion of your personal data, subject to our legal retention obligations.</li>
+                  <li><strong>Right to Erasure (&quot;Right to be Forgotten&quot;):</strong> You may request deletion of your personal data, subject to our legal retention obligations.</li>
                   <li><strong>Right to Restrict Processing:</strong> In certain circumstances, you may request that we temporarily or permanently stop processing your data.</li>
                   <li><strong>Right to Data Portability:</strong> You may request your data in a structured, machine-readable format (e.g., JSON or CSV) for transfer to another service provider.</li>
                   <li><strong>Right to Object:</strong> You may object to processing of your data for direct marketing purposes at any time.</li>
@@ -288,7 +229,7 @@ export default function PrivacyPolicyPage() {
                   We may update this Privacy Policy from time to time to reflect changes in our practices, technology, legal requirements, or business operations. When we make material changes, we will:
                 </p>
                 <ul>
-                  <li>Update the <strong>"Last Updated"</strong> date at the top of this page.</li>
+                  <li>Update the <strong>&quot;Last Updated&quot;</strong> date at the top of this page.</li>
                   <li>Post a notice on our website homepage for 30 days following any significant change.</li>
                   <li>Where required by law, notify active clients directly via email.</li>
                 </ul>
@@ -343,7 +284,7 @@ function PolicySection({
   id: string; number: string; title: string; children: React.ReactNode;
 }) {
   return (
-    <motion.div
+    <MotionDiv
       id={id}
       initial={{ opacity: 0, y: 16 }}
       whileInView={{ opacity: 1, y: 0 }}
@@ -355,10 +296,10 @@ function PolicySection({
         <span className="text-[11px] font-mono text-accent-blue bg-accent-blue/10 border border-accent-blue/20 px-2.5 py-1 rounded-md">{number}</span>
         <h2 className="text-xl font-bold text-white">{title}</h2>
       </div>
-      <div className="text-sm text-slate-400 font-light leading-relaxed space-y-3 [&_ul]:space-y-2.5 [&_ul]:pl-0 [&_li]:flex [&_li]:gap-2.5 [&_li]:items-start [&_li]:before:content-['▸'] [&_li]:before:text-accent-blue [&_li]:before:shrink-0 [&_li]:before:mt-0.5 [&_strong]:text-slate-200 [&_strong]:font-medium">
+      <div className="text-sm text-slate-400 font-light leading-relaxed space-y-3 [&_ul]:space-y-2.5 [&_ul]:pl-0 [&_li]:flex [&_li]:gap-2.5 [&_li]:items-start [&_li]:before:content-['▸'] [&_li]:before:text-accent-blue [&_li]:before:shrink-0 [&_li]:before:mt-0.5 [&_strong]:text-slate-800 [&_strong]:font-medium">
         {children}
       </div>
-    </motion.div>
+    </MotionDiv>
   );
 }
 

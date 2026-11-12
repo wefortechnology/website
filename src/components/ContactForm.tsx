@@ -5,6 +5,9 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Send, CheckCircle2, ChevronDown } from "lucide-react";
 import Button from "./Button";
 import { useSearchParams } from "next/navigation";
+import { submitLead } from "@/lib/leads";
+import { contact, whatsappUrl } from "@/lib/site";
+import TrackedLink from "./TrackedLink";
 
 const servicesList = [
   "Website Development",
@@ -25,17 +28,34 @@ const budgetsList = [
   "₹1,00,000+",
 ];
 
-export default function ContactForm() {
-  const searchParams = useSearchParams();
-  const [formData, setFormData] = useState({
+// Prefill from CTA links: ?ref=consultation and ?package=basic|standard|advanced
+function initialFormData(params: { get(name: string): string | null }) {
+  const pkg = params.get("package");
+  const pkgService: Record<string, string> = {
+    basic: "Website Development",
+    standard: "Website Development",
+    advanced: "Software Development",
+  };
+  const pkgBudget: Record<string, string> = {
+    basic: "Under ₹25,000",
+    standard: "₹25,000 – ₹50,000",
+    advanced: "₹1,00,000+",
+  };
+  return {
     name: "",
     company: "",
     email: "",
     phone: "",
-    service: "",
-    budget: "",
-    details: "",
-  });
+    service: (pkg && pkgService[pkg]) || "",
+    budget: (pkg && pkgBudget[pkg]) || "",
+    details: params.get("ref") === "consultation" ? "I'd like a free consultation about: " : "",
+    botcheck: "", // honeypot: hidden field, bots fill it, humans never see it
+  };
+}
+
+export default function ContactForm() {
+  const searchParams = useSearchParams();
+  const [formData, setFormData] = useState(() => initialFormData(searchParams));
 
   const [errors, setErrors] = useState({
     service: false,
@@ -62,26 +82,6 @@ export default function ContactForm() {
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
-
-  // Autofill package service if coming from pricing package CTA
-  useEffect(() => {
-    const pkg = searchParams.get("package");
-    if (pkg) {
-      const pkgMap: Record<string, string> = {
-        basic: "Website Development",
-        standard: "Website Development",
-        advanced: "Software Development",
-      };
-      const serviceVal = pkgMap[pkg] || "";
-      const budgetVal = pkg === "basic" ? "Under ₹25,000" : pkg === "standard" ? "₹25,000 – ₹50,000" : "₹1,00,000+";
-
-      setFormData((prev) => ({
-        ...prev,
-        service: serviceVal,
-        budget: budgetVal,
-      }));
-    }
-  }, [searchParams]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -112,21 +112,42 @@ export default function ContactForm() {
       return;
     }
 
-    setStatus("submitting");
-
-    // Simulate network submission
-    setTimeout(() => {
+    if (formData.botcheck) {
+      // Honeypot filled in: almost certainly a bot. Pretend success, send nothing.
       setStatus("success");
-      setFormData({
-        name: "",
-        company: "",
-        email: "",
-        phone: "",
-        service: "",
-        budget: "",
-        details: "",
-      });
-    }, 1500);
+      return;
+    }
+
+    setStatus("submitting");
+    const result = await submitLead(
+      {
+        name: formData.name,
+        company: formData.company,
+        email: formData.email,
+        phone: formData.phone,
+        service: formData.service,
+        budget: formData.budget,
+        message: formData.details,
+      },
+      "contact-form"
+    );
+
+    if (!result.ok) {
+      setStatus("error");
+      return;
+    }
+
+    setStatus("success");
+    setFormData({
+      name: "",
+      company: "",
+      email: "",
+      phone: "",
+      service: "",
+      budget: "",
+      details: "",
+      botcheck: "",
+    });
   };
 
   return (
@@ -271,7 +292,7 @@ export default function ContactForm() {
                           onClick={() => handleSelectService(item)}
                           className={`px-4 py-2.5 text-sm cursor-pointer transition-colors ${
                             formData.service === item
-                              ? "bg-accent-blue/20 text-[#008FE5] dark:text-white font-medium"
+                              ? "bg-accent-blue/20 text-[#0369A1] dark:text-white font-medium"
                               : "text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-white/5 hover:text-[#0A0F1E] dark:hover:text-white"
                           }`}
                         >
@@ -326,7 +347,7 @@ export default function ContactForm() {
                           onClick={() => handleSelectBudget(item)}
                           className={`px-4 py-2.5 text-sm cursor-pointer transition-colors ${
                             formData.budget === item
-                              ? "bg-accent-blue/20 text-[#008FE5] dark:text-white font-medium"
+                              ? "bg-accent-blue/20 text-[#0369A1] dark:text-white font-medium"
                               : "text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-white/5 hover:text-[#0A0F1E] dark:hover:text-white"
                           }`}
                         >
@@ -358,6 +379,39 @@ export default function ContactForm() {
                 className="w-full bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-lg px-4 py-3 text-[#0A0F1E] dark:text-white placeholder-slate-400 dark:placeholder-slate-500 hover:bg-slate-100 dark:hover:bg-white/10 hover:border-accent-blue/30 focus:outline-none focus:border-accent-blue focus:ring-1 focus:ring-accent-blue/30 text-sm transition-all duration-200 resize-y"
               />
             </div>
+
+            {/* Honeypot — hidden from humans, bots tend to fill it. */}
+            <input
+              type="text"
+              name="botcheck"
+              value={formData.botcheck}
+              onChange={handleChange}
+              tabIndex={-1}
+              autoComplete="off"
+              aria-hidden="true"
+              className="absolute -left-[9999px] h-0 w-0 opacity-0"
+            />
+
+            {status === "error" && (
+              <div className="rounded-xl border border-amber-300 bg-amber-50 px-4 py-3 text-xs text-amber-900">
+                We couldn&apos;t send your request right now. Please{" "}
+                <TrackedLink
+                  event="whatsapp_click"
+                  location="contact-form-error"
+                  href={whatsappUrl()}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-semibold underline"
+                >
+                  message us on WhatsApp
+                </TrackedLink>{" "}
+                or call{" "}
+                <TrackedLink event="phone_click" location="contact-form-error" href={contact.phoneTel} className="font-semibold underline">
+                  {contact.phoneDisplay}
+                </TrackedLink>
+                .
+              </div>
+            )}
 
             <Button
               type="submit"

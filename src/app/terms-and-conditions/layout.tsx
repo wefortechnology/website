@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
+import { withSeo } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withSeo({
   title: "Terms and Conditions | We For Technology",
   description:
     "Read the terms of service, engagement agreements, and conditions governing digital projects delivered by We For Technology.",
@@ -11,7 +12,7 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
-};
+});
 
 export default function TermsLayout({
   children,

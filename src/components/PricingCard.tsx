@@ -46,14 +46,14 @@ export default function PricingCard({
 
         <div className="mb-4 sm:mb-6">
           <h3 className="text-lg sm:text-xl font-bold text-white tracking-wider mb-1.5 sm:mb-2">{name}</h3>
-          <p className="text-slate-400 font-light text-xs sm:text-sm min-h-[40px] sm:min-h-[48px] leading-relaxed">
+          <p className="text-slate-400 font-light text-xs sm:text-sm sm:min-h-[4.5rem] leading-relaxed">
             {description}
           </p>
         </div>
 
         {/* Custom Pricing Section */}
         <div className="mb-6 sm:mb-8 border-b border-white/5 pb-5 sm:pb-6">
-          <span className="text-2xl sm:text-4xl font-extrabold text-white tracking-tight">
+          <span className="text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
             Custom Quote
           </span>
           <p className="text-[11px] sm:text-xs text-slate-500 font-mono mt-1.5 sm:mt-2">

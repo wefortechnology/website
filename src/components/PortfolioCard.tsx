@@ -11,6 +11,10 @@ interface PortfolioCardProps {
   category: string;
   subTitle: string;
   technologies: string[];
+  /** One-line summary of the client's problem (CaseStudy.clientProblem). */
+  problem?: string;
+  /** Headline business result (CaseStudy.results[0]). */
+  outcome?: string;
   index: number;
 }
 
@@ -20,6 +24,8 @@ export default function PortfolioCard({
   category,
   subTitle,
   technologies,
+  problem,
+  outcome,
   index,
 }: PortfolioCardProps) {
   // Generate a distinct premium gradient background for each card
@@ -88,13 +94,30 @@ export default function PortfolioCard({
             )}
           </div>
 
-          <h3 className="text-xl font-bold text-[#0A0F1E] dark:text-white mb-2 group-hover:text-[#008FE5] dark:group-hover:text-accent-cyan transition-colors duration-300 min-h-[2.75rem]">
+          <h3 className="text-xl font-bold text-[#0A0F1E] dark:text-white mb-2 group-hover:text-[#0369A1] dark:group-hover:text-accent-cyan transition-colors duration-300 min-h-[2.75rem]">
             {title}
           </h3>
 
-          <p className="text-slate-700 dark:text-slate-400 font-normal text-sm leading-relaxed mb-6 flex-grow">
+          <p className="text-slate-700 dark:text-slate-400 font-normal text-sm leading-relaxed mb-4">
             {subTitle}
           </p>
+
+          {(problem || outcome) && (
+            <dl className="mb-6 flex-grow space-y-2.5 text-xs leading-relaxed">
+              {problem && (
+                <div>
+                  <dt className="font-mono uppercase tracking-wider text-[10px] text-slate-500">Problem</dt>
+                  <dd className="text-slate-700 line-clamp-2">{problem}</dd>
+                </div>
+              )}
+              {outcome && (
+                <div>
+                  <dt className="font-mono uppercase tracking-wider text-[10px] text-slate-500">Outcome</dt>
+                  <dd className="font-semibold text-emerald-700">{outcome}</dd>
+                </div>
+              )}
+            </dl>
+          )}
 
           <div className="mt-auto">
             <Link href={`/portfolio/${slug}`}>

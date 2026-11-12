@@ -1,13 +1,16 @@
 @import "tailwindcss";
 
+/* Light theme only. Nothing ever adds the .dark class, so leftover dark: utilities stay inert.
+   Keep this line: without it Tailwind would fall back to the OS prefers-color-scheme setting. */
 @variant dark (&:where(.dark, .dark *));
 
 @theme {
   --color-dark-bg: #0A0F1E;
   --color-dark-card: #131B2E;
   --color-dark-border: rgba(255, 255, 255, 0.08);
-  --color-accent-blue: #00AAFF;
-  --color-accent-purple: #8b5cf6;
+  /* Brand accents, darkened so white text on them passes WCAG AA (4.5:1). */
+  --color-accent-blue: #0077C2;
+  --color-accent-purple: #7C3AED;
   --color-accent-cyan: #00E5FF;
 
   --font-sans: var(--font-geist-sans), Inter, system-ui, sans-serif;
@@ -24,36 +27,22 @@
   color-scheme: light;
 }
 
-.dark {
-  --background: #0A0F1E;
-  --bg-secondary: #131B2E;
-  --foreground: #F8FAFC;
-  --text-muted: #94A3B8;
-  --accent-primary: #00AAFF;
-  --accent-secondary: #00E5FF;
-  color-scheme: dark;
-}
-
-html,
-body,
-header,
-nav,
-main,
-footer,
-section,
-div,
-button,
-a,
-article,
-card {
-  transition: background-color 350ms cubic-bezier(0.4, 0, 0.2, 1),
-    color 350ms cubic-bezier(0.4, 0, 0.2, 1),
-    border-color 350ms cubic-bezier(0.4, 0, 0.2, 1),
-    box-shadow 350ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-
 html {
   scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
 
 body {
@@ -133,7 +122,7 @@ html:not(.dark) [class*="bg-[#091122]/"] {
 }
 
 html:not(.dark) .text-accent-cyan {
-  color: #008FE5 !important;
+  color: #0369A1 !important;
 }
 
 html:not(.dark) [class*="#030712"] {
@@ -210,7 +199,7 @@ html:not(.dark) [class*="bg-emerald-500/10"] [class*="text-white"] {
 
 html:not(.dark) [class*="bg-emerald-500/10"] .text-emerald-400,
 html:not(.dark) [class*="bg-emerald-500/10"] [class*="text-emerald-400"] {
-  color: #059669 !important;
+  color: #047857 !important;
 }
 
 /* Solutions Page & Interactive Active Tab Text Contrast Overrides */
@@ -227,26 +216,45 @@ html:not(.dark) [class*="from-accent-blue/30"] .text-slate-500,
 html:not(.dark) [class*="from-accent-blue/30"] [class*="text-slate-500"],
 html:not(.dark) [class*="from-accent-blue/40"] .text-slate-500,
 html:not(.dark) [class*="from-accent-blue/40"] [class*="text-slate-500"] {
-  color: #008FE5 !important;
+  color: #075985 !important;
 }
 
-/* Light Mode Interactive Tab & Card Hover Effects */
-html:not(.dark) [class*="rounded-2xl"][class*="border"]:hover,
-html:not(.dark) [class*="rounded-xl"][class*="border"]:hover,
-html:not(.dark) [class*="rounded-3xl"][class*="border"]:hover {
-  border-color: #008FE5 !important;
-  box-shadow: 0 10px 30px -10px rgba(0, 143, 229, 0.12) !important;
+/* Card hover (light theme): a quiet lift with a soft neutral shadow and a faint blue edge.
+   The old gradient wash (glow-card::before) and saturated blue border looked too loud on white.
+   Large static containers opt out with .no-hover. */
+html:not(.dark) .glow-card::before {
+  display: none;
 }
 
-html:not(.dark) .glow-card button:hover,
-html:not(.dark) button.w-full:hover,
-html:not(.dark) button[class*="text-left"]:hover {
+html:not(.dark) [class*="rounded-xl"][class*="border"]:not(.no-hover):hover,
+html:not(.dark) [class*="rounded-2xl"][class*="border"]:not(.no-hover):hover,
+html:not(.dark) [class*="rounded-3xl"][class*="border"]:not(.no-hover):hover,
+html:not(.dark) .glow-card:not(.no-hover):hover {
+  border-color: rgba(3, 105, 161, 0.22) !important;
+  box-shadow: 0 14px 32px -16px rgba(15, 23, 42, 0.16) !important;
+}
+
+html:not(.dark) .glow-card:hover {
+  transform: translateY(-2px);
+}
+
+html:not(.dark) .no-hover,
+html:not(.dark) .no-hover:hover {
+  transform: none !important;
+}
+
+/* Accordion-style rows stay flat on hover. Filled buttons (gradient or solid accent) are excluded,
+   otherwise their white label disappears on the light background. */
+html:not(.dark) .glow-card button:not([class*="bg-gradient"]):not([class*="bg-accent"]):hover,
+html:not(.dark) button.w-full:not([class*="bg-gradient"]):not([class*="bg-accent"]):hover,
+html:not(.dark) button[class*="text-left"]:not([class*="bg-gradient"]):not([class*="bg-accent"]):hover {
   background: transparent !important;
   background-color: transparent !important;
 }
 
-html:not(.dark) .glow-card:hover {
-  border-color: rgba(0, 143, 229, 0.3) !important;
+/* Even line lengths for headings so none ends with a single stranded word. */
+h1, h2, h3 {
+  text-wrap: balance;
 }
 
 /* Light Mode Typography Contrast Overrides */
@@ -276,13 +284,54 @@ html:not(.dark) .text-slate-400 {
 }
 
 html:not(.dark) .text-slate-500 {
-  color: #64748B;
+  color: #475569;
 }
 
 /* Border Adaptivity in Light Mode */
 html:not(.dark) [class*="border-white/"] {
   border-color: rgba(10, 15, 30, 0.08) !important;
 }
+
+/* ──────────────────────────────────────────────────────────────────────────
+   Light-theme contrast remaps.
+   The site was designed dark-first: the "-400" tint colours and the cyan/blue
+   gradient headlines were meant for dark cards. On white they measure 1.8–2.8:1.
+   Each colour below is the same hue, darkened to ≥4.5:1 on white and on the
+   matching 5–10% tint backgrounds. Rules are unlayered on purpose: unlayered
+   CSS beats Tailwind's @layer utilities without needing !important.
+   Anything that must stay dark opts out with the .dark-surface class.
+   ────────────────────────────────────────────────────────────────────────── */
+:where(.text-emerald-300, .text-emerald-400, .text-emerald-500, .text-emerald-600, .hover\:text-emerald-300:hover, .hover\:text-emerald-600:hover):not(.dark-surface *) { color: #047857; }
+:where(.text-amber-400):not(.dark-surface *)  { color: #B45309; }
+:where(.text-yellow-400):not(.dark-surface *) { color: #A16207; }
+:where(.text-sky-400, .text-sky-500, .text-sky-600, .text-accent-blue, .text-accent-cyan):not(.dark-surface *) { color: #0369A1; }
+:where(.text-cyan-400):not(.dark-surface *)   { color: #0E7490; }
+:where(.text-purple-400, .text-purple-500, .text-accent-purple):not(.dark-surface *) { color: #6D28D9; }
+:where(.text-pink-400):not(.dark-surface *)   { color: #BE185D; }
+:where(.text-red-400, .text-red-500):not(.dark-surface *) { color: #B91C1C; }
+:where(.text-rose-400, .text-rose-500):not(.dark-surface *) { color: #BE123C; }
+/* Small badges that use the raw brand blue as text. */
+:where(.text-\[\#0077c2\]):not(.dark-surface *) { color: #0369A1; }
+
+/* Blue text on the blue→purple 20% tint ribbons needs one step darker. */
+html:not(.dark) [class*="from-accent-blue/20"], html:not(.dark) [class*="from-accent-blue/20"] [class*="text-[#0369A1]"], html:not(.dark) [class*="from-accent-blue/20"] [class*="text-accent-cyan"] { color: #075985 !important; }
+
+/* Gradient headlines ("Let's turn it into reality.", page heroes): darken the stops. */
+.bg-clip-text.from-cyan-400, .bg-clip-text.from-accent-cyan { --tw-gradient-from: #0284C7; }
+.bg-clip-text.from-sky-400 { --tw-gradient-from: #0369A1; }
+.bg-clip-text.via-sky-400  { --tw-gradient-via: #0369A1; }
+.bg-clip-text.to-blue-500, .bg-clip-text.to-accent-blue { --tw-gradient-to: #1D4ED8; }
+
+/* Dark surface opt-out: terminal-style status cards that intentionally stay dark.
+   Restores light text + translucent borders inside them. */
+html:not(.dark) .dark-surface [class*="text-slate-300"], html:not(.dark) .dark-surface [class*="bg-white/"] [class*="text-slate-300"] { color: #CBD5E1 !important; }
+html:not(.dark) .dark-surface [class*="text-slate-400"], html:not(.dark) .dark-surface [class*="bg-white/"] [class*="text-slate-400"] { color: #94A3B8 !important; }
+html:not(.dark) .dark-surface .text-white, html:not(.dark) .dark-surface [class*="bg-white/"] .text-white { color: #FFFFFF !important; }
+html:not(.dark) .dark-surface .text-accent-cyan { color: #22D3EE !important; }
+html:not(.dark) .dark-surface .text-accent-blue { color: #38BDF8 !important; }
+html:not(.dark) .dark-surface .text-accent-purple { color: #A78BFA !important; }
+html:not(.dark) .dark-surface [class*="border-white/"] { border-color: rgba(255, 255, 255, 0.12) !important; }
+html:not(.dark) .dark-surface [class*="bg-white/"] { background-color: rgba(255, 255, 255, 0.05) !important; }
 
 /* Tech Grid Background */
 .tech-grid {
@@ -328,7 +377,7 @@ html:not(.dark) .text-gradient {
 }
 
 html:not(.dark) .text-gradient-cyan {
-  background: linear-gradient(135deg, #00A9D6 0%, #008FE5 50%, #7C3AED 100%);
+  background: linear-gradient(135deg, #0284C7 0%, #0369A1 50%, #7C3AED 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -389,6 +438,16 @@ html:not(.dark) .radial-overlay {
   background: radial-gradient(circle at 50% 50%, transparent 0%, #FFFFFF 90%);
 }
 
+/* Entrance animation that works before hydration (used by the hero). */
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-up {
+  animation: fade-up 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
 /* Marquee speed configurations */
 @keyframes marquee {
   0% {
@@ -444,7 +503,7 @@ html:not(.dark) footer a:not([aria-label]) {
 }
 
 html:not(.dark) footer a:not([aria-label]):hover {
-  color: #008FE5 !important;
+  color: #0369A1 !important;
 }
 
 /* Newsletter Input Field */
@@ -465,7 +524,7 @@ html:not(.dark) footer input[type="email"]:focus {
 }
 
 html:not(.dark) footer form .text-slate-500 {
-  color: #64748B !important;
+  color: #475569 !important;
 }
 
 /* Social Media Icon Buttons */
@@ -477,8 +536,8 @@ html:not(.dark) footer a[aria-label] {
 }
 
 html:not(.dark) footer a[aria-label]:hover {
-  color: #008FE5 !important;
-  border-color: #008FE5 !important;
+  color: #0369A1 !important;
+  border-color: #0369A1 !important;
   background-color: rgba(0, 143, 229, 0.08) !important;
 }
 
@@ -497,7 +556,7 @@ html:not(.dark) footer .border-t {
 }
 
 html:not(.dark) footer .text-slate-500 {
-  color: #64748B !important;
+  color: #475569 !important;
 }
 
 html:not(.dark) footer .text-slate-500:hover {

@@ -2,6 +2,8 @@
 
 import Link from "next/link";
 import Image from "next/image";
+import TrackedLink from "./TrackedLink";
+import { contact, whatsappUrl } from "@/lib/site";
 import React, { useState } from "react";
 import { Mail, ArrowRight, Check } from "lucide-react";
 import Button from "./Button";
@@ -25,12 +27,12 @@ export default function Footer() {
       <div className="absolute inset-0 tech-grid opacity-10 pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-16">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-x-8 gap-y-10 lg:gap-12 mb-16">
           {/* Brand Info & Newsletter */}
-          <div className="lg:col-span-2 space-y-6">
+          <div className="col-span-2 md:col-span-3 lg:col-span-2 space-y-6">
             <Link href="/" className="inline-block group">
               <Image
-                src="/images/logo.svg"
+                src="/images/logo.png"
                 alt="We For Technology Logo"
                 width={180}
                 height={45}
@@ -43,7 +45,7 @@ export default function Footer() {
             
             {/* Newsletter Form */}
             <div className="space-y-3">
-              <h4 className="text-xs font-mono text-white uppercase tracking-wider">
+              <h4 className="text-xs font-semibold text-white uppercase tracking-wider">
                 Subscribe to our newsletter
               </h4>
               <form onSubmit={handleSubscribe} className="flex gap-2 max-w-sm">
@@ -98,7 +100,7 @@ export default function Footer() {
 
           {/* Links Column: Company */}
           <div className="space-y-4">
-            <h4 className="text-xs font-mono text-white uppercase tracking-wider">Company</h4>
+            <h4 className="text-xs font-semibold text-white uppercase tracking-wider">Company</h4>
             <ul className="space-y-2">
               <li>
                 <Link href="/about" className="text-xs text-slate-400 hover:text-white transition-colors duration-200">
@@ -130,7 +132,7 @@ export default function Footer() {
 
           {/* Links Column: Services */}
           <div className="space-y-4">
-            <h4 className="text-xs font-mono text-white uppercase tracking-wider">Services</h4>
+            <h4 className="text-xs font-semibold text-white uppercase tracking-wider">Services</h4>
             <ul className="space-y-2">
               <li>
                 <Link href="/services/web-development" className="text-xs text-slate-400 hover:text-white transition-colors duration-200">
@@ -166,8 +168,8 @@ export default function Footer() {
           </div>
 
           {/* Links Column: Resources & Contact */}
-          <div className="space-y-4">
-            <h4 className="text-xs font-mono text-white uppercase tracking-wider">Resources</h4>
+          <div className="col-span-2 md:col-span-1 space-y-4">
+            <h4 className="text-xs font-semibold text-white uppercase tracking-wider">Resources</h4>
             <ul className="space-y-2 mb-6">
               <li>
                 <Link href="/blog" className="text-xs text-slate-400 hover:text-white transition-colors duration-200">
@@ -191,19 +193,31 @@ export default function Footer() {
               </li>
             </ul>
 
-            <h4 className="text-xs font-mono text-white uppercase tracking-wider">Contact</h4>
+            <h4 className="text-xs font-semibold text-white uppercase tracking-wider">Contact</h4>
             <div className="space-y-1.5 text-xs text-slate-400 font-light leading-relaxed">
               <p className="text-slate-300 font-medium">We For Technology</p>
               <p>Ghaziabad, Uttar Pradesh, India</p>
               <p className="pt-1">
-                <a href="tel:+918510070940" className="font-mono text-slate-300 hover:text-white transition-colors">
-                  +91 8510070940
-                </a>
+                <TrackedLink event="phone_click" location="footer" href={contact.phoneTel} className="text-slate-300 hover:text-white transition-colors">
+                  {contact.phoneDisplay}
+                </TrackedLink>
               </p>
               <p>
-                <a href="mailto:wefortechnology.ai@gmail.com" className="font-mono text-slate-300 hover:text-white transition-colors break-all">
-                  wefortechnology.ai@gmail.com
-                </a>
+                <TrackedLink
+                  event="whatsapp_click"
+                  location="footer"
+                  href={whatsappUrl()}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-slate-300 hover:text-white transition-colors"
+                >
+                  WhatsApp: {contact.phoneDisplay}
+                </TrackedLink>
+              </p>
+              <p>
+                <TrackedLink event="email_click" location="footer" href={contact.emailHref} className="text-slate-300 hover:text-white transition-colors [overflow-wrap:anywhere]">
+                  {contact.email}
+                </TrackedLink>
               </p>
             </div>
           </div>

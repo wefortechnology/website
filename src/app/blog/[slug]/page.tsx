@@ -25,7 +25,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const description = post.excerpt;
 
   return {
-    title,
+    title: { absolute: title },
     description,
     keywords: [
       post.title,
@@ -41,7 +41,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     openGraph: {
       type: "article",
       locale: "en_IN",
-      url: `https://wefortechnology.com/blog/${slug}`,
+      url: `https://wefortechnology.in/blog/${slug}`,
       siteName: "We For Technology",
       title,
       description,
@@ -73,6 +73,64 @@ export async function generateStaticParams() {
   }));
 }
 
+/** Inline `**bold**` → <strong>. */
+function renderInline(text: string) {
+  return text.split(/(\*\*[^*]+\*\*)/g).map((part, i) =>
+    part.startsWith("**") && part.endsWith("**") ? (
+      <strong key={i} className="font-semibold text-slate-900">{part.slice(2, -2)}</strong>
+    ) : (
+      part
+    )
+  );
+}
+
+/**
+ * Renders the lightweight markdown used in src/lib/blog.ts:
+ * blank-line paragraphs, `### ` headings, `- ` bullet lists, `1. ` numbered lists, `**bold**`.
+ */
+function renderArticle(content: string) {
+  const blocks: React.ReactNode[] = [];
+  let key = 0;
+  for (const block of content.split(/\n\s*\n/)) {
+    const lines = block.split("\n").map((l) => l.trim()).filter(Boolean);
+    let i = 0;
+    while (i < lines.length) {
+      const line = lines[i];
+      if (line.startsWith("###")) {
+        blocks.push(
+          <h3 key={key++} className="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight pt-4">
+            {line.replace(/^#+\s*/, "")}
+          </h3>
+        );
+        i++;
+      } else if (/^[-*]\s/.test(line) || /^\d+[.)]\s/.test(line)) {
+        const ordered = /^\d+[.)]\s/.test(line);
+        const items: string[] = [];
+        while (i < lines.length && (/^[-*]\s/.test(lines[i]) || /^\d+[.)]\s/.test(lines[i]))) {
+          items.push(lines[i].replace(/^([-*]|\d+[.)])\s+/, ""));
+          i++;
+        }
+        const Tag = ordered ? "ol" : "ul";
+        blocks.push(
+          <Tag key={key++} className={`space-y-2 pl-6 text-sm sm:text-base ${ordered ? "list-decimal" : "list-disc"}`}>
+            {items.map((item, idx) => (
+              <li key={idx} className="leading-relaxed">{renderInline(item)}</li>
+            ))}
+          </Tag>
+        );
+      } else {
+        const para: string[] = [];
+        while (i < lines.length && !lines[i].startsWith("###") && !/^([-*]|\d+[.)])\s/.test(lines[i])) {
+          para.push(lines[i]);
+          i++;
+        }
+        blocks.push(<p key={key++} className="text-sm sm:text-base">{renderInline(para.join(" "))}</p>);
+      }
+    }
+  }
+  return blocks;
+}
+
 export default async function BlogPostDetailPage({ params }: PageProps) {
   const { slug } = await params;
   const post = blogPosts.find((p) => p.slug === slug);
@@ -91,10 +149,10 @@ export default async function BlogPostDetailPage({ params }: PageProps) {
     "@type": "BlogPosting",
     headline: post.title,
     description: post.excerpt,
-    url: `https://wefortechnology.com/blog/${slug}`,
+    url: `https://wefortechnology.in/blog/${slug}`,
     image: post.imageUrl.startsWith("http")
       ? post.imageUrl
-      : "https://wefortechnology.com/images/og-image.png",
+      : "https://wefortechnology.in/images/og-image.png",
     author: {
       "@type": "Person",
       name: post.author,
@@ -102,8 +160,8 @@ export default async function BlogPostDetailPage({ params }: PageProps) {
     publisher: {
       "@type": "Organization",
       name: "We For Technology",
-      url: "https://wefortechnology.com",
-      logo: "https://wefortechnology.com/images/image%206.png",
+      url: "https://wefortechnology.in",
+      logo: "https://wefortechnology.in/images/logo.png",
     },
     datePublished: new Date(post.date).toISOString(),
     inLanguage: "en-IN",
@@ -157,40 +215,16 @@ export default async function BlogPostDetailPage({ params }: PageProps) {
           </div>
 
           {/* Visual Tech Header Placeholder */}
-          <div className="relative aspect-video w-full overflow-hidden bg-slate-900 border border-white/5 rounded-2xl flex items-center justify-center p-6 select-none">
-            <div className="absolute inset-0 tech-grid opacity-20" />
-            <span className="text-sm font-mono uppercase tracking-widest text-slate-600">
-              [ ARTICLE_IMAGE_PLACEHOLDER ]
+          <div className="relative aspect-video w-full overflow-hidden bg-gradient-to-br from-sky-50 via-white to-violet-50 border border-slate-200 rounded-2xl flex items-center justify-center p-6">
+            <div className="absolute inset-0 tech-grid opacity-40" />
+            <span className="relative text-sm font-mono uppercase tracking-widest text-accent-cyan bg-white border border-slate-200 px-4 py-1.5 rounded">
+              {post.category}
             </span>
           </div>
 
           {/* Content */}
           <div className="text-slate-300 font-light text-base sm:text-lg leading-relaxed space-y-6 pt-4">
-            {post.content.split("\n\n").map((para, i) => {
-              if (para.startsWith("###")) {
-                return (
-                  <h3 key={i} className="text-xl sm:text-2xl font-bold text-white tracking-tight pt-4">
-                    {para.replace("###", "").trim()}
-                  </h3>
-                );
-              }
-              if (para.startsWith("-")) {
-                return (
-                  <ul key={i} className="space-y-2 list-disc pl-6 text-slate-300 text-sm sm:text-base">
-                    {para.split("\n").map((item, idx) => (
-                      <li key={idx} className="leading-relaxed">
-                        {item.replace("-", "").trim()}
-                      </li>
-                    ))}
-                  </ul>
-                );
-              }
-              return (
-                <p key={i} className="text-sm sm:text-base">
-                  {para}
-                </p>
-              );
-            })}
+            {renderArticle(post.content)}
           </div>
 
         </div>

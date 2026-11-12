@@ -1,24 +1,36 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import LoadingScreen from "@/components/LoadingScreen";
-import { ThemeProvider } from "@/components/ThemeProvider";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
+
+const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
+const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID;
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
+  display: "swap",
 });
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+  display: "swap",
+  preload: false,
 });
 
+export const viewport: Viewport = {
+  themeColor: "#FFFFFF",
+  colorScheme: "light",
+  width: "device-width",
+  initialScale: 1,
+};
+
 export const metadata: Metadata = {
-  metadataBase: new URL("https://wefortechnology.com"),
+  metadataBase: new URL("https://wefortechnology.in"),
   title: {
     default: "We For Technology | Digital Solutions That Build Brands",
     template: "%s | We For Technology",
@@ -26,7 +38,7 @@ export const metadata: Metadata = {
   description:
     "We For Technology is a premier software development agency in Ghaziabad & Delhi NCR, India. We specialize in custom web applications, mobile apps, Zoho CRM automation, AI integrations, and enterprise software.",
   applicationName: "We For Technology",
-  authors: [{ name: "We For Technology", url: "https://wefortechnology.com" }],
+  authors: [{ name: "We For Technology", url: "https://wefortechnology.in" }],
   generator: "Next.js",
   keywords: [
     "We For Technology",
@@ -47,21 +59,13 @@ export const metadata: Metadata = {
     "Ecommerce Development India",
     "Custom ERP Development"
   ],
-  icons: {
-    icon: [
-      { url: "/favicon.ico" },
-      { url: "/favicon.png", type: "image/png" },
-    ],
-    shortcut: "/favicon.png",
-    apple: "/favicon.png",
-  },
   alternates: {
     canonical: "/",
   },
   openGraph: {
     type: "website",
     locale: "en_IN",
-    url: "https://wefortechnology.com",
+    url: "https://wefortechnology.in",
     siteName: "We For Technology",
     title: "We For Technology | Digital Solutions That Build Brands",
     description:
@@ -94,6 +98,10 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
+  // Google Search Console ownership (wefortechnology.in). Also verified by public/google907da9c808403ba7.html.
+  verification: {
+    google: "W7EksHTzuf7Xa2BsVv44KBZPOubLXwEYrDmH2hdmu4A",
+  },
   category: "Technology & Software Development",
   other: {
     "geo.region": "IN-UP",
@@ -107,12 +115,12 @@ const jsonLdData = [
   {
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
-    "@id": "https://wefortechnology.com/#organization",
+    "@id": "https://wefortechnology.in/#organization",
     name: "We For Technology",
     alternateName: ["WFT", "We For Technology India"],
-    url: "https://wefortechnology.com",
-    logo: "https://wefortechnology.com/images/image%206.png",
-    image: "https://wefortechnology.com/images/og-image.png",
+    url: "https://wefortechnology.in",
+    logo: "https://wefortechnology.in/images/logo.png",
+    image: "https://wefortechnology.in/images/og-image.png",
     description:
       "We For Technology is a full-service software development agency in Ghaziabad, Uttar Pradesh, India, specializing in modern web development, mobile applications, Zoho CRM & Creator automation, and AI integrations.",
     telephone: "+91-8510070940",
@@ -122,7 +130,7 @@ const jsonLdData = [
     paymentAccepted: "Bank Transfer, UPI, Credit Card",
     address: {
       "@type": "PostalAddress",
-      streetAddress: "Ghaziabad Tech Hub",
+      // TODO: add the real street address (streetAddress) once confirmed.
       addressLocality: "Ghaziabad",
       addressRegion: "Uttar Pradesh",
       postalCode: "201001",
@@ -144,7 +152,7 @@ const jsonLdData = [
           "Friday",
           "Saturday",
         ],
-        opens: "09:00",
+        opens: "10:00",
         closes: "19:00",
       },
     ],
@@ -171,7 +179,7 @@ const jsonLdData = [
           itemOffered: {
             "@type": "Service",
             name: "Web Development",
-            url: "https://wefortechnology.com/services/web-development",
+            url: "https://wefortechnology.in/services/web-development",
           },
         },
         {
@@ -179,7 +187,7 @@ const jsonLdData = [
           itemOffered: {
             "@type": "Service",
             name: "Mobile App Development",
-            url: "https://wefortechnology.com/services/app-development",
+            url: "https://wefortechnology.in/services/app-development",
           },
         },
         {
@@ -187,7 +195,7 @@ const jsonLdData = [
           itemOffered: {
             "@type": "Service",
             name: "Custom Software Development",
-            url: "https://wefortechnology.com/services/software-development",
+            url: "https://wefortechnology.in/services/software-development",
           },
         },
         {
@@ -195,7 +203,7 @@ const jsonLdData = [
           itemOffered: {
             "@type": "Service",
             name: "Zoho CRM & Creator Solutions",
-            url: "https://wefortechnology.com/services/zoho-solutions",
+            url: "https://wefortechnology.in/services/zoho-solutions",
           },
         },
         {
@@ -203,7 +211,7 @@ const jsonLdData = [
           itemOffered: {
             "@type": "Service",
             name: "AI Integrations & LLM Systems",
-            url: "https://wefortechnology.com/services/ai-integration",
+            url: "https://wefortechnology.in/services/ai-integration",
           },
         },
         {
@@ -211,7 +219,7 @@ const jsonLdData = [
           itemOffered: {
             "@type": "Service",
             name: "UI/UX Design",
-            url: "https://wefortechnology.com/services/ui-ux-design",
+            url: "https://wefortechnology.in/services/ui-ux-design",
           },
         },
       ],
@@ -220,11 +228,11 @@ const jsonLdData = [
   {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    "@id": "https://wefortechnology.com/#website",
-    url: "https://wefortechnology.com",
+    "@id": "https://wefortechnology.in/#website",
+    url: "https://wefortechnology.in",
     name: "We For Technology",
     publisher: {
-      "@id": "https://wefortechnology.com/#organization",
+      "@id": "https://wefortechnology.in/#organization",
     },
   },
 ];
@@ -237,7 +245,6 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      suppressHydrationWarning
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased overflow-x-hidden max-w-full`}
     >
       <head>
@@ -246,17 +253,18 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdData) }}
         />
       </head>
-      <body className="min-h-full flex flex-col bg-white dark:bg-[#0A0F1E] text-[#0A0F1E] dark:text-slate-100 font-sans selection:bg-[#00AAFF]/30 select-none overflow-x-hidden w-full max-w-full relative transition-colors duration-300">
-        <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false}>
-          <LoadingScreen />
-          <Navbar />
-          <main className="flex-grow flex flex-col w-full max-w-full overflow-x-hidden">
-            {children}
-          </main>
-          <Footer />
-          <WhatsAppButton />
-        </ThemeProvider>
+      <body className="min-h-full flex flex-col bg-white text-[#0A0F1E] font-sans selection:bg-[#00AAFF]/30 overflow-x-hidden w-full max-w-full relative">
+        <Navbar />
+        <main className="flex-grow flex flex-col w-full max-w-full overflow-x-hidden">
+          {children}
+        </main>
+        <Footer />
+        <WhatsAppButton />
       </body>
+      {/* GA4 loads only when NEXT_PUBLIC_GA_ID is set (see .env.example). */}
+      {GA_ID && <GoogleAnalytics gaId={GA_ID} />}
+      {/* Google Tag Manager loads only when NEXT_PUBLIC_GTM_ID is set. */}
+      {GTM_ID && <GoogleTagManager gtmId={GTM_ID} />}
     </html>
   );
 }

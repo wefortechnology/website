@@ -1,7 +1,4 @@
-"use client";
-
 import React from "react";
-import Link from "next/link";
 import { Terminal, ArrowLeft } from "lucide-react";
 import Button from "@/components/Button";
 import PageTransition from "@/components/PageTransition";
@@ -34,7 +31,7 @@ export default function NotFound() {
 
           {/* Code Console block mockup */}
           <div className="bg-[#091122]/90 border border-white/5 p-4 rounded-xl text-left font-mono text-xs text-slate-500 shadow-2xl">
-            <p className="text-accent-cyan">{"$ curl -I https://wefortechnology.com/unknown"}</p>
+            <p className="text-accent-cyan">{"$ curl -I https://wefortechnology.in/unknown"}</p>
             <p className="text-rose-400 mt-1">{"HTTP/1.1 404 Not Found"}</p>
             <p className="mt-1">{"Cache-Control: no-cache"}</p>
             <p>{"Content-Type: text/html"}</p>

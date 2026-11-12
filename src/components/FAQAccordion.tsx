@@ -29,7 +29,7 @@ export default function FAQAccordion({
         onClick={() => setIsOpen(!isOpen)}
         className="w-full flex items-center justify-between text-left gap-4 hover:text-accent-cyan transition-colors focus:outline-none select-none group cursor-pointer"
       >
-        <span className="text-base sm:text-lg font-bold text-white group-hover:text-accent-cyan transition-colors duration-300">
+        <span className="text-base sm:text-lg font-bold text-slate-900 group-hover:text-accent-cyan transition-colors duration-300">
           {question}
         </span>
         <span className={`flex-shrink-0 p-2 rounded-xl bg-white/[0.04] border border-white/10 text-slate-400 group-hover:text-accent-cyan group-hover:border-accent-cyan/30 transition-all duration-300 transform ${

@@ -1,7 +1,4 @@
-"use client";
-
 import React from "react";
-import SectionHeading from "@/components/SectionHeading";
 import PricingCard from "@/components/PricingCard";
 import CTASection from "@/components/CTASection";
 import PageTransition from "@/components/PageTransition";
@@ -27,9 +24,9 @@ export default function PricingPage() {
         />
         <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(ellipse_at_center,transparent_40%,#030712_85%)]" />
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 text-center space-y-3.5 sm:space-y-4 relative z-10">
+        <div className="max-w-7xl mx-auto px-6 text-center space-y-3.5 sm:space-y-4 relative z-10">
           <div>
-            <span className="inline-block text-[10px] sm:text-xs font-mono font-semibold uppercase tracking-wider sm:tracking-widest text-accent-cyan bg-accent-cyan/10 px-3 sm:px-3.5 py-1 sm:py-1.5 rounded-full border border-accent-cyan/20 mb-2">
+            <span className="inline-block text-[11px] sm:text-xs font-semibold uppercase tracking-wider sm:tracking-widest text-accent-cyan bg-accent-cyan/10 px-3 sm:px-3.5 py-1 sm:py-1.5 rounded-full border border-accent-cyan/20 mb-2">
               ✨ Investment Scopes
             </span>
           </div>
@@ -50,7 +47,7 @@ export default function PricingPage() {
 
       {/* ── 2. Pricing Cards Grid ── */}
       <section className="py-8 sm:py-12 relative z-10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+        <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 items-stretch">
             {pricingPackages.map((pkg, idx) => (
               <PricingCard
@@ -69,13 +66,14 @@ export default function PricingPage() {
 
       {/* ── 3. Scope Deliverables Comparison Matrix ── */}
       <section className="py-12 sm:py-20 relative z-10 border-t border-white/5 bg-white/[0.01]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 space-y-8 sm:space-y-10">
+        <div className="max-w-7xl mx-auto px-6 space-y-8 sm:space-y-10">
           <div className="text-center space-y-2 sm:space-y-3">
-            <span className="inline-block text-[10px] sm:text-xs font-mono text-accent-blue uppercase tracking-wider sm:tracking-widest bg-accent-blue/10 px-3 sm:px-3.5 py-1 sm:py-1.5 rounded-full border border-accent-blue/20 mb-2">
+            <span className="inline-block text-[11px] sm:text-xs text-accent-blue uppercase tracking-wider sm:tracking-widest bg-accent-blue/10 px-3 sm:px-3.5 py-1 sm:py-1.5 rounded-full border border-accent-blue/20 mb-2 font-semibold">
               Scope Matrix
             </span>
             <h2 className="text-2xl sm:text-3xl font-bold text-white">Compare Package Features</h2>
             <p className="text-slate-400 font-light text-xs sm:text-sm">Detailed technical capabilities included per scope tier.</p>
+            <p className="sm:hidden text-[11px] font-medium text-slate-500">Swipe the table sideways to compare all tiers →</p>
           </div>
 
           <div className="glow-card rounded-2xl sm:rounded-3xl overflow-hidden border border-white/10 bg-[#070f1f]/90 backdrop-blur-xl shadow-2xl">
@@ -83,10 +81,10 @@ export default function PricingPage() {
               <table className="w-full text-left border-collapse min-w-[640px]">
                 <thead>
                   <tr className="border-b border-white/10 bg-white/[0.03]">
-                    <th className="p-4 sm:p-6 text-[10px] sm:text-xs font-mono text-slate-400 uppercase tracking-wider">Features</th>
-                    <th className="p-4 sm:p-6 text-[10px] sm:text-xs font-mono text-sky-400 uppercase tracking-wider">Basic MVP</th>
-                    <th className="p-4 sm:p-6 text-[10px] sm:text-xs font-mono text-emerald-400 uppercase tracking-wider">Standard Growth</th>
-                    <th className="p-4 sm:p-6 text-[10px] sm:text-xs font-mono text-purple-400 uppercase tracking-wider">Enterprise Custom</th>
+                    <th className="p-4 sm:p-6 text-[10px] sm:text-xs font-semibold text-slate-400 uppercase tracking-wider">Features</th>
+                    <th className="p-4 sm:p-6 text-[10px] sm:text-xs font-semibold text-sky-400 uppercase tracking-wider">Basic MVP</th>
+                    <th className="p-4 sm:p-6 text-[10px] sm:text-xs font-semibold text-emerald-400 uppercase tracking-wider">Standard Growth</th>
+                    <th className="p-4 sm:p-6 text-[10px] sm:text-xs font-semibold text-purple-400 uppercase tracking-wider">Enterprise Custom</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-white/5 text-xs sm:text-sm text-slate-300">
@@ -100,9 +98,9 @@ export default function PricingPage() {
                   ].map((row, i) => (
                     <tr key={i} className="hover:bg-white/[0.02] transition-colors">
                       <td className="p-4 sm:p-6 font-medium text-white">{row.feature}</td>
-                      <td className="p-4 sm:p-6 text-slate-400 font-mono">{row.basic}</td>
-                      <td className="p-4 sm:p-6 text-emerald-400 font-mono font-semibold">{row.std}</td>
-                      <td className="p-4 sm:p-6 text-purple-400 font-mono font-semibold">{row.ent}</td>
+                      <td className="p-4 sm:p-6 text-slate-600">{row.basic}</td>
+                      <td className="p-4 sm:p-6 text-emerald-400 font-semibold">{row.std}</td>
+                      <td className="p-4 sm:p-6 text-purple-400 font-semibold">{row.ent}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -114,7 +112,7 @@ export default function PricingPage() {
 
       {/* ── 4. Disclaimers & Transparency Section ── */}
       <section className="py-12 sm:py-16 bg-white/[0.01] border-y border-white/5 relative z-10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+        <div className="max-w-7xl mx-auto px-6">
           <div className="glow-card rounded-2xl sm:rounded-3xl p-5 sm:p-8 md:p-10 border border-white/10 space-y-4 sm:space-y-6 bg-gradient-to-b from-[#081224] to-[#040914]">
             <h3 className="text-lg sm:text-xl font-bold text-white flex items-center gap-2.5 sm:gap-3">
               <AlertCircle className="w-5 h-5 text-accent-cyan flex-shrink-0" />
@@ -125,7 +123,7 @@ export default function PricingPage() {
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-2.5 sm:gap-3 pt-1 sm:pt-2">
               {pricingDisclaimers.map((item, idx) => (
-                <div key={idx} className="flex items-center gap-2.5 sm:gap-3 text-[11px] sm:text-xs text-slate-300 font-mono bg-white/[0.02] p-3 sm:p-3.5 rounded-xl border border-white/5">
+                <div key={idx} className="flex items-center gap-2.5 sm:gap-3 text-xs sm:text-sm text-slate-300 bg-white/[0.02] p-3 sm:p-3.5 rounded-xl border border-white/5">
                   <span className="w-2 h-2 rounded-full bg-accent-cyan flex-shrink-0" />
                   <span>{item}</span>
                 </div>

@@ -143,7 +143,7 @@ export default function TestimonialCarousel() {
                   <div className="flex flex-wrap items-center justify-between gap-3 mb-5 pr-10">
                     <div className="flex gap-1">
                       {Array.from({ length: test1.rating || 5 }).map((_, i) => (
-                        <Star key={i} className="w-4.5 h-4.5 fill-[#008FE5] text-[#008FE5] dark:fill-accent-cyan dark:text-accent-cyan" />
+                        <Star key={i} className="w-4.5 h-4.5 fill-[#008FE5] text-[#0369A1] dark:fill-accent-cyan dark:text-accent-cyan" />
                       ))}
                     </div>
                     {test1.metricBadge && (
@@ -155,7 +155,7 @@ export default function TestimonialCarousel() {
 
                   {/* Quote */}
                   <p className="text-slate-700 dark:text-slate-200 font-light text-sm sm:text-base leading-relaxed mb-6 sm:mb-8 italic relative z-10">
-                    "{test1.quote}"
+                    &quot;{test1.quote}&quot;
                   </p>
                 </div>
 
@@ -176,7 +176,7 @@ export default function TestimonialCarousel() {
                       )}
                     </div>
                     <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 font-light">
-                      {test1.role}, <span className="text-[#008FE5] dark:text-accent-cyan font-medium">{test1.company}</span>
+                      {test1.role}, <span className="text-[#0369A1] dark:text-accent-cyan font-medium">{test1.company}</span>
                     </p>
                   </div>
                 </div>
@@ -193,7 +193,7 @@ export default function TestimonialCarousel() {
                   <div className="flex flex-wrap items-center justify-between gap-3 mb-5 pr-10">
                     <div className="flex gap-1">
                       {Array.from({ length: test2.rating || 5 }).map((_, i) => (
-                        <Star key={i} className="w-4.5 h-4.5 fill-[#008FE5] text-[#008FE5] dark:fill-accent-cyan dark:text-accent-cyan" />
+                        <Star key={i} className="w-4.5 h-4.5 fill-[#008FE5] text-[#0369A1] dark:fill-accent-cyan dark:text-accent-cyan" />
                       ))}
                     </div>
                     {test2.metricBadge && (
@@ -205,7 +205,7 @@ export default function TestimonialCarousel() {
 
                   {/* Quote */}
                   <p className="text-slate-700 dark:text-slate-200 font-light text-sm sm:text-base leading-relaxed mb-6 sm:mb-8 italic relative z-10">
-                    "{test2.quote}"
+                    &quot;{test2.quote}&quot;
                   </p>
                 </div>
 
@@ -226,7 +226,7 @@ export default function TestimonialCarousel() {
                       )}
                     </div>
                     <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 font-light">
-                      {test2.role}, <span className="text-[#008FE5] dark:text-accent-cyan font-medium">{test2.company}</span>
+                      {test2.role}, <span className="text-[#0369A1] dark:text-accent-cyan font-medium">{test2.company}</span>
                     </p>
                   </div>
                 </div>

@@ -1,8 +1,6 @@
-"use client";
-
 import React, { Suspense } from "react";
-import { motion } from "framer-motion";
-import { ArrowRight, Shield, Award, Users2, Zap, Heart, CheckCircle2, TrendingUp, HelpCircle, MapPin, Mail, Clock, Cpu } from "lucide-react";
+import { MotionH2, MotionP, MotionSpan } from "@/components/motion";
+import { ArrowRight, Shield, Award, Zap, CheckCircle2, TrendingUp, MapPin, Mail, Clock, Cpu } from "lucide-react";
 import { 
   SiNextdotjs, 
   SiReact, 
@@ -21,8 +19,9 @@ import AnimatedCounter from "@/components/AnimatedCounter";
 import Timeline from "@/components/Timeline";
 import Button from "@/components/Button";
 import ContactForm from "@/components/ContactForm";
-import TestimonialCarousel from "@/components/TestimonialCarousel";
 import PageTransition from "@/components/PageTransition";
+import TrackedLink from "@/components/TrackedLink";
+import { contact, whatsappUrl } from "@/lib/site";
 import { services } from "@/lib/services";
 import { portfolioItems } from "@/lib/portfolio";
 
@@ -178,16 +177,16 @@ export default function Home() {
             {/* Left Col: Info */}
             <div className="lg:col-span-6 space-y-6">
               <div>
-                <motion.span
+                <MotionSpan
                   initial={{ opacity: 0, y: 10 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5 }}
-                  className="text-xs font-semibold uppercase tracking-widest text-[#008FE5] dark:text-accent-blue bg-accent-blue/10 px-3 py-1 rounded-full border border-accent-blue/20 w-fit mb-4 inline-block"
+                  className="text-xs font-semibold uppercase tracking-widest text-[#0369A1] dark:text-accent-blue bg-accent-blue/10 px-3 py-1 rounded-full border border-accent-blue/20 w-fit mb-4 inline-block"
                 >
                   About We For Technology
-                </motion.span>
-                <motion.h2
+                </MotionSpan>
+                <MotionH2
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
@@ -195,18 +194,18 @@ export default function Home() {
                   className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-[#0A0F1E] dark:text-white leading-tight"
                 >
                   We Build Technology With Purpose.
-                </motion.h2>
+                </MotionH2>
               </div>
-              <motion.p
+              <MotionP
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.2 }}
                 className="text-slate-600 dark:text-slate-400 font-light leading-relaxed"
               >
-                At We For Technology, we combine engineering excellence, user experience design, business strategy, and performance audits to deliver premium products. We don't just write code; we architect solutions that grow businesses.
-              </motion.p>
-              <motion.p
+                At We For Technology, we combine engineering excellence, user experience design, business strategy, and performance audits to deliver premium products. We don&apos;t just write code; we architect solutions that grow businesses.
+              </MotionP>
+              <MotionP
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -214,7 +213,7 @@ export default function Home() {
                 className="text-slate-600 dark:text-slate-400 font-light leading-relaxed"
               >
                 Whether you need a high-speed web presence, automated pipelines in Zoho, custom dashboards, or conversational artificial intelligence, our teams deploy secure, production-ready software.
-              </motion.p>
+              </MotionP>
               <div className="pt-4">
                 <Button href="/about" variant="outline">
                   <span>Learn More About Us</span>
@@ -232,7 +231,7 @@ export default function Home() {
                     key={val.name}
                     className="glow-card rounded-xl p-6 border border-slate-200 dark:border-white/5 flex flex-col gap-4 bg-white dark:bg-[#131B2E]"
                   >
-                    <div className="w-10 h-10 rounded-lg bg-accent-blue/15 border border-accent-blue/20 text-[#008FE5] dark:text-accent-blue flex items-center justify-center">
+                    <div className="w-10 h-10 rounded-lg bg-accent-blue/15 border border-accent-blue/20 text-[#0369A1] dark:text-accent-blue flex items-center justify-center">
                       <Icon className="w-5 h-5" />
                     </div>
                     <h3 className="text-lg font-bold text-[#0A0F1E] dark:text-white">{val.name}</h3>
@@ -296,6 +295,8 @@ export default function Home() {
                 category={project.category}
                 subTitle={project.subTitle}
                 technologies={project.technologies}
+                problem={project.clientProblem}
+                outcome={project.results[0]}
                 index={index}
               />
             ))}
@@ -329,16 +330,16 @@ export default function Home() {
             {/* Left Column */}
             <div className="lg:col-span-5 space-y-6">
               <div>
-                <motion.span
+                <MotionSpan
                   initial={{ opacity: 0, y: 10 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5 }}
-                  className="text-xs font-semibold uppercase tracking-widest text-[#008FE5] dark:text-accent-blue bg-accent-blue/10 px-3 py-1 rounded-full border border-accent-blue/20 w-fit mb-4 inline-block"
+                  className="text-xs font-semibold uppercase tracking-widest text-[#0369A1] dark:text-accent-blue bg-accent-blue/10 px-3 py-1 rounded-full border border-accent-blue/20 w-fit mb-4 inline-block"
                 >
                   Our Commitment
-                </motion.span>
-                <motion.h2
+                </MotionSpan>
+                <MotionH2
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
@@ -346,9 +347,9 @@ export default function Home() {
                   className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-[#0A0F1E] dark:text-white leading-tight"
                 >
                   Why Businesses Choose We For Technology
-                </motion.h2>
+                </MotionH2>
               </div>
-              <motion.p
+              <MotionP
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -356,18 +357,18 @@ export default function Home() {
                 className="text-slate-600 dark:text-slate-400 font-light leading-relaxed"
               >
                 We For Technology stands out as a reliable technological partner because we prioritize longevity, clean codebase structures, absolute transparency in budget estimation, and around-the-clock developer support.
-              </motion.p>
+              </MotionP>
               <div className="flex flex-col gap-4 border-t border-slate-200 dark:border-white/5 pt-6">
                 <div className="flex items-center gap-3">
-                  <CheckCircle2 className="w-5 h-5 text-[#008FE5] dark:text-accent-blue" />
+                  <CheckCircle2 className="w-5 h-5 text-[#0369A1] dark:text-accent-blue" />
                   <span className="text-sm font-medium text-[#0A0F1E] dark:text-white">Full-Stack Capability</span>
                 </div>
                 <div className="flex items-center gap-3">
-                  <CheckCircle2 className="w-5 h-5 text-[#008FE5] dark:text-accent-blue" />
+                  <CheckCircle2 className="w-5 h-5 text-[#0369A1] dark:text-accent-blue" />
                   <span className="text-sm font-medium text-[#0A0F1E] dark:text-white">Zoho Certified Methodologies</span>
                 </div>
                 <div className="flex items-center gap-3">
-                  <CheckCircle2 className="w-5 h-5 text-[#008FE5] dark:text-accent-blue" />
+                  <CheckCircle2 className="w-5 h-5 text-[#0369A1] dark:text-accent-blue" />
                   <span className="text-sm font-medium text-[#0A0F1E] dark:text-white">Enterprise Security Architecture</span>
                 </div>
               </div>
@@ -380,7 +381,7 @@ export default function Home() {
                   key={idx}
                   className="glow-card rounded-xl p-5 border border-slate-200 dark:border-white/5 flex gap-4 hover:border-accent-blue/30 bg-white dark:bg-[#131B2E]"
                 >
-                  <div className="w-8 h-8 rounded-full bg-accent-blue/10 flex items-center justify-center text-[#008FE5] dark:text-accent-blue font-mono font-bold text-xs select-none shrink-0 mt-0.5">
+                  <div className="w-8 h-8 rounded-full bg-accent-blue/10 flex items-center justify-center text-[#0369A1] dark:text-accent-blue font-mono font-bold text-xs select-none shrink-0 mt-0.5">
                     {idx + 1}
                   </div>
                   <div>
@@ -452,17 +453,30 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Testimonials */}
-      <section className="py-24 bg-[#F5F7FA] dark:bg-white/[0.02] border-y border-slate-200 dark:border-white/5 relative z-10">
+      {/* Credentials / Why trust us. Client testimonials will be added here once real quotes are supplied. */}
+      <section className="py-24 bg-[#F5F7FA] border-y border-slate-200 relative z-10">
         <div className="max-w-7xl mx-auto px-6">
           <SectionHeading
-            title="What Our Clients Say"
-            subtitle="Testimonials"
-            description="Read reviews and testimonials from business operations that partner with We For Technology."
+            title="Why Businesses Trust Us"
+            subtitle="Credentials"
+            description="Clear process, certified expertise, and complete ownership of what we build for you."
           />
 
-          <div className="mt-12">
-            <TestimonialCarousel />
+          <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {[
+              { icon: Award, title: "Zoho Certified Expertise", text: "Certified Zoho CRM & Creator specialists for automation and custom business apps." },
+              { icon: Shield, title: "100% Code Ownership", text: "You own all source code and IP. Strict NDA on every project." },
+              { icon: Clock, title: "24-Hour Response", text: "Every enquiry gets a reply from a consultant within one business day." },
+              { icon: Zap, title: "Agile Sprint Delivery", text: "Weekly demos and milestone-based payments, so you see progress early." },
+            ].map((item) => (
+              <div key={item.title} className="glow-card rounded-2xl p-6 border border-slate-200 bg-white flex flex-col gap-3">
+                <div className="w-11 h-11 rounded-xl bg-accent-blue/10 text-[#0369A1] flex items-center justify-center">
+                  <item.icon className="w-5 h-5" />
+                </div>
+                <h3 className="text-base font-bold text-[#0A0F1E]">{item.title}</h3>
+                <p className="text-sm text-slate-600 leading-relaxed">{item.text}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -486,7 +500,7 @@ export default function Home() {
               <div className="glow-card rounded-2xl p-6 sm:p-10 border border-slate-200 dark:border-white/5 bg-[#F5F7FA] dark:bg-dark-card/30 h-full flex flex-col justify-between">
                 <div className="space-y-8">
                   <div>
-                    <span className="text-xs font-semibold uppercase tracking-widest text-[#008FE5] dark:text-accent-blue bg-accent-blue/10 px-3 py-1 rounded-full border border-accent-blue/20 w-fit mb-4 inline-block">
+                    <span className="text-xs font-semibold uppercase tracking-widest text-[#0369A1] dark:text-accent-blue bg-accent-blue/10 px-3 py-1 rounded-full border border-accent-blue/20 w-fit mb-4 inline-block">
                       Contact Channels
                     </span>
                     <h3 className="text-2xl font-bold text-[#0A0F1E] dark:text-white mb-2 tracking-tight">Direct Communication</h3>
@@ -498,7 +512,7 @@ export default function Home() {
                   <div className="space-y-6">
                     {/* Location Detail */}
                     <div className="flex gap-4 items-start">
-                      <div className="p-3 rounded-lg bg-accent-blue/15 text-[#008FE5] dark:text-accent-blue h-fit">
+                      <div className="p-3 rounded-lg bg-accent-blue/15 text-[#0369A1] dark:text-accent-blue h-fit">
                         <MapPin className="w-5 h-5" />
                       </div>
                       <div>
@@ -515,10 +529,24 @@ export default function Home() {
                       <div className="p-3 rounded-lg bg-accent-purple/15 text-accent-purple h-fit">
                         <Mail className="w-5 h-5" />
                       </div>
-                      <div>
-                        <a href="mailto:wefortechnology.ai@gmail.com" className="text-xs text-slate-600 dark:text-slate-400 font-light font-mono hover:text-[#0A0F1E] dark:hover:text-white transition-colors">
-                          wefortechnology.ai@gmail.com
-                        </a>
+                      <div className="space-y-1">
+                        <h4 className="text-sm font-bold text-[#0A0F1E] mb-1">Email, Call or WhatsApp</h4>
+                        <TrackedLink event="email_click" location="home-contact" href={contact.emailHref} className="block text-xs text-slate-600 font-light font-mono hover:text-[#0A0F1E] transition-colors">
+                          {contact.email}
+                        </TrackedLink>
+                        <TrackedLink event="phone_click" location="home-contact" href={contact.phoneTel} className="block text-xs text-slate-600 font-light font-mono hover:text-[#0A0F1E] transition-colors">
+                          {contact.phoneDisplay}
+                        </TrackedLink>
+                        <TrackedLink
+                          event="whatsapp_click"
+                          location="home-contact"
+                          href={whatsappUrl()}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="block text-xs text-emerald-700 font-medium font-mono hover:text-emerald-600 transition-colors"
+                        >
+                          Chat on WhatsApp →
+                        </TrackedLink>
                       </div>
                     </div>
 
@@ -549,7 +577,7 @@ export default function Home() {
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label="LinkedIn"
-                      className="p-2.5 rounded-lg bg-white dark:bg-white/5 border border-slate-200 dark:border-white/5 text-slate-600 dark:text-slate-400 hover:text-[#008FE5] dark:hover:text-accent-blue hover:border-accent-blue/30 transition-all duration-300 shadow-xs"
+                      className="p-2.5 rounded-lg bg-white dark:bg-white/5 border border-slate-200 dark:border-white/5 text-slate-600 dark:text-slate-400 hover:text-[#0369A1] dark:hover:text-accent-blue hover:border-accent-blue/30 transition-all duration-300 shadow-xs"
                     >
                       <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
                         <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764 0-.973.784-1.762 1.75-1.762s1.75.789 1.75 1.762c0 .974-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
@@ -560,7 +588,7 @@ export default function Home() {
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label="Instagram"
-                      className="p-2.5 rounded-lg bg-white dark:bg-white/5 border border-slate-200 dark:border-white/5 text-slate-600 dark:text-slate-400 hover:text-[#008FE5] dark:hover:text-accent-blue hover:border-accent-blue/30 transition-all duration-300 shadow-xs"
+                      className="p-2.5 rounded-lg bg-white dark:bg-white/5 border border-slate-200 dark:border-white/5 text-slate-600 dark:text-slate-400 hover:text-[#0369A1] dark:hover:text-accent-blue hover:border-accent-blue/30 transition-all duration-300 shadow-xs"
                     >
                       <svg className="w-4 h-4 fill-none stroke-current stroke-2" viewBox="0 0 24 24" strokeLinecap="round" strokeLinejoin="round">
                         <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
@@ -573,7 +601,7 @@ export default function Home() {
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label="GitHub"
-                      className="p-2.5 rounded-lg bg-white dark:bg-white/5 border border-slate-200 dark:border-white/5 text-slate-600 dark:text-slate-400 hover:text-[#008FE5] dark:hover:text-accent-blue hover:border-accent-blue/30 transition-all duration-300 shadow-xs"
+                      className="p-2.5 rounded-lg bg-white dark:bg-white/5 border border-slate-200 dark:border-white/5 text-slate-600 dark:text-slate-400 hover:text-[#0369A1] dark:hover:text-accent-blue hover:border-accent-blue/30 transition-all duration-300 shadow-xs"
                     >
                       <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
                         <path fillRule="evenodd" clipRule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" />
@@ -584,7 +612,7 @@ export default function Home() {
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label="Facebook"
-                      className="p-2.5 rounded-lg bg-white dark:bg-white/5 border border-slate-200 dark:border-white/5 text-slate-600 dark:text-slate-400 hover:text-[#008FE5] dark:hover:text-accent-blue hover:border-accent-blue/30 transition-all duration-300 shadow-xs"
+                      className="p-2.5 rounded-lg bg-white dark:bg-white/5 border border-slate-200 dark:border-white/5 text-slate-600 dark:text-slate-400 hover:text-[#0369A1] dark:hover:text-accent-blue hover:border-accent-blue/30 transition-all duration-300 shadow-xs"
                     >
                       <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
                         <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />

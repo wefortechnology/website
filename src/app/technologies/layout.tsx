@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
+import { withSeo } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withSeo({
   title: "Modern Tech Stack & Architecture | React, Next.js, Node, Python & Zoho",
   description:
     "Explore the modern technology stack we utilize to deliver fast, secure, and maintainable digital products: Next.js, React, Node.js, Python, PostgreSQL, AWS, and Zoho Creator.",
@@ -8,13 +9,13 @@ export const metadata: Metadata = {
     canonical: "/technologies",
   },
   openGraph: {
-    url: "https://wefortechnology.com/technologies",
+    url: "https://wefortechnology.in/technologies",
     title: "Modern Tech Stack & Architecture | We For Technology",
     description:
       "Enterprise-grade tech stacks and modern cloud architecture power every system we build.",
     images: ["/images/og-image.png"],
   },
-};
+});
 
 export default function TechnologiesLayout({
   children,

@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
+import { withSeo } from "@/lib/seo";
 import { faqs } from "@/lib/faqs";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withSeo({
   title: "Frequently Asked Questions (FAQ) | We For Technology",
   description:
     "Find answers to common questions about our web development, pricing, timelines, Zoho CRM setup, cloud hosting, payment gateways, and custom software processes.",
@@ -9,13 +10,13 @@ export const metadata: Metadata = {
     canonical: "/faq",
   },
   openGraph: {
-    url: "https://wefortechnology.com/faq",
+    url: "https://wefortechnology.in/faq",
     title: "Frequently Asked Questions | We For Technology",
     description:
       "Answers regarding software development costs, timelines, hosting, Zoho integrations, and warranties.",
     images: ["/images/og-image.png"],
   },
-};
+});
 
 export default function FAQLayout({
   children,

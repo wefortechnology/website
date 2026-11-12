@@ -3,7 +3,7 @@ import { services } from "@/lib/services";
 import { portfolioItems } from "@/lib/portfolio";
 import { blogPosts } from "@/lib/blog";
 
-const BASE_URL = "https://wefortechnology.com";
+const BASE_URL = "https://wefortechnology.in";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const currentDate = new Date();

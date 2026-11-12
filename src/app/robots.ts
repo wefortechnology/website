@@ -9,6 +9,6 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ["/api/"],
       },
     ],
-    sitemap: "https://wefortechnology.com/sitemap.xml",
+    sitemap: "https://wefortechnology.in/sitemap.xml",
   };
 }

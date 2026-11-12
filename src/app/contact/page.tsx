@@ -1,10 +1,9 @@
-"use client";
-
 import React, { Suspense } from "react";
-import { motion } from "framer-motion";
 import { MapPin, Mail, Phone, Clock, HelpCircle } from "lucide-react";
 import ContactForm from "@/components/ContactForm";
 import PageTransition from "@/components/PageTransition";
+import TrackedLink from "@/components/TrackedLink";
+import { contact, whatsappUrl } from "@/lib/site";
 
 export default function ContactPage() {
   return (
@@ -16,14 +15,14 @@ export default function ContactPage() {
         <div className="absolute top-1/3 left-1/4 w-[280px] sm:w-[350px] h-[280px] sm:h-[350px] bg-accent-blue/10 rounded-full blur-[100px] sm:blur-[120px] pointer-events-none" />
         <div className="absolute bottom-1/3 right-1/4 w-[280px] sm:w-[350px] h-[280px] sm:h-[350px] bg-accent-purple/10 rounded-full blur-[100px] sm:blur-[120px] pointer-events-none" />
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10 w-full">
+        <div className="max-w-7xl mx-auto px-6 relative z-10 w-full">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
 
             {/* Left Column: Headline & Intro */}
             <div className="lg:col-span-5 space-y-6">
               <div className="space-y-3.5 sm:space-y-4">
                 <div>
-                  <span className="inline-block text-[10px] sm:text-xs font-mono font-semibold uppercase tracking-wider sm:tracking-widest text-accent-cyan bg-accent-cyan/10 px-3 sm:px-3.5 py-1 sm:py-1.5 rounded-full border border-accent-cyan/20 mb-2">
+                  <span className="inline-block text-[11px] sm:text-xs font-semibold uppercase tracking-wider sm:tracking-widest text-accent-cyan bg-accent-cyan/10 px-3 sm:px-3.5 py-1 sm:py-1.5 rounded-full border border-accent-cyan/20 mb-2">
                     ✨ Get In Touch
                   </span>
                 </div>
@@ -34,7 +33,7 @@ export default function ContactPage() {
                   </span>
                 </h1>
                 <p className="text-sm sm:text-base text-slate-300 font-light leading-relaxed">
-                  Have a web application scope, website wireframe, database bottleneck, or automated CRM question? Tell us about your goals, and let's construct a solution.
+                  Have a web application scope, website wireframe, database bottleneck, or automated CRM question? Tell us about your goals, and let&apos;s construct a solution.
                 </p>
               </div>
 
@@ -68,10 +67,21 @@ export default function ContactPage() {
                 <Phone className="w-4 sm:w-5 h-4 sm:h-5" />
               </div>
               <div>
-                <h4 className="text-xs sm:text-sm font-bold text-white mb-1">Direct Phone</h4>
-                <a href="tel:+918510070940" className="text-xs text-slate-300 font-mono hover:text-white transition-colors">
-                  +91 8510070940
-                </a>
+                <h4 className="text-xs sm:text-sm font-bold text-white mb-1">Call or WhatsApp</h4>
+                <TrackedLink event="phone_click" location="contact-page" href={contact.phoneTel} className="text-xs text-slate-300 font-mono hover:text-white transition-colors">
+                  {contact.phoneDisplay}
+                </TrackedLink>
+                <br />
+                <TrackedLink
+                  event="whatsapp_click"
+                  location="contact-page"
+                  href={whatsappUrl()}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-xs text-emerald-400 font-mono hover:text-emerald-300 transition-colors"
+                >
+                  Chat on WhatsApp →
+                </TrackedLink>
               </div>
             </div>
 
@@ -82,9 +92,9 @@ export default function ContactPage() {
               </div>
               <div>
                 <h4 className="text-xs sm:text-sm font-bold text-white mb-1">Engineering Desk</h4>
-                <a href="mailto:wefortechnology.ai@gmail.com" className="text-xs text-slate-300 font-mono hover:text-white transition-colors break-all">
-                  wefortechnology.ai@gmail.com
-                </a>
+                <TrackedLink event="email_click" location="contact-page" href={contact.emailHref} className="text-xs text-slate-300 hover:text-white transition-colors [overflow-wrap:anywhere]">
+                  {contact.email}
+                </TrackedLink>
               </div>
             </div>
 
@@ -156,10 +166,10 @@ export default function ContactPage() {
 
       {/* ── 2. Engineering Service Commitments ── */}
       <section className="py-12 sm:py-20 relative z-10 border-t border-white/5 bg-white/[0.01]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+        <div className="max-w-7xl mx-auto px-6">
           <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-14 space-y-2.5 sm:space-y-3">
             <div>
-              <span className="inline-block text-[10px] sm:text-xs font-mono text-accent-blue uppercase tracking-wider sm:tracking-widest bg-accent-blue/10 px-3 sm:px-3.5 py-1 sm:py-1.5 rounded-full border border-accent-blue/20 mb-2">
+              <span className="inline-block text-[11px] sm:text-xs text-accent-blue uppercase tracking-wider sm:tracking-widest bg-accent-blue/10 px-3 sm:px-3.5 py-1 sm:py-1.5 rounded-full border border-accent-blue/20 mb-2 font-semibold">
                 Client Commitments
               </span>
             </div>
@@ -215,10 +225,10 @@ export default function ContactPage() {
 
       {/* ── 3. Specialized Technical Desks ── */}
       <section className="py-12 sm:py-20 relative z-10 border-t border-white/5">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+        <div className="max-w-7xl mx-auto px-6">
           <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-14 space-y-2.5 sm:space-y-3">
             <div>
-              <span className="inline-block text-[10px] sm:text-xs font-mono text-accent-cyan uppercase tracking-wider sm:tracking-widest bg-accent-cyan/10 px-3 sm:px-3.5 py-1 sm:py-1.5 rounded-full border border-accent-cyan/20 mb-2">
+              <span className="inline-block text-[11px] sm:text-xs text-accent-cyan uppercase tracking-wider sm:tracking-widest bg-accent-cyan/10 px-3 sm:px-3.5 py-1 sm:py-1.5 rounded-full border border-accent-cyan/20 mb-2 font-semibold">
                 Specialized Channels
               </span>
             </div>
@@ -275,10 +285,10 @@ export default function ContactPage() {
 
       {/* ── 4. Engagement & Consultation Roadmap ── */}
       <section className="py-12 sm:py-24 relative z-10 border-t border-white/5 bg-white/[0.01]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+        <div className="max-w-7xl mx-auto px-6">
           <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-16 space-y-2.5 sm:space-y-3">
             <div>
-              <span className="inline-block text-[10px] sm:text-xs font-mono text-accent-purple uppercase tracking-wider sm:tracking-widest bg-accent-purple/10 px-3 sm:px-3.5 py-1 sm:py-1.5 rounded-full border border-accent-purple/20 mb-2">
+              <span className="inline-block text-[11px] sm:text-xs text-accent-purple uppercase tracking-wider sm:tracking-widest bg-accent-purple/10 px-3 sm:px-3.5 py-1 sm:py-1.5 rounded-full border border-accent-purple/20 mb-2 font-semibold">
                 Engagement Pipeline
               </span>
             </div>
@@ -334,10 +344,10 @@ export default function ContactPage() {
 
       {/* ── 5. Frequently Asked Questions (Contact & Engagement) ── */}
       <section className="py-12 sm:py-24 relative z-10 border-t border-white/5">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 space-y-8 sm:space-y-12">
+        <div className="max-w-5xl mx-auto px-6 space-y-8 sm:space-y-12">
           <div className="text-center space-y-2.5 sm:space-y-3">
             <div>
-              <span className="inline-block text-[10px] sm:text-xs font-mono text-accent-blue uppercase tracking-wider sm:tracking-widest bg-accent-blue/10 px-3 sm:px-3.5 py-1 sm:py-1.5 rounded-full border border-accent-blue/20 mb-2">
+              <span className="inline-block text-[11px] sm:text-xs text-accent-blue uppercase tracking-wider sm:tracking-widest bg-accent-blue/10 px-3 sm:px-3.5 py-1 sm:py-1.5 rounded-full border border-accent-blue/20 mb-2 font-semibold">
                 Got Questions?
               </span>
             </div>

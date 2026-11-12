@@ -1,52 +1,17 @@
-"use client";
-
-import React, { useState, useEffect } from "react";
-import { motion } from "framer-motion";
-import { ReceiptText, ChevronRight, Mail, AlertTriangle, CheckCircle2, XCircle } from "lucide-react";
+import { ReceiptText, Mail, AlertTriangle, CheckCircle2, XCircle } from "lucide-react";
+import { MotionDiv } from "@/components/motion";
 import PageTransition from "@/components/PageTransition";
-
-const sections = [
-  { id: "overview",        title: "Overview" },
-  { id: "milestone",       title: "Milestone Payments" },
-  { id: "eligibility",     title: "Refund Eligibility" },
-  { id: "retainer",        title: "Retainer & Maintenance" },
-  { id: "cancellation",    title: "Project Cancellation" },
-  { id: "design-ui",       title: "Design & UI/UX Projects" },
-  { id: "zoho",            title: "Zoho & Automation" },
-  { id: "disputes",        title: "Dispute Resolution" },
-  { id: "process",         title: "How to Request a Refund" },
-  { id: "jurisdiction",    title: "Governing Law" },
-  { id: "contact",         title: "Contact Us" },
-];
+import PolicyToc from "./PolicyToc";
 
 export default function RefundPolicyPage() {
-  const [activeSection, setActiveSection] = useState("overview");
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((e) => { if (e.isIntersecting) setActiveSection(e.target.id); });
-      },
-      { rootMargin: "-30% 0px -60% 0px" }
-    );
-    sections.forEach(({ id }) => {
-      const el = document.getElementById(id);
-      if (el) observer.observe(el);
-    });
-    return () => observer.disconnect();
-  }, []);
-
-  const scrollTo = (id: string) =>
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
-
   return (
     <PageTransition>
       {/* Hero */}
-      <section className="relative pt-28 sm:pt-32 lg:pt-36 pb-12 overflow-hidden">
+      <section className="relative pt-28 sm:pt-32 lg:pt-36 pb-12 sm:pb-16 overflow-hidden">
         <div className="absolute top-0 inset-x-0 h-64 bg-gradient-to-b from-[#091122]/60 to-transparent pointer-events-none" />
         <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-accent-purple/[0.06] rounded-full blur-[130px] pointer-events-none" />
         <div className="max-w-7xl mx-auto px-6 relative z-10">
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="flex items-center gap-4 mb-6">
+          <MotionDiv initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="flex items-center gap-4 mb-6">
             <div className="w-12 h-12 rounded-xl bg-accent-purple/10 border border-accent-purple/20 flex items-center justify-center">
               <ReceiptText className="w-6 h-6 text-accent-purple" />
             </div>
@@ -54,7 +19,7 @@ export default function RefundPolicyPage() {
               <p className="text-xs font-mono text-accent-purple uppercase tracking-widest">Legal Document</p>
               <h1 className="text-3xl sm:text-4xl font-black text-white tracking-tight">Refund Policy</h1>
             </div>
-          </motion.div>
+          </MotionDiv>
           <div className="flex flex-wrap gap-4 text-xs font-mono text-slate-500">
             <span>Last Updated: <span className="text-slate-300">August 18, 2026</span></span>
             <span>·</span>
@@ -70,27 +35,7 @@ export default function RefundPolicyPage() {
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-[260px_1fr] gap-12 items-start">
 
-            {/* Sticky TOC */}
-            <aside className="hidden lg:block sticky top-28 self-start">
-              <div className="rounded-2xl border border-white/[0.07] bg-[#070f1f]/80 backdrop-blur-xl p-5 space-y-1">
-                <p className="text-[10px] font-mono text-slate-600 uppercase tracking-widest mb-3">Table of Contents</p>
-                {sections.map((s, i) => (
-                  <button
-                    key={s.id}
-                    onClick={() => scrollTo(s.id)}
-                    className={`w-full text-left flex items-center gap-2.5 px-3 py-2 rounded-lg text-xs transition-all duration-200 ${
-                      activeSection === s.id
-                        ? "bg-accent-purple/10 text-accent-purple border border-accent-purple/20 font-semibold"
-                        : "text-slate-500 hover:text-white hover:bg-white/[0.04]"
-                    }`}
-                  >
-                    <span className="font-mono text-[10px] text-slate-600 w-4 shrink-0">{String(i + 1).padStart(2, "0")}</span>
-                    {s.title}
-                    {activeSection === s.id && <ChevronRight className="w-3 h-3 ml-auto" />}
-                  </button>
-                ))}
-              </div>
-            </aside>
+            <PolicyToc />
 
             {/* Content */}
             <div className="space-y-12">
@@ -166,7 +111,7 @@ export default function RefundPolicyPage() {
                 </p>
                 <ul>
                   <li><strong>Current Month Non-Refundable:</strong> The retainer fee for the active billing month is non-refundable, regardless of how many support hours were consumed. Resources are allocated and reserved at the start of each month.</li>
-                  <li><strong>Cancellation Notice:</strong> Clients wishing to cancel a retainer must provide a minimum of <strong>15 calendar days' written notice</strong> via email to <span className="text-accent-blue">wefortechnology.ai@gmail.com</span> before the next billing cycle.</li>
+                  <li><strong>Cancellation Notice:</strong> Clients wishing to cancel a retainer must provide a minimum of <strong>15 calendar days&apos; written notice</strong> via email to <span className="text-accent-blue">wefortechnology.ai@gmail.com</span> before the next billing cycle.</li>
                   <li><strong>Pre-Paid Retainers:</strong> If a client has pre-paid for multiple months upfront and provides the required cancellation notice, We For Technology will issue a pro-rata refund for the unused future months within 10 business days.</li>
                   <li><strong>Unused Hours:</strong> Retainer support hours do not roll over to the following month and hold no cash redemption value.</li>
                 </ul>
@@ -221,7 +166,7 @@ export default function RefundPolicyPage() {
                   Zoho Creator, Zoho CRM configuration, and Deluge scripting projects follow the standard milestone refund rules with the following additions:
                 </p>
                 <ul>
-                  <li><strong>Zoho Licences:</strong> We For Technology does not resell Zoho licences. Any Zoho subscription fees paid directly to Zoho Corporation are governed by Zoho's own refund policy and are entirely outside We For Technology's control.</li>
+                  <li><strong>Zoho Licences:</strong> We For Technology does not resell Zoho licences. Any Zoho subscription fees paid directly to Zoho Corporation are governed by Zoho&apos;s own refund policy and are entirely outside We For Technology&apos;s control.</li>
                   <li><strong>Environment Access:</strong> Clients must provide timely access to their Zoho environment. Delays exceeding 14 days caused by the client may result in timeline extensions and will not constitute grounds for a refund.</li>
                   <li><strong>Configuration Work:</strong> Completed CRM configurations, workflow automations, and Deluge scripts that have been reviewed and signed off are non-refundable as they represent irreversible intellectual labour.</li>
                   <li><strong>Data Migration:</strong> Data migration services are billed per data set. If a migration is partially completed and the client cancels, payment for completed data sets is retained.</li>
@@ -310,7 +255,7 @@ export default function RefundPolicyPage() {
 /* ── Helpers ── */
 function RS({ id, number, title, children }: { id: string; number: string; title: string; children: React.ReactNode }) {
   return (
-    <motion.div
+    <MotionDiv
       id={id}
       initial={{ opacity: 0, y: 16 }}
       whileInView={{ opacity: 1, y: 0 }}
@@ -322,10 +267,10 @@ function RS({ id, number, title, children }: { id: string; number: string; title
         <span className="text-[11px] font-mono text-accent-purple bg-accent-purple/10 border border-accent-purple/20 px-2.5 py-1 rounded-md">{number}</span>
         <h2 className="text-xl font-bold text-white">{title}</h2>
       </div>
-      <div className="text-sm text-slate-400 font-light leading-relaxed space-y-3 [&_ul]:space-y-2.5 [&_ul]:pl-0 [&_li]:flex [&_li]:gap-2.5 [&_li]:items-start [&_li]:before:content-['▸'] [&_li]:before:text-accent-purple [&_li]:before:shrink-0 [&_li]:before:mt-0.5 [&_strong]:text-slate-200 [&_strong]:font-medium">
+      <div className="text-sm text-slate-400 font-light leading-relaxed space-y-3 [&_ul]:space-y-2.5 [&_ul]:pl-0 [&_li]:flex [&_li]:gap-2.5 [&_li]:items-start [&_li]:before:content-['▸'] [&_li]:before:text-accent-purple [&_li]:before:shrink-0 [&_li]:before:mt-0.5 [&_strong]:text-slate-800 [&_strong]:font-medium">
         {children}
       </div>
-    </motion.div>
+    </MotionDiv>
   );
 }
 

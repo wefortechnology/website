@@ -42,7 +42,7 @@ export default function TestimonialCard({
 
         {/* Quote */}
         <p className="text-slate-300 font-light text-base leading-relaxed mb-8 italic relative z-10">
-          "{quote}"
+          &quot;{quote}&quot;
         </p>
       </div>
 
