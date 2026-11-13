@@ -41,9 +41,9 @@ const solutions = [
     tagline: "Establish market authority and automate manual daily tasks.",
     description: "Take your business online with a premium web presence. We build responsive company websites, set up Zoho Creator modules to replace manual logs, link email marketing flows, and construct secure e-commerce channels.",
     metrics: [
-      { label: "Lead Growth", value: "+300%", color: "text-emerald-400" },
-      { label: "Time Saved", value: "15+ Hrs/Wk", color: "text-sky-400" },
-      { label: "SEO Rating", value: "Top Tier", color: "text-amber-400" }
+      { label: "Lead Capture", value: "Automated", color: "text-emerald-400" },
+      { label: "Follow-Ups", value: "Auto-Scheduled", color: "text-sky-400" },
+      { label: "SEO", value: "Built In", color: "text-amber-400" }
     ],
     challengesSolved: [
       "Outdated website losing local clients",
@@ -68,9 +68,9 @@ const solutions = [
     tagline: "Custom internal software, role-based security, and zero operational drag.",
     description: "For established organizations, custom software removes operational friction. We design custom portal panels, build high-concurrency backend databases, create analytical dashboards showing real-time metrics, and integrate CRM platforms with legacy APIs.",
     metrics: [
-      { label: "Uptime SLA", value: "99.99%", color: "text-emerald-400" },
-      { label: "Compliance", value: "SOC-2 / RBAC", color: "text-purple-400" },
-      { label: "Concurrency", value: "10k+ Users", color: "text-sky-400" }
+      { label: "Architecture", value: "Scalable", color: "text-emerald-400" },
+      { label: "Access Control", value: "Role-Based", color: "text-purple-400" },
+      { label: "Built For", value: "Growing Teams", color: "text-sky-400" }
     ],
     challengesSolved: [
       "Fragmented data silos across departments",
@@ -95,8 +95,8 @@ const solutions = [
     tagline: "Frictionless global checkout and conversion optimization.",
     description: "Launch an online store designed to convert visitors into loyal customers. We build headless storefronts that load in milliseconds, design intuitive cart sliders, connect Stripe/PayPal/Razorpay payment gateways, and construct vendor management boards.",
     metrics: [
-      { label: "Cart Abandonment", value: "-40%", color: "text-emerald-400" },
-      { label: "Page Load", value: "< 1.0s", color: "text-sky-400" },
+      { label: "Checkout", value: "Mobile-First", color: "text-emerald-400" },
+      { label: "Page Load Target", value: "< 1s", color: "text-sky-400" },
       { label: "Gateways", value: "Global", color: "text-purple-400" }
     ],
     challengesSolved: [
@@ -122,9 +122,9 @@ const solutions = [
     tagline: "Connect your software stack and eliminate manual data copying.",
     description: "Stop spending hours updating spreadsheets. We design automated lead routes, build custom Deluge scripts in Zoho Creator, synchronize sales logs with financial software, and hook up triggers that alert regional sales reps instantly.",
     metrics: [
-      { label: "Manual Effort", value: "-80%", color: "text-emerald-400" },
+      { label: "Manual Work", value: "Automated", color: "text-emerald-400" },
       { label: "Sync Speed", value: "Real-Time", color: "text-sky-400" },
-      { label: "Error Rate", value: "0.0%", color: "text-purple-400" }
+      { label: "Data Entry", value: "Validated", color: "text-purple-400" }
     ],
     challengesSolved: [
       "Manual copy-pasting between platforms",
@@ -150,8 +150,8 @@ const solutions = [
     description: "Leverage AI to serve customers 24/7. We integrate OpenAI API, design context-aware chatbots using RAG architectures on your private manuals, auto-summarize customer support tickets, and personalize visitor shopping layouts.",
     metrics: [
       { label: "Support Coverage", value: "24/7", color: "text-emerald-400" },
-      { label: "Ticket Auto-Resolve", value: "65%", color: "text-sky-400" },
-      { label: "Accuracy", value: "99%", color: "text-purple-400" }
+      { label: "Routine Questions", value: "Auto-Answered", color: "text-sky-400" },
+      { label: "Answers", value: "Source-Cited", color: "text-purple-400" }
     ],
     challengesSolved: [
       "Overwhelmed customer support desks",

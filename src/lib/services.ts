@@ -285,7 +285,7 @@ export const services: Service[] = [
       },
       {
         question: "Can you customize Zoho CRM modules and blueprints?",
-        answer: "Yes. Our certified Zoho developers configure custom modules, fields, blueprints, and SLA rules to automate your sales funnel from lead intake to deal closing."
+        answer: "Yes. Our Zoho developers configure custom modules, fields, blueprints, and SLA rules to automate your sales funnel from lead intake to deal closing."
       },
       {
         question: "How do you handle data migration from legacy CRMs to Zoho?",

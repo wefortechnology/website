@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight, Sparkles, Terminal, Phone, MessageCircle } from "lucide-react";
+import { ArrowRight, Sparkles, Terminal, Phone, MessageCircle, CalendarDays } from "lucide-react";
 import Image from "next/image";
 import Button from "./Button";
 import TrackedLink from "./TrackedLink";
@@ -77,6 +77,16 @@ export default function Hero() {
                 className="inline-flex items-center gap-1.5 font-medium text-[#0369A1] hover:text-[#0077c2]"
               >
                 <Phone className="w-4 h-4" /> {contact.phoneDisplay}
+              </TrackedLink>
+              <TrackedLink
+                event="booking_click"
+                location="hero"
+                href={contact.bookingUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 font-medium text-[#0369A1] hover:text-[#0077c2]"
+              >
+                <CalendarDays className="w-4 h-4" /> Book a call
               </TrackedLink>
             </div>
 
@@ -158,11 +168,11 @@ export default function Hero() {
                   className="absolute bottom-1 left-0 sm:bottom-2 bg-white/95 dark:bg-[#091122]/95 border border-slate-200 dark:border-white/15 p-3 sm:p-4 rounded-xl shadow-xl dark:shadow-2xl backdrop-blur-md z-30 flex flex-col gap-1.5 sm:gap-2 w-40 sm:w-48 select-none"
                 >
                   <span className="text-[9px] sm:text-[10px] font-mono text-slate-500 uppercase tracking-widest">
-                    Live Traffic
+                    Performance Target
                   </span>
                   <div className="flex items-baseline gap-1.5">
-                    <span className="text-xl sm:text-2xl font-bold text-[#0A0F1E] dark:text-white font-mono">99.8%</span>
-                    <span className="text-[9px] sm:text-[10px] text-emerald-600 dark:text-emerald-400 font-mono">uptime</span>
+                    <span className="text-xl sm:text-2xl font-bold text-[#0A0F1E] dark:text-white font-mono">90+</span>
+                    <span className="text-[9px] sm:text-[10px] text-emerald-600 dark:text-emerald-400 font-mono">Lighthouse</span>
                   </div>
                   {/* Miniature Sparkline */}
                   <div className="flex gap-1 items-end h-5 sm:h-6 pt-1">

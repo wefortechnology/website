@@ -11,9 +11,9 @@ interface PortfolioCardProps {
   category: string;
   subTitle: string;
   technologies: string[];
-  /** One-line summary of the client's problem (CaseStudy.clientProblem). */
+  /** One-line summary of the challenge this project addresses (CaseStudy.clientProblem). */
   problem?: string;
-  /** Headline business result (CaseStudy.results[0]). */
+  /** Headline capability the project demonstrates (CaseStudy.results[0]). */
   outcome?: string;
   index: number;
 }
@@ -106,13 +106,13 @@ export default function PortfolioCard({
             <dl className="mb-6 flex-grow space-y-2.5 text-xs leading-relaxed">
               {problem && (
                 <div>
-                  <dt className="font-mono uppercase tracking-wider text-[10px] text-slate-500">Problem</dt>
+                  <dt className="font-mono uppercase tracking-wider text-[10px] text-slate-500">The Challenge</dt>
                   <dd className="text-slate-700 line-clamp-2">{problem}</dd>
                 </div>
               )}
               {outcome && (
                 <div>
-                  <dt className="font-mono uppercase tracking-wider text-[10px] text-slate-500">Outcome</dt>
+                  <dt className="font-mono uppercase tracking-wider text-[10px] text-slate-500">Key Feature</dt>
                   <dd className="font-semibold text-emerald-700">{outcome}</dd>
                 </div>
               )}
@@ -122,7 +122,7 @@ export default function PortfolioCard({
           <div className="mt-auto">
             <Link href={`/portfolio/${slug}`}>
               <Button variant="outline" size="sm" className="w-full">
-                <span>View Case Study</span>
+                <span>View Project</span>
                 <ArrowRight className="w-4 h-4" />
               </Button>
             </Link>

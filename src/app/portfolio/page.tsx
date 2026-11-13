@@ -5,11 +5,6 @@ import PageTransition from "@/components/PageTransition";
 import Button from "@/components/Button";
 import PortfolioExplorer from "./PortfolioExplorer";
 
-const industries = [
-  "Fintech", "Healthcare", "Real Estate", "Fashion & Retail",
-  "HR & Operations", "Logistics", "EdTech", "Legal",
-];
-
 export default function PortfolioPage() {
   return (
     <PageTransition>
@@ -41,7 +36,7 @@ export default function PortfolioPage() {
                 className="inline-flex items-center gap-2 px-3.5 sm:px-4 py-1.5 rounded-full bg-accent-blue/10 border border-accent-blue/20 text-[10px] sm:text-xs font-semibold uppercase tracking-wider sm:tracking-widest text-accent-blue"
               >
                 <span className="w-1.5 h-1.5 rounded-full bg-accent-blue animate-pulse flex-shrink-0" />
-                Case Studies
+                Concept Projects
               </MotionSpan>
 
               <MotionH1
@@ -63,7 +58,7 @@ export default function PortfolioPage() {
                 transition={{ delay: 0.2 }}
                 className="text-sm sm:text-lg text-slate-300 font-light max-w-lg leading-relaxed"
               >
-                From fintech dashboards and AI assistants to Zoho field apps and luxury storefronts — browse real engineering work we have shipped for real clients.
+                Our client work is shared only with permission, so here we show concept projects: fintech dashboards, AI assistants, e-commerce stores and Zoho apps that demonstrate how we design and build.
               </MotionP>
 
               {/* Stat pills */}
@@ -74,10 +69,10 @@ export default function PortfolioPage() {
                 className="flex flex-wrap gap-2 sm:gap-3 justify-center lg:justify-start"
               >
                 {[
-                  { icon: Layers, value: "9+", label: "Case Studies", color: "text-sky-400", border: "border-sky-500/20", bg: "bg-sky-500/5" },
-                  { icon: TrendingUp, value: "30+", label: "Clients", color: "text-emerald-400", border: "border-emerald-500/20", bg: "bg-emerald-500/5" },
-                  { icon: Star, value: "4.9", label: "Avg Rating", color: "text-amber-400", border: "border-amber-500/20", bg: "bg-amber-500/5" },
-                  { icon: Clock, value: "3wk", label: "Avg Delivery", color: "text-purple-400", border: "border-purple-500/20", bg: "bg-purple-500/5" },
+                  { icon: Layers, value: "9", label: "Concept Projects", color: "text-sky-400", border: "border-sky-500/20", bg: "bg-sky-500/5" },
+                  { icon: TrendingUp, value: "3+", label: "Years Experience", color: "text-emerald-400", border: "border-emerald-500/20", bg: "bg-emerald-500/5" },
+                  { icon: Star, value: "MERN", label: "Core Stack", color: "text-amber-400", border: "border-amber-500/20", bg: "bg-amber-500/5" },
+                  { icon: Clock, value: "24h", label: "Reply Time", color: "text-purple-400", border: "border-purple-500/20", bg: "bg-purple-500/5" },
                 ].map((s) => {
                   const Icon = s.icon;
                   return (
@@ -121,16 +116,16 @@ export default function PortfolioPage() {
                   <span className="w-2.5 h-2.5 rounded-full bg-red-500/80" />
                   <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/80" />
                   <span className="w-2.5 h-2.5 rounded-full bg-emerald-500/80" />
-                  <span className="ml-2 text-[10px] sm:text-[11px] font-mono text-slate-500 truncate">wft.portfolio — 9 case studies</span>
+                  <span className="ml-2 text-[10px] sm:text-[11px] font-mono text-slate-500 truncate">wft.portfolio — build standards</span>
                 </div>
 
                 {/* Metrics grid */}
                 <div className="p-4 sm:p-5 space-y-3.5 sm:space-y-4">
                   {[
-                    { label: "Avg Performance Gain", value: "+280%", color: "text-emerald-400", bar: "bg-emerald-400", pct: 78 },
-                    { label: "Support Tickets Dropped", value: "−62%", color: "text-accent-blue", bar: "bg-accent-blue", pct: 62 },
-                    { label: "Mobile Sales Lift", value: "+85%", color: "text-accent-purple", bar: "bg-accent-purple", pct: 45 },
-                    { label: "Avg Lead Response Time", value: "4 min", color: "text-yellow-400", bar: "bg-yellow-400", pct: 90 },
+                    { label: "Lighthouse Performance Target", value: "90+", color: "text-emerald-400", bar: "bg-emerald-400", pct: 90 },
+                    { label: "Mobile-First Design", value: "Every build", color: "text-accent-blue", bar: "bg-accent-blue", pct: 100 },
+                    { label: "Code & IP Ownership", value: "100% yours", color: "text-accent-purple", bar: "bg-accent-purple", pct: 100 },
+                    { label: "Enquiry Reply Time", value: "< 24h", color: "text-yellow-400", bar: "bg-yellow-400", pct: 85 },
                   ].map((metric, i) => (
                     <MotionDiv
                       key={metric.label}
@@ -156,7 +151,7 @@ export default function PortfolioPage() {
 
                   {/* Recent deliveries */}
                   <div className="pt-2 border-t border-white/5 space-y-2">
-                    <p className="text-[10px] font-mono text-slate-600 uppercase tracking-widest">Recent Deliveries</p>
+                    <p className="text-[10px] font-mono text-slate-600 uppercase tracking-widest">Featured Concepts</p>
                     {["NexaHR SaaS Portal", "PropertyPro Portal", "SwiftOps Field App"].map((name, i) => (
                       <MotionDiv
                         key={name}
@@ -167,14 +162,14 @@ export default function PortfolioPage() {
                       >
                         <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 flex-shrink-0" />
                         <span className="text-xs font-mono text-slate-300">{name}</span>
-                        <span className="ml-auto text-[10px] font-mono text-emerald-400">✓ Live</span>
+                        <span className="ml-auto text-[10px] font-mono text-emerald-400">Concept</span>
                       </MotionDiv>
                     ))}
                   </div>
                 </div>
 
                 <div className="px-4 sm:px-5 py-2.5 sm:py-3 border-t border-white/5 bg-white/[0.01] flex items-center justify-between">
-                  <span className="text-[9px] sm:text-[10px] font-mono text-slate-600">VERIFIED RESULTS</span>
+                  <span className="text-[9px] sm:text-[10px] font-mono text-slate-600">OUR STANDARDS</span>
                   <div className="flex items-center gap-1.5">
                     <span className="w-1.5 h-1.5 rounded-full bg-accent-cyan animate-pulse" />
                     <span className="text-[9px] sm:text-[10px] font-mono text-accent-cyan">WE FOR TECHNOLOGY PORTFOLIO</span>
@@ -188,30 +183,6 @@ export default function PortfolioPage() {
       </section>
 
       <PortfolioExplorer />
-
-      {/* ── Industries Served ── */}
-      <section className="py-12 sm:py-16 border-y border-white/5 bg-white/[0.01]">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-8 sm:mb-10 space-y-2">
-            <p className="text-xs font-mono text-accent-blue uppercase tracking-wider sm:tracking-widest">Domains We Serve</p>
-            <h2 className="text-xl sm:text-2xl font-bold text-white">Industries We&apos;ve Built For</h2>
-          </div>
-          <div className="flex flex-wrap justify-center gap-2 sm:gap-3">
-            {industries.map((ind, i) => (
-              <MotionDiv
-                key={ind}
-                initial={{ opacity: 0, y: 8 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.05 }}
-                className="px-3.5 sm:px-5 py-2 sm:py-2.5 rounded-full bg-white/[0.04] border border-white/[0.08] text-xs sm:text-sm text-slate-300 font-medium hover:border-accent-blue/30 hover:text-white transition-colors"
-              >
-                {ind}
-              </MotionDiv>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* ── CTA ── */}
       <CTASection />

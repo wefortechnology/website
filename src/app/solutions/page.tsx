@@ -27,7 +27,7 @@ const pillars = [
   },
   {
     icon: TrendingUp,
-    title: "Proven Business ROI",
+    title: "Built for Business ROI",
     desc: "Architectures designed specifically to boost conversions and reduce costs.",
     color: "text-amber-400"
   }

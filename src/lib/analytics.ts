@@ -12,6 +12,7 @@
  *   whatsapp_click  – any WhatsApp link/button clicked
  *   phone_click     – any tel: link clicked
  *   email_click     – any mailto: link clicked
+ *   booking_click   – "Book a free call" (Calendly) link clicked
  *   cta_click       – "Get a Free Consultation" / other primary CTAs clicked
  */
 export type LeadEvent =
@@ -19,6 +20,7 @@ export type LeadEvent =
   | "whatsapp_click"
   | "phone_click"
   | "email_click"
+  | "booking_click"
   | "cta_click";
 
 type Gtag = (command: "event", eventName: string, params?: Record<string, unknown>) => void;

@@ -111,7 +111,7 @@ export default function RefundPolicyPage() {
                 </p>
                 <ul>
                   <li><strong>Current Month Non-Refundable:</strong> The retainer fee for the active billing month is non-refundable, regardless of how many support hours were consumed. Resources are allocated and reserved at the start of each month.</li>
-                  <li><strong>Cancellation Notice:</strong> Clients wishing to cancel a retainer must provide a minimum of <strong>15 calendar days&apos; written notice</strong> via email to <span className="text-accent-blue">wefortechnology.ai@gmail.com</span> before the next billing cycle.</li>
+                  <li><strong>Cancellation Notice:</strong> Clients wishing to cancel a retainer must provide a minimum of <strong>15 calendar days&apos; written notice</strong> via email to <span className="text-accent-blue">contact@wefortechnology.in</span> before the next billing cycle.</li>
                   <li><strong>Pre-Paid Retainers:</strong> If a client has pre-paid for multiple months upfront and provides the required cancellation notice, We For Technology will issue a pro-rata refund for the unused future months within 10 business days.</li>
                   <li><strong>Unused Hours:</strong> Retainer support hours do not roll over to the following month and hold no cash redemption value.</li>
                 </ul>
@@ -201,7 +201,7 @@ export default function RefundPolicyPage() {
               <RS id="process" number="09" title="How to Request a Refund">
                 <p>To formally request a refund, please follow these steps:</p>
                 <ul>
-                  <li><strong>Email Subject:</strong> Send your request to <span className="text-accent-blue">wefortechnology.ai@gmail.com</span> with the subject line: <span className="font-mono text-slate-200">[REFUND REQUEST] — Project Name — Invoice #</span></li>
+                  <li><strong>Email Subject:</strong> Send your request to <span className="text-accent-blue">contact@wefortechnology.in</span> with the subject line: <span className="font-mono text-slate-200">[REFUND REQUEST] — Project Name — Invoice #</span></li>
                   <li><strong>Include:</strong> Your full name, company name, project name, invoice number(s), the milestone(s) in question, and a clear description of your reason for requesting a refund.</li>
                   <li><strong>Review Period:</strong> We For Technology will review your request and respond within <strong>5 business days</strong> with either an approval, partial approval, or a detailed explanation of why the request does not qualify under this policy.</li>
                   <li><strong>Approved Refund Timeline:</strong> Approved refunds are processed within <strong>10 business days</strong> via the original payment method (bank transfer, Razorpay, or Stripe). International wire transfer fees are deducted from the refund amount.</li>
@@ -225,8 +225,8 @@ export default function RefundPolicyPage() {
                 <p>For any refund-related questions, billing disputes, or cancellation requests, please contact our billing team:</p>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4">
                   {[
-                    { icon: Mail,        label: "Billing Email",  value: "wefortechnology.ai@gmail.com", href: "mailto:wefortechnology.ai@gmail.com" },
-                    { icon: Mail,        label: "General Email",  value: "wefortechnology.ai@gmail.com", href: "mailto:wefortechnology.ai@gmail.com" },
+                    { icon: Mail,        label: "Billing Email",  value: "contact@wefortechnology.in", href: "mailto:contact@wefortechnology.in" },
+                    { icon: Mail,        label: "General Email",  value: "contact@wefortechnology.in", href: "mailto:contact@wefortechnology.in" },
                   ].map(({ icon: Icon, label, value, href }) => (
                     <div key={label} className="flex items-start gap-3 bg-white/[0.03] border border-white/[0.07] rounded-xl p-4">
                       <div className="w-8 h-8 rounded-lg bg-accent-purple/10 border border-accent-purple/20 flex items-center justify-center shrink-0">

@@ -33,10 +33,10 @@ const marqueeItems = [
 ];
 
 const stats = [
-  { value: 50, suffix: "+", label: "Projects Completed" },
-  { value: 30, suffix: "+", label: "Happy Clients" },
+  { value: 3, suffix: "+", label: "Years of Experience" },
+  { value: 10, suffix: "+", label: "Services Offered" },
   { value: 10, suffix: "+", label: "Core Technologies" },
-  { value: 99, suffix: "%", label: "Client Satisfaction" },
+  { value: 24, suffix: "h", label: "Enquiry Reply Time" },
 ];
 
 const values = [
@@ -270,7 +270,7 @@ export default function Home() {
 
           <div className="text-center">
             <Button href="/services" variant="outline">
-              <span>View All 12 Services</span>
+              <span>View All Services</span>
               <ArrowRight className="w-4.5 h-4.5" />
             </Button>
           </div>
@@ -281,9 +281,9 @@ export default function Home() {
       <section className="py-24 relative z-10">
         <div className="max-w-7xl mx-auto px-6">
           <SectionHeading
-            title="Engineered to Drive Real Results"
+            title="What We Can Build For You"
             subtitle="Featured Projects"
-            description="Inspect detailed audits, custom tech solutions, and business outcomes."
+            description="Concept projects that show how we design and build: dashboards, AI assistants, e-commerce and Zoho apps."
           />
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
@@ -365,7 +365,7 @@ export default function Home() {
                 </div>
                 <div className="flex items-center gap-3">
                   <CheckCircle2 className="w-5 h-5 text-[#0369A1] dark:text-accent-blue" />
-                  <span className="text-sm font-medium text-[#0A0F1E] dark:text-white">Zoho Certified Methodologies</span>
+                  <span className="text-sm font-medium text-[#0A0F1E] dark:text-white">MERN & Next.js Specialists</span>
                 </div>
                 <div className="flex items-center gap-3">
                   <CheckCircle2 className="w-5 h-5 text-[#0369A1] dark:text-accent-blue" />
@@ -399,9 +399,9 @@ export default function Home() {
       <section className="py-20 relative z-10 border-t border-slate-200 dark:border-white/5 bg-gradient-to-b from-[#F8FAFC] to-[#F1F5F9] dark:from-[#081020] dark:to-[#030712]">
         <div className="max-w-7xl mx-auto px-6">
           <SectionHeading
-            title="Our Ironclad Client Guarantee"
+            title="Our Promise to Every Client"
             subtitle="Built For Trust"
-            description="We eliminate client risk through transparent milestones, guaranteed SLAs, and enterprise-grade security."
+            description="We reduce your risk with transparent milestones, written agreements, and secure engineering practices."
           />
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
@@ -440,13 +440,13 @@ export default function Home() {
                 <div className="w-12 h-12 rounded-xl bg-purple-500/10 border border-purple-500/20 text-purple-500 flex items-center justify-center font-bold">
                   <Award className="w-6 h-6" />
                 </div>
-                <h3 className="text-xl font-bold text-[#0A0F1E] dark:text-white">99.9% Uptime & 24/7 Support</h3>
+                <h3 className="text-xl font-bold text-[#0A0F1E] dark:text-white">Support After Launch</h3>
                 <p className="text-slate-600 dark:text-slate-300 font-light text-sm leading-relaxed">
-                  Dedicated post-launch bug fixes and monitoring. Our engineering desk in Ghaziabad handles real-time cloud updates and technical maintenance.
+                  We stay with you after go-live: bug fixes, updates and help from the same team that built your product. Ongoing maintenance plans are available.
                 </p>
               </div>
               <div className="mt-6 pt-4 border-t border-slate-100 dark:border-white/5 flex items-center gap-2 text-xs font-mono text-purple-600 dark:text-purple-400 font-semibold">
-                <span>✓ Production SLA Guaranteed</span>
+                <span>✓ Post-Launch Bug Fixes Included</span>
               </div>
             </div>
           </div>
@@ -459,12 +459,12 @@ export default function Home() {
           <SectionHeading
             title="Why Businesses Trust Us"
             subtitle="Credentials"
-            description="Clear process, certified expertise, and complete ownership of what we build for you."
+            description="A clear process, hands-on founders, and complete ownership of what we build for you."
           />
 
           <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
-              { icon: Award, title: "Zoho Certified Expertise", text: "Certified Zoho CRM & Creator specialists for automation and custom business apps." },
+              { icon: Award, title: "Founder-Led Projects", text: "You work directly with the founders, with no account managers in between. Your project gets our full attention." },
               { icon: Shield, title: "100% Code Ownership", text: "You own all source code and IP. Strict NDA on every project." },
               { icon: Clock, title: "24-Hour Response", text: "Every enquiry gets a reply from a consultant within one business day." },
               { icon: Zap, title: "Agile Sprint Delivery", text: "Weekly demos and milestone-based payments, so you see progress early." },
@@ -608,7 +608,7 @@ export default function Home() {
                       </svg>
                     </a>
                     <a
-                      href="https://facebook.com"
+                      href="https://www.facebook.com/wefortechnology"
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label="Facebook"

@@ -206,7 +206,7 @@ export default function PrivacyPolicyPage() {
                   <li><strong>Right to Withdraw Consent:</strong> Where processing is based on your consent, you may withdraw it at any time without affecting the lawfulness of prior processing.</li>
                 </ul>
                 <p>
-                  To exercise any of these rights, please contact us at <span className="text-accent-blue">wefortechnology.ai@gmail.com</span>. We will respond to verified requests within 30 days. We may need to verify your identity before processing a request.
+                  To exercise any of these rights, please contact us at <span className="text-accent-blue">contact@wefortechnology.in</span>. We will respond to verified requests within 30 days. We may need to verify your identity before processing a request.
                 </p>
                 <InfoBox>
                   Indian residents should be aware that additional rights and protections may apply under the Digital Personal Data Protection Act (DPDPA), 2023, once fully notified by the Government of India.
@@ -219,7 +219,7 @@ export default function PrivacyPolicyPage() {
                   Our website and services are intended exclusively for business and professional use by individuals aged 18 years or older. We do not knowingly collect personal data from children under the age of 18.
                 </p>
                 <p>
-                  If you believe that we have inadvertently collected personal information from a minor, please contact us immediately at <span className="text-accent-blue">wefortechnology.ai@gmail.com</span> and we will take prompt steps to delete that information from our systems.
+                  If you believe that we have inadvertently collected personal information from a minor, please contact us immediately at <span className="text-accent-blue">contact@wefortechnology.in</span> and we will take prompt steps to delete that information from our systems.
                 </p>
               </PolicySection>
 
@@ -245,7 +245,7 @@ export default function PrivacyPolicyPage() {
                 </p>
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-4">
                   {[
-                    { icon: Mail,    label: "Email",    value: "wefortechnology.ai@gmail.com", href: "mailto:wefortechnology.ai@gmail.com" },
+                    { icon: Mail,    label: "Email",    value: "contact@wefortechnology.in", href: "mailto:contact@wefortechnology.in" },
                     { icon: Phone,   label: "Phone",    value: "+91 8510070940",              href: "tel:+918510070940" },
                     { icon: MapPin,  label: "Address",  value: "Ghaziabad, Uttar Pradesh, India", href: null },
                   ].map(({ icon: Icon, label, value, href }) => (

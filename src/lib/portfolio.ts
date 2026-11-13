@@ -19,9 +19,9 @@ export const portfolioItems: CaseStudy[] = [
     title: "Apex Fintech Dashboard",
     category: "Software",
     subTitle: "High-performance financial analytics and multi-currency transaction dashboard.",
-    description: "Apex Finance required a real-time transactional dashboard capable of displaying thousands of data updates per second while keeping load times under 1 second. We built a custom React dashboard optimized for minimal rerenders, custom charting layers, and secure role-based access controls.",
-    clientProblem: "The client's previous dashboard suffered from extreme lag when rendering high-frequency financial charts, causing transactions to time out and admins to lose track of real-time multi-currency pricing streams.",
-    ourSolution: "We created a clean React/Next.js dashboard using canvas-based charting and WebSocket data pipes, coupled with a Node.js API and PostgreSQL database. The backend handles high-concurrency requests with Redis cache layers, delivering updates in milliseconds.",
+    description: "A concept build of a real-time financial dashboard: live transaction streams, multi-currency views and role-based access, designed to stay fast while thousands of data points update every second.",
+    clientProblem: "Finance teams often work with dashboards that lag when charts update rapidly, so admins lose track of live pricing and transactions time out. This concept explores how we would build a dashboard that stays responsive under that load.",
+    ourSolution: "The concept uses a clean React/Next.js dashboard using canvas-based charting and WebSocket data pipes, coupled with a Node.js API and PostgreSQL database. The backend handles high-concurrency requests with Redis cache layers, delivering updates in milliseconds.",
     features: [
       "Real-time WebSocket data streaming",
       "Interactive Canvas charting (down to 100ms ticks)",
@@ -32,9 +32,9 @@ export const portfolioItems: CaseStudy[] = [
     technologies: ["Next.js", "Node.js", "PostgreSQL", "Tailwind CSS", "Redis", "WebSockets"],
     challenges: "Synchronizing high-frequency exchange rates from external banking APIs and preventing DOM clutter on rapid chart updates.",
     results: [
-      "99.99% system uptime maintained during peak trading hours",
-      "Dashboard rendering speed improved by 340%",
-      "Average session duration increased by 40% due to superior UX"
+      "Real-time data streaming over WebSockets with smooth chart updates",
+      "Secure role-based access control with audit logging",
+      "A performance-first React architecture that avoids unnecessary re-renders"
     ],
     imageUrl: "/images/portfolio/fintech.jpg"
   },
@@ -43,9 +43,9 @@ export const portfolioItems: CaseStudy[] = [
     title: "MindFlow AI Assistant",
     category: "AI",
     subTitle: "Intelligent customer service assistant with semantic document retrieval.",
-    description: "MindFlow is an AI-powered customer support and automation platform that retrieves company-specific knowledge to answer user queries. By leveraging RAG (Retrieval-Augmented Generation), the assistant provides context-aware solutions, dropping support tickets by 60%.",
-    clientProblem: "A growing SaaS company was overwhelmed by customer support tickets. 75% of these tickets were routine questions already documented in their extensive knowledge base, but users struggled to find the answers manually.",
-    ourSolution: "We built a customized AI chatbot widget and admin portal. The system embeds the customer's knowledge base into a vector database (Pinecone) and queries OpenAI's GPT-4 models. When a user asks a question, the assistant fetches relevant passages first, delivering highly factual responses with citation links.",
+    description: "A concept AI support assistant that answers customer questions from a company's own documentation, using retrieval-augmented generation (RAG) so answers stay grounded and cite their sources.",
+    clientProblem: "Growing companies receive many support tickets that repeat questions already answered in their help docs. This concept shows how an AI assistant could find and serve those answers instantly, and hand over to a human when it can't.",
+    ourSolution: "The concept is an AI chatbot widget with an admin portal. It embeds a company's knowledge base into a vector database (Pinecone) and queries OpenAI's GPT-4 models. When a user asks a question, the assistant fetches relevant passages first, delivering highly factual responses with citation links.",
     features: [
       "Retrieval-Augmented Generation (RAG) architecture",
       "Vector embeddings using OpenAI text-embedding-3",
@@ -56,9 +56,9 @@ export const portfolioItems: CaseStudy[] = [
     technologies: ["Next.js", "OpenAI API", "Pinecone", "LangChain", "Node.js", "Tailwind CSS"],
     challenges: "Preventing the LLM from hallucinating answers and formatting vector retrieval to return exact matching document links.",
     results: [
-      "62% reduction in customer support tickets within 30 days",
-      "24/7 instant response time with average chat duration under 2 minutes",
-      "92% customer satisfaction score (CSAT) for AI-handled chats"
+      "RAG pipeline: document embeddings, vector search and grounded answers",
+      "Source citations on every answer to reduce hallucinations",
+      "Automatic hand-over to a human agent for complex questions"
     ],
     imageUrl: "/images/portfolio/ai-assistant.jpg"
   },
@@ -66,10 +66,10 @@ export const portfolioItems: CaseStudy[] = [
     slug: "velvet-threads-storefront",
     title: "Velvet Threads Storefront",
     category: "E-commerce",
-    subTitle: "Headless e-commerce platform for a luxury fashion brand with global checkouts.",
-    description: "Velvet Threads is a high-fashion retailer that needed a blazing-fast, visually premium digital storefront. We designed and engineered a headless e-commerce store connected to Stripe and Shopify API, providing sub-second page loads and custom interactive cart systems.",
-    clientProblem: "The brand's previous monolithic e-commerce website was slow, taking over 5 seconds to load product pages. This led to high bounce rates (55%) and a checkout process that failed on mobile devices.",
-    ourSolution: "We created a Next.js headless storefront, utilizing Static Site Generation (SSG) for static product pages that load instantly from a global CDN. The shopping cart, checkout, and inventory details are managed through Stripe APIs and a custom lightweight backend.",
+    subTitle: "Headless e-commerce storefront concept for a fashion brand, with fast mobile checkout.",
+    description: "A concept headless e-commerce storefront for a fashion brand: premium product pages, a fast custom cart and secure Stripe checkout, built on Next.js for sub-second page loads.",
+    clientProblem: "Many online stores lose customers to slow product pages and checkouts that break on mobile. This concept demonstrates a storefront designed mobile-first, with performance treated as a feature.",
+    ourSolution: "The concept is a Next.js headless storefront, utilizing Static Site Generation (SSG) for static product pages that load instantly from a global CDN. The shopping cart, checkout, and inventory details are managed through Stripe APIs and a custom lightweight backend.",
     features: [
       "Headless Next.js storefront with dynamic SSR updates",
       "Instant multi-currency checkout via Stripe Elements",
@@ -80,9 +80,9 @@ export const portfolioItems: CaseStudy[] = [
     technologies: ["Next.js", "Stripe API", "Tailwind CSS", "GraphQL", "Algolia", "Framer Motion"],
     challenges: "Synchronizing inventory counts across physical boutiques and the online storefront in real-time, especially during limited product drops.",
     results: [
-      "Cart abandonment rates dropped from 68% to 41%",
-      "Lighthouse performance score boosted to 98/100",
-      "Mobile sales increased by 85% in the first quarter post-launch"
+      "Headless architecture: Next.js front end with a separate commerce back end",
+      "Mobile-first checkout with Stripe payments",
+      "Image and page optimisation aimed at top Lighthouse scores"
     ],
     imageUrl: "/images/portfolio/ecommerce.jpg"
   },
@@ -90,10 +90,10 @@ export const portfolioItems: CaseStudy[] = [
     slug: "optima-zoho-crm",
     title: "Optima CRM & Lead Flow",
     category: "Zoho",
-    subTitle: "Custom Zoho CRM workflows and automated sales pipeline for a retail company.",
-    description: "Optima Solutions needed to consolidate customer leads from Facebook, Google Ads, and their custom websites. We configured Zoho CRM, implemented custom Zoho Creator modules, and engineered Deluge workflows to automate lead qualification, sales routing, and email follow-ups.",
-    clientProblem: "Sales representatives were manually copying leads from email alerts into spreadsheets. This process took hours, leading to a response time of over 24 hours and a high rate of lost leads.",
-    ourSolution: "We integrated all lead-generation sources directly into Zoho CRM via webhooks and REST APIs. Using custom Deluge scripts, leads are qualified based on budget/location and automatically assigned to the correct regional sales rep. Follow-up tasks and email templates are triggered instantly.",
+    subTitle: "Zoho CRM workflow concept: automated lead capture, routing and follow-up.",
+    description: "A concept Zoho CRM setup that collects leads from Facebook, Google Ads and website forms in one place, then uses Deluge workflows to qualify, route and follow up automatically.",
+    clientProblem: "Sales teams often copy leads from email alerts into spreadsheets by hand, so replies are slow and leads get lost. This concept shows how Zoho CRM and Creator can capture, assign and follow up on every lead automatically.",
+    ourSolution: "All lead sources connect directly into Zoho CRM via webhooks and REST APIs. Using custom Deluge scripts, leads are qualified based on budget/location and automatically assigned to the correct regional sales rep. Follow-up tasks and email templates are triggered instantly.",
     features: [
       "Multi-channel lead ingestion via CRM webhooks",
       "Automated sales routing based on lead scoring rules",
@@ -104,9 +104,9 @@ export const portfolioItems: CaseStudy[] = [
     technologies: ["Zoho CRM", "Zoho Creator", "Deluge Scripting", "REST APIs", "Node.js"],
     challenges: "Handling lead deduplication and resolving conflicts when a single user submitted inquiries through multiple marketing channels.",
     results: [
-      "Average lead response time dropped from 26 hours to 4 minutes",
-      "Sales productivity increased by 45% due to automated scheduling",
-      "Lost leads reduced to virtually zero"
+      "Lead capture from multiple ad and web sources into one CRM",
+      "Deluge workflows for qualification, routing and follow-up emails",
+      "Custom Zoho Creator modules for the team's own process"
     ],
     imageUrl: "/images/portfolio/zoho.jpg"
   },
@@ -115,9 +115,9 @@ export const portfolioItems: CaseStudy[] = [
     title: "FitPulse Mobile App",
     category: "Apps",
     subTitle: "Cross-platform fitness application with offline workouts and social feeds.",
-    description: "FitPulse is a mobile app designed for active communities, featuring workout trackers, exercise videos, offline playback, and community challenge feeds. Built with React Native, the app runs smoothly on both iOS and Android platforms.",
-    clientProblem: "The client wanted to launch a fitness tracker but had a tight timeline and budget. They could not afford to build and maintain separate native iOS and Android apps, yet they refused to compromise on smooth, fluid UI animations.",
-    ourSolution: "We engineered a React Native cross-platform application sharing 90% of code. We used Reanimated for native-feeling UI transitions, configured SQLite for complete offline workout tracking, and built a lightweight Node.js API to sync user progress whenever they return online.",
+    description: "A concept cross-platform fitness app with workout tracking, exercise videos, offline playback and community challenges, built once with React Native for both iOS and Android.",
+    clientProblem: "Small teams often can't afford separate native iOS and Android apps. This concept demonstrates how one React Native codebase can deliver a smooth, native-feeling app on both platforms.",
+    ourSolution: "A React Native cross-platform app sharing about 90% of its code. It uses Reanimated for native-feeling UI transitions, SQLite for complete offline workout tracking, and a lightweight Node.js API to sync user progress whenever they return online.",
     features: [
       "Cross-platform iOS and Android builds",
       "Offline workout tracking and local caching",
@@ -128,9 +128,9 @@ export const portfolioItems: CaseStudy[] = [
     technologies: ["React Native", "TypeScript", "Node.js", "MongoDB", "Expo", "Redux Toolkit"],
     challenges: "Optimizing video playback buffers and keeping local database records synchronized with the cloud server during spotty network connections.",
     results: [
-      "Launched on both stores in under 12 weeks",
-      "Over 50,000 active app store downloads in the first month",
-      "Average rating of 4.8 stars on Apple App Store"
+      "One React Native codebase for iOS and Android",
+      "Offline video playback and workout tracking",
+      "Community feeds and challenges with push notifications"
     ],
     imageUrl: "/images/portfolio/app.jpg"
   },
@@ -139,9 +139,9 @@ export const portfolioItems: CaseStudy[] = [
     title: "Lumina Brand Identity",
     category: "UI/UX",
     subTitle: "Complete brand visual identity, typography system, and UI/UX design kit.",
-    description: "Lumina required a full rebrand to target high-end corporate clients. We designed their primary logo, selected a premium color scheme, defined font pairs, and delivered a complete Figma visual library to guide all future digital products.",
-    clientProblem: "Lumina's visual branding looked outdated and resembled a generic startup, making it difficult to land contracts with large corporate enterprises that valued security and premium reliability.",
-    ourSolution: "We conducted a deep brand strategy analysis and designed a modern geometric logo that communicates stability and innovation. We followed this with a dark-mode-first color palette, clean sans-serif typography, and a comprehensive Figma UI kit containing over 150 reusable design components.",
+    description: "A concept brand identity: logo, colour palette, type pairings and a Figma design library that keeps every future website and app on-brand.",
+    clientProblem: "Young companies often have branding that looks generic, which makes it harder to win larger clients. This concept shows the complete identity system we would create to make a brand look established and consistent.",
+    ourSolution: "The concept starts from brand strategy and a modern geometric logo that communicates stability and innovation. It continues with a colour palette, clean sans-serif typography, and a comprehensive Figma UI kit containing over 150 reusable design components.",
     features: [
       "Custom geometric vector logo set",
       "Harmonious dark/light mode color systems",
@@ -152,9 +152,9 @@ export const portfolioItems: CaseStudy[] = [
     technologies: ["Figma", "Adobe Illustrator", "Adobe Photoshop"],
     challenges: "Developing a typography system that reads beautifully on screens as small as smartwatches and as large as conference room monitors.",
     results: [
-      "Client successfully signed 3 enterprise accounts within 2 months of rebranding",
-      "Unified design system reduced developers' time-to-prototype by 50%",
-      "Brand recognition increased by 80% among focus group testing"
+      "Logo suite, colour system and typography guidelines",
+      "A reusable Figma component library for designers and developers",
+      "Brand rules that keep websites and apps consistent"
     ],
     imageUrl: "/images/portfolio/branding.jpg"
   },
@@ -163,9 +163,9 @@ export const portfolioItems: CaseStudy[] = [
     title: "NexaHR SaaS Portal",
     category: "Software",
     subTitle: "Multi-tenant HR management SaaS with payroll, attendance, and appraisal modules.",
-    description: "NexaHR is a B2B SaaS platform built for mid-sized enterprises to manage employee lifecycle events — from onboarding to exit. The platform features a clean role-based dashboard, payroll automation, attendance tracking, and quarterly performance appraisal workflows.",
-    clientProblem: "The startup founders needed a fully functional SaaS product to pitch to enterprise HR buyers. They had wireframes but no technical team, and required a production-ready platform within 10 weeks.",
-    ourSolution: "We architected a multi-tenant Next.js frontend backed by a Node.js API with per-tenant PostgreSQL schemas. Each company gets their own isolated data environment. We built a role engine (Admin, Manager, Employee), a payroll engine with tax slabs, and a real-time attendance tracker.",
+    description: "A concept B2B HR platform covering the employee lifecycle, from onboarding to exit: role-based dashboards, attendance, payroll automation and performance reviews.",
+    clientProblem: "Founders with an HR software idea often have wireframes but no technical team. This concept shows how we would turn that idea into a multi-tenant SaaS product, ready to demo to buyers.",
+    ourSolution: "A multi-tenant Next.js frontend backed by a Node.js API with per-tenant PostgreSQL schemas. Each company gets its own isolated data environment, with a role engine (Admin, Manager, Employee), a payroll engine with tax slabs, and a real-time attendance tracker.",
     features: [
       "Multi-tenant architecture with isolated data schemas",
       "Payroll engine with tax calculation and payslip PDF generation",
@@ -176,9 +176,9 @@ export const portfolioItems: CaseStudy[] = [
     technologies: ["Next.js", "Node.js", "PostgreSQL", "Prisma", "AWS S3", "Tailwind CSS"],
     challenges: "Designing a payroll engine that correctly handles variable pay structures, overtime rules, and different tax regimes across Indian states.",
     results: [
-      "Platform launched in 9 weeks — 1 week ahead of schedule",
-      "Onboarded 4 enterprise pilot clients in the first month",
-      "Payroll processing time reduced from 3 days to under 20 minutes per company"
+      "Multi-tenant SaaS architecture with role-based dashboards",
+      "Payroll and attendance automation",
+      "Performance review workflows and reporting"
     ],
     imageUrl: "/images/portfolio/saas.jpg"
   },
@@ -187,9 +187,9 @@ export const portfolioItems: CaseStudy[] = [
     title: "PropertyPro Real Estate Portal",
     category: "Websites",
     subTitle: "High-performance real estate listing portal with map search and lead capture.",
-    description: "PropertyPro is a large-scale real estate listing platform connecting buyers, sellers, and agents across three metro cities. We built a Next.js SSG/ISR powered portal with Mapbox property search, advanced filtering, mortgage calculators, and direct agent WhatsApp connect.",
-    clientProblem: "The client's old WordPress listing site was painfully slow (8s load) and had no mobile optimisation. Buyers would leave before viewing listings, costing thousands in lost commissions.",
-    ourSolution: "We rebuilt the platform headless using Next.js ISR to pre-render 10,000+ property pages. Mapbox GL integration shows interactive property pins. A custom Node.js API serves filtered search results from a PostgreSQL spatial database in under 200ms.",
+    description: "A concept real-estate listing portal with map-based property search, advanced filters, a mortgage calculator and one-tap WhatsApp contact with agents, built on Next.js for speed and SEO.",
+    clientProblem: "Many property sites are slow and hard to use on phones, so buyers leave before they see listings. This concept demonstrates a fast, mobile-first portal designed to turn visitors into enquiries.",
+    ourSolution: "A headless platform using Next.js ISR to pre-render 10,000+ property pages. Mapbox GL integration shows interactive property pins. A custom Node.js API serves filtered search results from a PostgreSQL spatial database in under 200ms.",
     features: [
       "Mapbox GL interactive property search with clustering",
       "Advanced filters (price, BHK, locality, amenities)",
@@ -200,9 +200,9 @@ export const portfolioItems: CaseStudy[] = [
     technologies: ["Next.js", "Node.js", "PostgreSQL", "Mapbox GL", "Tailwind CSS", "Vercel"],
     challenges: "Serving accurate real-time inventory while keeping page load under 1 second across 10,000+ listings using ISR revalidation strategies.",
     results: [
-      "Page load time reduced from 8.2s to 0.7s (Lighthouse 96)",
-      "Lead inquiries increased by 210% in 60 days post-launch",
-      "Agent sign-ups grew to 380+ within the first quarter"
+      "Map-based search with advanced filters",
+      "Fast, SEO-friendly pages using static generation",
+      "Direct WhatsApp enquiries to agents from every listing"
     ],
     imageUrl: "/images/portfolio/realestate.jpg"
   },
@@ -211,9 +211,9 @@ export const portfolioItems: CaseStudy[] = [
     title: "SwiftOps Field Agent App",
     category: "Zoho",
     subTitle: "Custom Zoho Creator mobile app for real-time field operations and service tracking.",
-    description: "SwiftOps is a Zoho Creator application built for a facility management company. Field technicians use it to receive jobs, log work evidence (photos + GPS), collect digital signatures, and close service tickets — all without internet connectivity.",
-    clientProblem: "Field supervisors were calling technicians manually to assign jobs, then waiting for WhatsApp photos as proof of work completion. The process was error-prone, slow, and provided no audit trail for enterprise clients.",
-    ourSolution: "We designed a custom Zoho Creator app with offline-first architecture. Jobs are synced when the device connects to the internet. Deluge automation handles SLA escalations, sends WhatsApp alerts to managers, and pushes a PDF service report to the client automatically on ticket closure.",
+    description: "A concept Zoho Creator app for field service teams: technicians receive jobs, log photo and GPS proof of work, collect digital signatures and close tickets, even without internet.",
+    clientProblem: "Field teams are often coordinated by phone calls and WhatsApp photos, which is slow, error-prone and leaves no record. This concept shows how a Zoho Creator app could give every job a complete digital trail.",
+    ourSolution: "A custom Zoho Creator app with offline-first architecture. Jobs are synced when the device connects to the internet. Deluge automation handles SLA escalations, sends WhatsApp alerts to managers, and pushes a PDF service report to the customer automatically on ticket closure.",
     features: [
       "Offline job queue with auto-sync on reconnection",
       "GPS-tagged photo evidence capture",
@@ -224,9 +224,9 @@ export const portfolioItems: CaseStudy[] = [
     technologies: ["Zoho Creator", "Deluge Scripting", "Zoho CRM", "Zoho Analytics", "REST APIs"],
     challenges: "Building reliable offline sync logic within Zoho Creator's constraints and ensuring GPS metadata was preserved accurately when photos were uploaded after connectivity resumed.",
     results: [
-      "Ticket closure time reduced from 48 hours to 6 hours on average",
-      "100% digital audit trail replacing paper-based proof of work",
-      "Client satisfaction NPS score rose from 42 to 78 within 3 months"
+      "Job assignment and tracking in Zoho Creator",
+      "Photo, GPS and signature capture, with offline support",
+      "A complete digital audit trail for every job"
     ],
     imageUrl: "/images/portfolio/fieldapp.jpg"
   }

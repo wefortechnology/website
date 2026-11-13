@@ -5,7 +5,7 @@ import { faqs } from "@/lib/faqs";
 export const metadata: Metadata = withSeo({
   title: "Frequently Asked Questions (FAQ) | We For Technology",
   description:
-    "Find answers to common questions about our web development, pricing, timelines, Zoho CRM setup, cloud hosting, payment gateways, and custom software processes.",
+    "What is We For Technology? Answers about our Ghaziabad web development studio, services, pricing, timelines, hosting, Zoho CRM, AI integrations and support.",
   alternates: {
     canonical: "/faq",
   },

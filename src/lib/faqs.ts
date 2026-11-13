@@ -1,12 +1,39 @@
+import { contact } from "./site";
+
 export interface FAQItem {
   question: string;
   answer: string;
 }
 
+/**
+ * Brand questions come first: short, direct definitions that search engines
+ * and AI answers can quote when people search for "We For Technology".
+ * Keep these consistent with the About page, site metadata and JSON-LD.
+ */
 export const faqs: FAQItem[] = [
   {
+    question: "What is We For Technology?",
+    answer: "We For Technology is a web development studio based in Ghaziabad, Uttar Pradesh, India. We build custom websites, web applications and mobile apps with the MERN stack and Next.js, and we also offer Zoho CRM automation, AI integrations and UI/UX design for businesses in India and worldwide."
+  },
+  {
+    question: "Where is We For Technology located?",
+    answer: "We For Technology is based in Ghaziabad, Uttar Pradesh, and serves clients across Delhi NCR (including Delhi and Noida), the rest of India, and international clients remotely. Our office hours are Monday to Saturday, 10 AM to 7 PM IST."
+  },
+  {
+    question: "When was We For Technology founded?",
+    answer: "We For Technology was founded in July 2026 in Ghaziabad. Our founders bring three years of hands-on experience building web applications with the MERN stack and Next.js, and we have already delivered projects for our first clients."
+  },
+  {
+    question: "What services does We For Technology offer?",
+    answer: "We For Technology offers website development, custom web application development, mobile app development, custom software, e-commerce development, Zoho CRM and Creator solutions, AI integrations, UI/UX design, and post-launch maintenance and support."
+  },
+  {
+    question: "How can I contact We For Technology?",
+    answer: `You can reach We For Technology by phone or WhatsApp at ${contact.phoneDisplay}, by email at ${contact.email}, or by booking a free 30-minute call through the contact page at wefortechnology.in/contact. We reply to every enquiry within 24 hours.`
+  },
+  {
     question: "How much does a website cost?",
-    answer: "The cost of a website depends on its complexity, the number of pages, specific integrations, and design requirements. We offer tailor-made quotes based on your project scope. Simple business websites start lower, while complex, database-driven e-commerce portals and enterprise web apps require custom scoping. We route users to our contact page for custom, transparent quotes."
+    answer: "The cost of a website depends on its complexity, the number of pages, specific integrations, and design requirements. We offer tailor-made quotes based on your project scope. Simple business websites start lower, while complex, database-driven e-commerce portals and enterprise web apps require custom scoping. Contact us with your requirements and we will send you a clear, itemised quote."
   },
   {
     question: "How long does development take?",

@@ -182,37 +182,37 @@ const serviceMetrics: Record<string, { label: string; value: string; color: stri
   "app-development": [
     { label: "Cross-Platform", value: "iOS + Android", color: "text-sky-400" },
     { label: "FPS Performance", value: "60 FPS", color: "text-emerald-400" },
-    { label: "Store Approval", value: "100%", color: "text-amber-400" },
+    { label: "Store Submission", value: "Handled", color: "text-amber-400" },
   ],
   "software-development": [
     { label: "IP Ownership", value: "100%", color: "text-emerald-400" },
-    { label: "Uptime SLA", value: "99.9%", color: "text-sky-400" },
+    { label: "Hosting Setup", value: "Included", color: "text-sky-400" },
     { label: "Security Encryption", value: "AES-256", color: "text-purple-400" },
   ],
   "ui-ux-design": [
     { label: "Figma Handoff", value: "100%", color: "text-purple-400" },
-    { label: "User Satisfaction", value: "98%", color: "text-emerald-400" },
-    { label: "Design Iterations", value: "Unlimited", color: "text-sky-400" },
+    { label: "User Testing", value: "Built In", color: "text-emerald-400" },
+    { label: "Design Revisions", value: "Included", color: "text-sky-400" },
   ],
   "ecommerce": [
-    { label: "Conversion Lift", value: "+35%", color: "text-emerald-400" },
-    { label: "Page Load Time", value: "< 1.2s", color: "text-sky-400" },
+    { label: "Checkout", value: "Mobile-First", color: "text-emerald-400" },
+    { label: "Page Load Target", value: "< 1.2s", color: "text-sky-400" },
     { label: "Payment Gateways", value: "10+ Supported", color: "text-purple-400" },
   ],
   "zoho-solutions": [
-    { label: "Hours Saved/mo", value: "120+ Hrs", color: "text-emerald-400" },
-    { label: "Deluge Custom Scripts", value: "Certified", color: "text-sky-400" },
-    { label: "Data Accuracy", value: "100%", color: "text-purple-400" },
+    { label: "Manual Work", value: "Automated", color: "text-emerald-400" },
+    { label: "Deluge Scripts", value: "Custom-Built", color: "text-sky-400" },
+    { label: "Data Sync", value: "Automated", color: "text-purple-400" },
   ],
   "ai-integration": [
-    { label: "Response Latency", value: "< 300ms", color: "text-sky-400" },
-    { label: "Model Accuracy", value: "99.2%", color: "text-emerald-400" },
+    { label: "Knowledge Source", value: "Your Docs", color: "text-sky-400" },
+    { label: "Answers", value: "Source-Cited", color: "text-emerald-400" },
     { label: "Support Automation", value: "24/7 Active", color: "text-purple-400" },
   ],
   "software-testing": [
-    { label: "Bug Catch Rate", value: "99.5%", color: "text-emerald-400" },
-    { label: "Test Coverage", value: "95% E2E", color: "text-sky-400" },
-    { label: "Regression Time", value: "-70%", color: "text-purple-400" },
+    { label: "Testing Scope", value: "UI + API", color: "text-emerald-400" },
+    { label: "E2E Tests", value: "Automated", color: "text-sky-400" },
+    { label: "Regression Runs", value: "Automated", color: "text-purple-400" },
   ],
   "cms-development": [
     { label: "Publish Speed", value: "Instant", color: "text-emerald-400" },
@@ -220,9 +220,9 @@ const serviceMetrics: Record<string, { label: string; value: string; color: stri
     { label: "Editor Ease", value: "100% No-Code", color: "text-amber-400" },
   ],
   "api-development": [
-    { label: "API Response Time", value: "< 50ms", color: "text-emerald-400" },
+    { label: "API Style", value: "REST + Webhooks", color: "text-emerald-400" },
     { label: "Swagger Docs", value: "Auto-Generated", color: "text-sky-400" },
-    { label: "DDoS Protection", value: "Enterprise", color: "text-purple-400" },
+    { label: "Security", value: "Auth + Rate Limits", color: "text-purple-400" },
   ],
   "branding": [
     { label: "Vector Assets", value: "SVG / AI", color: "text-sky-400" },
@@ -230,9 +230,9 @@ const serviceMetrics: Record<string, { label: string; value: string; color: stri
     { label: "Design Concepts", value: "3 Concepts", color: "text-emerald-400" },
   ],
   "maintenance": [
-    { label: "Response SLA", value: "< 2 Hours", color: "text-emerald-400" },
+    { label: "Support Reply", value: "Within 24h", color: "text-emerald-400" },
     { label: "Cloud Backups", value: "Daily Sync", color: "text-sky-400" },
-    { label: "Uptime Monitor", value: "99.99%", color: "text-purple-400" },
+    { label: "Uptime", value: "Monitored", color: "text-purple-400" },
   ],
 };
 
@@ -242,9 +242,9 @@ export default async function ServiceDetailPage({ params }: PageProps) {
   if (!service) notFound();
 
   const metrics = serviceMetrics[slug] || [
-    { label: "Quality Rating", value: "99%", color: "text-emerald-400" },
+    { label: "Code Quality", value: "Reviewed", color: "text-emerald-400" },
     { label: "Delivery Speed", value: "Agile Sprints", color: "text-sky-400" },
-    { label: "Support SLA", value: "24/7 Active", color: "text-purple-400" },
+    { label: "Support", value: "Post-Launch", color: "text-purple-400" },
   ];
 
   const relatedServices = services.filter((s) => s.slug !== slug).slice(0, 3);
@@ -530,7 +530,7 @@ export default async function ServiceDetailPage({ params }: PageProps) {
               5-Step Implementation Workflow
             </h3>
             <p className="text-slate-400 text-xs sm:text-sm max-w-xl mx-auto">
-              Our proven agile development workflow from initial scoping through to deployment.
+              Our agile development workflow, from initial scoping through to deployment.
             </p>
           </div>
 

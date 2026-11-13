@@ -253,8 +253,11 @@ html:not(.dark) button[class*="text-left"]:not([class*="bg-gradient"]):not([clas
 }
 
 /* Even line lengths for headings so none ends with a single stranded word. */
-h1, h2, h3 {
-  text-wrap: balance;
+@layer base {
+  /* In the base layer so a component can override it with a utility class. */
+  h1, h2, h3 {
+    text-wrap: balance;
+  }
 }
 
 /* Light Mode Typography Contrast Overrides */
@@ -439,6 +442,22 @@ html:not(.dark) .radial-overlay {
 }
 
 /* Entrance animation that works before hydration (used by the hero). */
+/* Floating call button: a short "ringing" wiggle every 4s to signal it's live. */
+@keyframes phone-ring {
+  0%, 20%, 100% { transform: rotate(0deg); }
+  2%, 6%, 10%, 14% { transform: rotate(-14deg); }
+  4%, 8%, 12%, 16% { transform: rotate(14deg); }
+}
+
+.phone-ring {
+  animation: phone-ring 4s ease-in-out infinite;
+  transform-origin: 50% 50%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .phone-ring { animation: none; }
+}
+
 @keyframes fade-up {
   from { opacity: 0; transform: translateY(12px); }
   to { opacity: 1; transform: translateY(0); }

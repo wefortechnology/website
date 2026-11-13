@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import { withSeo } from "@/lib/seo";
 
 export const metadata: Metadata = withSeo({
-  title: "About Us | Premier Tech Agency in Ghaziabad & Delhi NCR",
+  title: "About Us | Web Development Studio in Ghaziabad & Delhi NCR",
   description:
-    "Learn about We For Technology: our mission, leadership team, agile engineering methodology, and our track record in delivering scalable digital solutions from Ghaziabad, Uttar Pradesh, India.",
+    "Learn about We For Technology: a Ghaziabad-based web development studio with 3+ years of hands-on experience in MERN, Next.js, mobile apps and Zoho automation. Meet the team and see how we work.",
   alternates: {
     canonical: "/about",
   },
@@ -12,7 +12,7 @@ export const metadata: Metadata = withSeo({
     url: "https://wefortechnology.in/about",
     title: "About Us | We For Technology",
     description:
-      "Our mission, engineering culture, and experienced team building high-performance digital products.",
+      "Our mission, how we work, and the team behind We For Technology: 3+ years of hands-on web development experience.",
     images: ["/images/og-image.png"],
   },
 });

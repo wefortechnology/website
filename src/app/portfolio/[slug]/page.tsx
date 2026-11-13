@@ -18,11 +18,11 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   if (!project) {
     return {
-      title: "Case Study Not Found",
+      title: "Project Not Found",
     };
   }
 
-  const title = `${project.title} — ${project.category} Case Study | We For Technology`;
+  const title = `${project.title} — ${project.category} Concept Project | We For Technology`;
   const description = `${project.subTitle} Learn how We For Technology delivered ${project.title} using ${project.technologies.slice(0, 3).join(", ")}.`;
 
   return {
@@ -30,9 +30,9 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     description,
     keywords: [
       project.title,
-      `${project.category} case study`,
+      `${project.category} concept project`,
       ...project.technologies,
-      "We For Technology Case Studies",
+      "We For Technology Concept Projects",
       "Software Development Portfolio",
       "Software Agency Ghaziabad",
     ],
@@ -113,7 +113,7 @@ export default async function CaseStudyDetailPage({ params }: PageProps) {
               className="inline-flex items-center gap-2 text-xs font-mono text-slate-400 hover:text-accent-cyan transition-colors uppercase tracking-wider sm:tracking-widest group"
             >
               <ArrowLeft className="w-4 h-4 transition-transform group-hover:-translate-x-1" />
-              <span>Back to Case Studies</span>
+              <span>Back to Projects</span>
             </Link>
 
             <div className="flex items-center gap-2 sm:gap-3">
@@ -131,7 +131,7 @@ export default async function CaseStudyDetailPage({ params }: PageProps) {
               <div className="space-y-3 sm:space-y-4">
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.04] border border-white/10 text-slate-400 text-[11px] sm:text-xs uppercase tracking-wider sm:tracking-widest font-semibold">
                   <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse flex-shrink-0" />
-                  Verified Case Study
+                  Concept Project
                 </div>
                 
                 <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight leading-tight sm:leading-[1.15]">
@@ -178,8 +178,8 @@ export default async function CaseStudyDetailPage({ params }: PageProps) {
                   <div className="text-[10px] sm:text-[11px] font-mono text-slate-400">Sprint Delivery</div>
                 </div>
                 <div className="p-2.5 sm:p-3.5 rounded-xl sm:rounded-2xl bg-emerald-500/5 border border-emerald-500/20 backdrop-blur-md text-center lg:text-left">
-                  <div className="text-base sm:text-2xl font-black font-mono text-emerald-400">+280%</div>
-                  <div className="text-[10px] sm:text-[11px] font-mono text-slate-400">Measured Growth</div>
+                  <div className="text-base sm:text-2xl font-black font-mono text-emerald-400">Mobile</div>
+                  <div className="text-[10px] sm:text-[11px] font-mono text-slate-400">First Design</div>
                 </div>
                 <div className="p-2.5 sm:p-3.5 rounded-xl sm:rounded-2xl bg-purple-500/5 border border-purple-500/20 backdrop-blur-md text-center lg:text-left">
                   <div className="text-base sm:text-2xl font-black font-mono text-purple-400">100% IP</div>
@@ -213,23 +213,23 @@ export default async function CaseStudyDetailPage({ params }: PageProps) {
                     <span className="text-slate-400">System Status:</span>
                     <span className="text-emerald-400 flex items-center gap-1.5 font-bold">
                       <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse flex-shrink-0" />
-                      DEPLOYED &amp; OPTIMIZED
+                      CONCEPT BUILD
                     </span>
                   </div>
 
                   {/* Architecture Metrics */}
                   <div className="space-y-2 bg-white/[0.02] border border-white/5 p-3.5 sm:p-4 rounded-xl sm:rounded-2xl">
                     <div className="flex justify-between text-xs font-mono">
-                      <span className="text-slate-400">System Uptime</span>
-                      <span className="text-sky-400 font-bold">99.99% SLA</span>
+                      <span className="text-slate-400">Category</span>
+                      <span className="text-sky-400 font-bold">{project.category}</span>
                     </div>
                     <div className="flex justify-between text-xs font-mono">
-                      <span className="text-slate-400">Average Latency</span>
-                      <span className="text-emerald-400 font-bold">~18ms</span>
+                      <span className="text-slate-400">Core Stack</span>
+                      <span className="text-emerald-400 font-bold">{project.technologies.slice(0, 2).join(" + ")}</span>
                     </div>
                     <div className="flex justify-between text-xs font-mono">
-                      <span className="text-slate-400">Security Audit</span>
-                      <span className="text-purple-400 font-bold">PASSED (SOC-2)</span>
+                      <span className="text-slate-400">Security</span>
+                      <span className="text-purple-400 font-bold">Built-in by design</span>
                     </div>
                   </div>
                 </div>
@@ -237,7 +237,7 @@ export default async function CaseStudyDetailPage({ params }: PageProps) {
                 {/* Key Deliverables Summary */}
                 <div className="space-y-2 pt-2 border-t border-white/5">
                   <span className="text-[10px] font-mono text-slate-400 uppercase tracking-wider sm:tracking-widest block mb-1.5 sm:mb-2">
-                    Delivered Outcomes
+                    Key Features
                   </span>
                   {project.results.slice(0, 3).map((res, idx) => (
                     <div key={idx} className="flex items-center gap-2 text-[11px] sm:text-xs text-slate-300 font-mono">
@@ -250,7 +250,7 @@ export default async function CaseStudyDetailPage({ params }: PageProps) {
                 {/* Footer Sign-off */}
                 <div className="pt-3.5 sm:pt-4 border-t border-white/5 flex items-center justify-between text-[9px] sm:text-[10px] font-mono text-slate-400">
                   <span>WE FOR TECHNOLOGY BUILD</span>
-                  <span className="text-accent-cyan font-bold">100% SUCCESS RATE</span>
+                  <span className="text-accent-cyan font-bold">CONCEPT PROJECT</span>
                 </div>
 
               </div>
@@ -272,7 +272,7 @@ export default async function CaseStudyDetailPage({ params }: PageProps) {
               <div className="glow-card rounded-3xl p-5 sm:p-8 border border-rose-500/20 bg-rose-500/[0.02] space-y-3 sm:space-y-4">
                 <h3 className="text-lg sm:text-2xl font-bold text-white flex items-center gap-2.5 sm:gap-3">
                   <AlertCircle className="w-5 h-5 sm:w-6 sm:h-6 text-rose-500 flex-shrink-0" />
-                  <span>The Client&apos;s Challenge</span>
+                  <span>The Challenge</span>
                 </h3>
                 <p className="text-slate-300 font-light leading-relaxed text-xs sm:text-base">
                   {project.clientProblem}
@@ -329,7 +329,7 @@ export default async function CaseStudyDetailPage({ params }: PageProps) {
               <div className="glow-card rounded-3xl p-5 sm:p-6 md:p-8 border border-emerald-500/20 space-y-4 sm:space-y-6 bg-emerald-500/[0.03]">
                 <h3 className="text-base sm:text-lg font-bold text-white border-b border-white/5 pb-3 sm:pb-4 flex items-center gap-2">
                   <TrendingUp className="w-4 h-4 sm:w-5 sm:h-5 text-emerald-400 flex-shrink-0" />
-                  <span>Measured Business Impact</span>
+                  <span>What This Project Demonstrates</span>
                 </h3>
                 <ul className="space-y-3">
                   {project.results.map((result, idx) => (
@@ -420,10 +420,10 @@ export default async function CaseStudyDetailPage({ params }: PageProps) {
                 </span>
               </div>
               <h2 className="text-2xl sm:text-3xl font-bold text-white leading-tight">
-                Architectural Specifications &amp; SLA Performance
+                Architecture &amp; Engineering Standards
               </h2>
               <p className="text-slate-400 font-light leading-relaxed text-xs sm:text-sm">
-                Every project we ship is backed by enterprise-grade infrastructure standards, sub-second SLAs, and clean documentation to ensure smooth long-term maintenance.
+                Every project we build follows the same standards: modern, secure infrastructure, fast performance, and clean documentation so it is easy to maintain long-term.
               </p>
               <Button href="/contact" variant="accent" className="w-full sm:w-auto justify-center">
                 <span>Discuss Your Technical Requirements</span>
@@ -436,8 +436,8 @@ export default async function CaseStudyDetailPage({ params }: PageProps) {
                 { title: "Frontend Architecture", detail: "React 19 / Next.js 16 / TypeScript / Tailwind CSS" },
                 { title: "Backend & Automation", detail: "Node.js / Deluge Scripting / REST & Webhooks" },
                 { title: "Database & Caching", detail: "PostgreSQL / Redis Cache / Vector Storage" },
-                { title: "Security Protocols", detail: "SSL Encryption / OAuth 2.0 / SOC-2 Compliant" },
-                { title: "Performance SLA", detail: "Sub-50ms API Latency & 99.99% Uptime Guarantee" },
+                { title: "Security Protocols", detail: "SSL Encryption / OAuth 2.0 / Role-Based Access" },
+                { title: "Performance", detail: "Fast APIs, caching and performance monitoring" },
                 { title: "IP & Source Code", detail: "100% Repository Transfer & Full Documentation" },
               ].map((spec, i) => (
                 <div key={i} className="glow-card p-4 sm:p-5 rounded-2xl border border-white/10 bg-[#070f1f]/90 space-y-1.5">
@@ -454,7 +454,7 @@ export default async function CaseStudyDetailPage({ params }: PageProps) {
       {/* Related Projects */}
       <section className="py-12 sm:py-20 relative z-10">
         <div className="max-w-7xl mx-auto px-6">
-          <h3 className="text-lg sm:text-xl font-bold text-white mb-6 sm:mb-8">Other Case Studies</h3>
+          <h3 className="text-lg sm:text-xl font-bold text-white mb-6 sm:mb-8">Other Projects</h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 max-w-4xl">
             {relatedProjects.map((rel) => (
               <Link key={rel.slug} href={`/portfolio/${rel.slug}`} className="block group">
@@ -468,7 +468,7 @@ export default async function CaseStudyDetailPage({ params }: PageProps) {
                     </p>
                   </div>
                   <span className="text-[10px] font-mono uppercase tracking-widest text-accent-blue flex items-center gap-1 group-hover:text-white transition-colors">
-                    View Case Study <ChevronRight className="w-3.5 h-3.5" />
+                    View Project <ChevronRight className="w-3.5 h-3.5" />
                   </span>
                 </div>
               </Link>

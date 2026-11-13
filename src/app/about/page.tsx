@@ -1,6 +1,4 @@
 import { Target, Eye, Zap, Shield, TrendingUp, Clock, ArrowRight, Code2, Sparkles, CheckCircle2, Globe2, Check, Building2 } from "lucide-react";
-import { FaLinkedin, FaGithub } from "react-icons/fa";
-import Image from "next/image";
 import SectionHeading from "@/components/SectionHeading";
 import CTASection from "@/components/CTASection";
 import { MotionDiv, MotionH1, MotionP } from "@/components/motion";
@@ -9,6 +7,7 @@ import LiveClock from "./LiveClock";
 import OfficeStatus from "./OfficeStatus";
 import Button from "@/components/Button";
 import MethodologyExplorer from "./MethodologyExplorer";
+import TeamSection from "@/components/TeamSection";
 
 const values = [
   {
@@ -41,63 +40,35 @@ const values = [
   },
 ];
 
-const teamMembers = [
-  {
-    name: "Shri Krishna",
-    role: "Founder & Managing Director",
-    bio: "Visionary product strategist dedicated to solving operational bottlenecks. Shri leads client partnerships, system scoping, and global growth strategies.",
-    image: "/images/team-founder.jpg",
-    linkedin: "https://www.linkedin.com/company/wefortechnology",
-    github: "https://github.com/wefortechnology/",
-    skills: ["Product Strategy", "Enterprise Architecture", "Business Growth", "Zoho Ecosystem"]
-  },
-  {
-    name: "Mahavir",
-    role: "Chief Technology Officer",
-    bio: "Ex-FAANG engineer specializing in ultra-fast Next.js applications, serverless cloud platforms, cyber security, and scalable DB schemas.",
-    image: "/images/team-cto.jpg",
-    linkedin: "https://www.linkedin.com/company/wefortechnology",
-    github: "https://github.com/wefortechnology/",
-    skills: ["Next.js 15", "TypeScript", "AWS Cloud", "System Design"]
-  },
-  {
-    name: "Priya Patel",
-    role: "Lead Zoho Architect",
-    bio: "Certified Zoho Specialist with deep mastery over Deluge scripting, CRM automations, custom Creator apps, and cross-platform REST webhooks.",
-    image: "/images/team-zoho-lead.jpg",
-    linkedin: "https://www.linkedin.com/company/wefortechnology",
-    github: "https://github.com/wefortechnology/",
-    skills: ["Zoho One", "Deluge Logic", "API Webhooks", "CRM Automation"]
-  }
-];
-
-
-
 const milestones = [
   {
-    year: "2021",
-    title: "We For Technology Established",
-    desc: "Started operations in Ghaziabad with a core team of senior engineers focused on bespoke web engineering.",
-    metric: "10+ Early Projects"
+    when: "2023 – 2026",
+    title: "Hands-On Experience",
+    desc: "Our founders spent three years building web applications with the MERN stack and Next.js, and automating business workflows.",
+    metric: "MERN & Next.js",
+    current: false,
   },
   {
-    year: "2022",
-    title: "Zoho Practice Launch",
-    desc: "Expanded services into full Zoho CRM, Deluge Scripting, and enterprise ERP workflow automation.",
-    metric: "Certified Partnership"
+    when: "July 2026",
+    title: "Founded in Ghaziabad",
+    desc: "We started We For Technology to bring that experience directly to businesses, working closely with every client we take on.",
+    metric: "Now Taking Projects",
+    current: false,
   },
   {
-    year: "2023",
-    title: "Global Client Expansion",
-    desc: "Grew operations to serve business partners across the US, UK, Middle East, and APAC regions.",
-    metric: "35+ Global Clients"
+    when: "Since Launch",
+    title: "First Clients Delivered",
+    desc: "We've already completed projects for our first two clients, and we'll share them here as case studies with their permission.",
+    metric: "2 Clients Served",
+    current: true,
   },
   {
-    year: "2024+",
-    title: "AI Integration & Enterprise Systems",
-    desc: "Incorporated custom LLM integrations, automated data pipelines, and next-gen SaaS architectures.",
-    metric: "50+ Successful Builds"
-  }
+    when: "Ahead",
+    title: "AI & Automation",
+    desc: "Expanding our AI integration and automation services to help businesses save time and grow.",
+    metric: "On Our Roadmap",
+    current: false,
+  },
 ];
 
 export default function AboutPage() {
@@ -153,7 +124,7 @@ export default function AboutPage() {
                 transition={{ delay: 0.2 }}
                 className="text-base sm:text-lg text-slate-300 font-light max-w-2xl leading-relaxed"
               >
-                We For Technology is an IT solutions agency based in Ghaziabad, India. We combine modern web engineering, custom application development, and certified Zoho CRM automation to help businesses scale globally.
+                We For Technology is an IT solutions agency based in Ghaziabad, India. We combine modern web engineering, custom application development, and Zoho CRM automation to help businesses grow.
               </MotionP>
 
               {/* Key Metrics Row */}
@@ -164,10 +135,10 @@ export default function AboutPage() {
                 className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-3 pt-2"
               >
                 {[
-                  { value: "50+", label: "Projects Delivered", color: "text-emerald-400", border: "border-emerald-500/20", bg: "bg-emerald-500/5" },
-                  { value: "30+", label: "Global Clients", color: "text-sky-400", border: "border-sky-500/20", bg: "bg-sky-500/5" },
-                  { value: "4+", label: "Years Experience", color: "text-purple-400", border: "border-purple-500/20", bg: "bg-purple-500/5" },
-                  { value: "99%", label: "Client Satisfaction", color: "text-amber-400", border: "border-amber-500/20", bg: "bg-amber-500/5" },
+                  { value: "3+", label: "Years Experience", color: "text-emerald-400", border: "border-emerald-500/20", bg: "bg-emerald-500/5" },
+                  { value: "10+", label: "Services Offered", color: "text-sky-400", border: "border-sky-500/20", bg: "bg-sky-500/5" },
+                  { value: "MERN", label: "Core Stack", color: "text-purple-400", border: "border-purple-500/20", bg: "bg-purple-500/5" },
+                  { value: "24h", label: "Reply Time", color: "text-amber-400", border: "border-amber-500/20", bg: "bg-amber-500/5" },
                 ].map((s) => (
                   <div key={s.label} className={`p-3 sm:p-3.5 rounded-2xl border ${s.border} ${s.bg} backdrop-blur-md text-center`}>
                     <div className={`text-xl sm:text-2xl font-black font-mono ${s.color}`}>{s.value}</div>
@@ -220,15 +191,15 @@ export default function AboutPage() {
                   <div className="text-center space-y-1 py-2 bg-white/[0.02] rounded-2xl border border-white/5">
                     <p className="text-xs font-mono uppercase tracking-widest font-semibold" style={{ color: "#CBD5E1" }}>HEADQUARTERS</p>
                     <p className="text-xl sm:text-2xl font-bold font-mono tracking-tight" style={{ color: "#FFFFFF" }}>Ghaziabad, India 🇮🇳</p>
-                    <p className="text-xs font-mono font-medium" style={{ color: "#38BDF8" }}>Serving US • EU • APAC • India</p>
+                    <p className="text-xs font-mono font-medium" style={{ color: "#38BDF8" }}>Working with clients in India &amp; worldwide</p>
                   </div>
 
                   <div className="grid grid-cols-2 gap-3">
                     {[
-                      { label: "Core Stack", val: "Next.js 15", color: "text-sky-400" },
-                      { label: "CRM System", val: "Zoho Certified", color: "text-purple-400" },
-                      { label: "Sprint Delivery", val: "100% On-Time", color: "text-emerald-400" },
-                      { label: "Support Desk", val: "24/7 Active", color: "text-amber-400" },
+                      { label: "Core Stack", val: "MERN + Next", color: "text-sky-400" },
+                      { label: "Business Apps", val: "Zoho CRM", color: "text-purple-400" },
+                      { label: "Progress Demos", val: "Weekly", color: "text-emerald-400" },
+                      { label: "Reply Time", val: "< 24h", color: "text-amber-400" },
                     ].map((item) => (
                       <div key={item.label} className="bg-white/[0.03] border border-white/5 rounded-xl p-3 text-center">
                         <div className={`text-sm sm:text-base font-bold font-mono whitespace-nowrap ${item.color}`}>{item.val}</div>
@@ -246,8 +217,8 @@ export default function AboutPage() {
                         <span className="relative inline-flex rounded-full h-3 w-3 bg-emerald-400" />
                       </span>
                       <div>
-                        <div className="text-xs font-bold font-mono text-white">Development Operations</div>
-                        <div className="text-[11px] font-mono font-semibold text-emerald-300">All Systems 100% Operational</div>
+                        <div className="text-xs font-bold font-mono text-white">Now Accepting Projects</div>
+                        <div className="text-[11px] font-mono font-semibold text-emerald-300">Free consultation for new clients</div>
                       </div>
                     </div>
                     <CheckCircle2 className="w-5 h-5 text-emerald-400 shrink-0" />
@@ -276,7 +247,7 @@ export default function AboutPage() {
                 At We For Technology, we don’t just build code—we design reliable digital workflows that eliminate operational friction and boost conversions. Whether it’s a high-converting web platform or an intricate Zoho CRM automation, our focus is delivering long-term ROI.
               </p>
               <p className="text-slate-400 font-light leading-relaxed text-sm">
-                Our multi-disciplinary team brings together senior software engineers, frontend designers, certified Zoho specialists, and strategic project directors to deliver production-grade applications on schedule.
+                Our founders bring three years of hands-on experience in full-stack web development (MERN and Next.js), mobile apps and Zoho automation, and work directly on every project we take on.
               </p>
             </div>
 
@@ -365,122 +336,51 @@ export default function AboutPage() {
       <MethodologyExplorer />
 
       {/* ── 5. Team Section ── */}
-      <section id="team" className="py-24 relative z-10 border-t border-white/5">
-        <div className="max-w-7xl mx-auto px-6">
-          <SectionHeading
-            title="The Leadership & Engineers Behind We For Technology"
-            subtitle="Our Team"
-            description="Meet the core strategists, developers, and architects driving our software solutions."
-          />
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {teamMembers.map((member, idx) => (
-              <MotionDiv
-                key={member.name}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: idx * 0.1 }}
-                className="glow-card rounded-3xl overflow-hidden border border-slate-200 dark:border-white/10 bg-white dark:bg-gradient-to-b dark:from-[#081020] dark:to-[#040812] flex flex-col group hover:border-[#008FE5]/40 dark:hover:border-accent-blue/30 transition-all duration-300 shadow-md dark:shadow-2xl"
-              >
-                {/* Image Frame */}
-                <div className="relative h-80 w-full bg-slate-200 dark:bg-slate-900 overflow-hidden">
-                  <Image
-                    src={member.image}
-                    alt={`${member.name} - ${member.role} at We For Technology`}
-                    fill
-                    sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
-                    className="object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-80 pointer-events-none" />
-
-                  {/* Social Overlays */}
-                  <div className="absolute bottom-4 right-4 flex gap-2 z-10">
-                    <a
-                      href={member.linkedin}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="p-2.5 rounded-xl bg-white/90 dark:bg-black/60 backdrop-blur-md border border-slate-200 dark:border-white/10 text-slate-800 dark:text-slate-200 hover:text-[#0a66c2] dark:hover:text-[#0a66c2] hover:border-[#0a66c2]/40 transition-all duration-300 shadow-sm"
-                      aria-label={`${member.name} LinkedIn`}
-                    >
-                      <FaLinkedin className="w-4 h-4" />
-                    </a>
-                    <a
-                      href={member.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="p-2.5 rounded-xl bg-white/90 dark:bg-black/60 backdrop-blur-md border border-slate-200 dark:border-white/10 text-slate-800 dark:text-slate-200 hover:text-black dark:hover:text-white hover:border-slate-400 dark:hover:border-white/40 transition-all duration-300 shadow-sm"
-                      aria-label={`${member.name} GitHub`}
-                    >
-                      <FaGithub className="w-4 h-4" />
-                    </a>
-                  </div>
-                </div>
-
-                {/* Card Content */}
-                <div className="p-6 flex-grow flex flex-col justify-between space-y-5">
-                  <div className="space-y-2">
-                    <span className="text-xs font-mono font-bold text-[#0369A1] dark:text-accent-cyan uppercase tracking-widest">
-                      {member.role}
-                    </span>
-                    <h3 className="text-2xl font-bold text-[#0A0F1E] dark:text-white">{member.name}</h3>
-                    <p className="text-sm text-slate-600 dark:text-slate-300 font-light leading-relaxed">
-                      {member.bio}
-                    </p>
-                  </div>
-
-                  {/* Skills tags */}
-                  <div className="pt-4 border-t border-slate-200 dark:border-white/10 flex flex-wrap gap-2">
-                    {member.skills.map((skill) => (
-                      <span
-                        key={skill}
-                        className="text-[11px] font-mono px-2.5 py-1 rounded-full bg-slate-100 dark:bg-white/[0.06] border border-slate-200 dark:border-white/10 text-slate-800 dark:text-slate-200 font-semibold"
-                      >
-                        {skill}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </MotionDiv>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* <TeamSection /> */}
 
       {/* ── 6. Milestones Section ── */}
       <section className="py-24 relative z-10 border-t border-white/5 bg-white/[0.01]">
         <div className="max-w-7xl mx-auto px-6">
           <SectionHeading
-            title="Our Evolution & Milestones"
+            title="Our Story So Far"
             subtitle="Company Journey"
-            description="How We For Technology grew from a focused developer team into an international IT solutions agency."
+            description="Where we started, where we are today, and where we are heading."
           />
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {milestones.map((m, idx) => (
               <MotionDiv
-                key={m.year}
+                key={m.title}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
-                className="glow-card rounded-2xl p-6 border border-white/10 bg-gradient-to-b from-[#081020] to-[#030712] relative space-y-4 flex flex-col justify-between"
+                className={`no-hover rounded-2xl p-6 border bg-white flex flex-col gap-4 ${
+                  m.current ? "border-sky-300 ring-1 ring-sky-200 shadow-[0_10px_30px_-12px_rgba(3,105,161,0.25)]" : "border-slate-200"
+                }`}
               >
-                <div className="space-y-4">
-                  <div className="flex flex-wrap items-center justify-between gap-2">
-                    <span className="text-3xl sm:text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-blue-500 font-mono">
-                      {m.year}
-                    </span>
-                    <span className="text-[11px] sm:text-xs font-mono px-2.5 py-1 rounded-lg bg-accent-blue/15 border border-accent-blue/30 text-accent-cyan whitespace-nowrap w-fit shadow-sm">
-                      {m.metric}
-                    </span>
-                  </div>
-
-                  <h3 className="text-lg font-bold text-white leading-snug">{m.title}</h3>
-                  <p className="text-xs text-slate-300 font-light leading-relaxed">
-                    {m.desc}
-                  </p>
+                {/* Step number + when */}
+                <div className="flex items-center gap-3">
+                  <span
+                    className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-sm font-bold ${
+                      m.current ? "bg-[#0369A1] !text-white" : "bg-sky-50 text-[#0369A1] border border-sky-200"
+                    }`}
+                  >
+                    {String(idx + 1).padStart(2, "0")}
+                  </span>
+                  <span className="text-sm font-semibold uppercase tracking-wider text-[#0369A1]">{m.when}</span>
                 </div>
+
+                <span
+                  className={`w-fit rounded-full px-3 py-1 text-xs font-semibold ${
+                    m.current ? "bg-emerald-50 text-emerald-700 border border-emerald-200" : "bg-slate-100 text-slate-700 border border-slate-200"
+                  }`}
+                >
+                  {m.metric}
+                </span>
+
+                <h3 className="text-lg font-bold text-slate-900 leading-snug [text-wrap:pretty]">{m.title}</h3>
+                <p className="text-sm text-slate-600 leading-relaxed">{m.desc}</p>
               </MotionDiv>
             ))}
           </div>
@@ -507,7 +407,7 @@ export default function AboutPage() {
                 </h2>
 
                 <p className="text-slate-300 font-light leading-relaxed text-sm sm:text-base">
-                  Operating out of Ghaziabad (NCR), India, our engineering team syncs development sprints to align seamlessly with time zones across North America, Europe, Middle East, and Asia-Pacific.
+                  Operating out of Ghaziabad (NCR), India, we work remotely with clients anywhere, and can schedule calls and demos to suit time zones across North America, Europe, the Middle East and Asia-Pacific.
                 </p>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 pt-2">

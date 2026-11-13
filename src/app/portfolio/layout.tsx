@@ -2,17 +2,17 @@ import type { Metadata } from "next";
 import { withSeo } from "@/lib/seo";
 
 export const metadata: Metadata = withSeo({
-  title: "Client Case Studies & Software Portfolio | We For Technology",
+  title: "Concept Projects & Portfolio | We For Technology",
   description:
-    "Discover how We For Technology builds high-impact web apps, mobile solutions, Zoho systems, and fintech dashboards for modern enterprises and startups across India and worldwide.",
+    "Concept projects from We For Technology: web apps, mobile apps, e-commerce stores, AI assistants and Zoho solutions, showing how we design and build.",
   alternates: {
     canonical: "/portfolio",
   },
   openGraph: {
     url: "https://wefortechnology.in/portfolio",
-    title: "Client Case Studies & Software Portfolio | We For Technology",
+    title: "Concept Projects & Portfolio | We For Technology",
     description:
-      "Explore real-world software, web, and mobile app case studies delivered by We For Technology.",
+      "Explore concept projects showing how We For Technology designs and builds websites, web apps, mobile apps and Zoho solutions.",
     images: ["/images/og-image.png"],
   },
 });

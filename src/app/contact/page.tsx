@@ -1,5 +1,5 @@
 import React, { Suspense } from "react";
-import { MapPin, Mail, Phone, Clock, HelpCircle } from "lucide-react";
+import { MapPin, Mail, Phone, Clock, HelpCircle, CalendarDays, ArrowRight } from "lucide-react";
 import ContactForm from "@/components/ContactForm";
 import PageTransition from "@/components/PageTransition";
 import TrackedLink from "@/components/TrackedLink";
@@ -47,6 +47,31 @@ export default function ContactPage() {
                   <div className="text-lg sm:text-xl font-bold text-accent-purple font-mono">100% IP</div>
                   <div className="text-[11px] sm:text-xs text-slate-400 font-light">Complete Code Ownership</div>
                 </div>
+              </div>
+
+              {/* Book a call */}
+              <div className="no-hover rounded-2xl border border-sky-200 bg-sky-50 p-5 sm:p-6">
+                <div className="flex items-start gap-3.5">
+                  <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl bg-[#0369A1]">
+                    <CalendarDays className="h-5 w-5 !text-white" />
+                  </div>
+                  <div>
+                    <p className="text-base font-semibold text-slate-900">Prefer to talk it through?</p>
+                    <p className="mt-1 text-sm text-slate-600">
+                      Book a free 30-minute call at a time that suits you. No obligation.
+                    </p>
+                  </div>
+                </div>
+                <TrackedLink
+                  event="booking_click"
+                  location="contact-page"
+                  href={contact.bookingUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-4 inline-flex w-full items-center justify-center gap-2 rounded-lg bg-[#0369A1] px-5 py-3 text-sm font-semibold !text-white transition-colors hover:bg-[#075985]"
+                >
+                  Book a Free Call <ArrowRight className="h-4 w-4" />
+                </TrackedLink>
               </div>
             </div>
 
@@ -154,7 +179,7 @@ export default function ContactPage() {
                   <path fillRule="evenodd" clipRule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" />
                 </svg>
               </a>
-              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="p-2.5 sm:p-3 rounded-xl bg-white/5 border border-white/10 text-slate-400 hover:text-accent-cyan hover:border-accent-cyan/40 hover:bg-white/10 transition-all duration-300">
+              <a href="https://www.facebook.com/wefortechnology" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="p-2.5 sm:p-3 rounded-xl bg-white/5 border border-white/10 text-slate-400 hover:text-accent-cyan hover:border-accent-cyan/40 hover:bg-white/10 transition-all duration-300">
                 <svg className="w-4.5 sm:w-5 h-4.5 sm:h-5 fill-current" viewBox="0 0 24 24">
                   <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
                 </svg>
@@ -243,19 +268,19 @@ export default function ContactPage() {
               {
                 dept: "Web & Mobile Engineering",
                 lead: "Full-Stack Development Desk",
-                email: "wefortechnology.ai@gmail.com",
+                email: "contact@wefortechnology.in",
                 tags: ["Next.js", "React Native", "PostgreSQL", "Node.js"],
               },
               {
                 dept: "Zoho & Enterprise CRM Desk",
-                lead: "Certified Deluge & Automation Desk",
-                email: "wefortechnology.ai@gmail.com",
+                lead: "Deluge & Automation Desk",
+                email: "contact@wefortechnology.in",
                 tags: ["Zoho CRM", "Creator", "Deluge", "Webhooks"],
               },
               {
                 dept: "AI & Cloud Infrastructure Desk",
                 lead: "AI Systems & DevOps Desk",
-                email: "wefortechnology.ai@gmail.com",
+                email: "contact@wefortechnology.in",
                 tags: ["OpenAI API", "Pinecone", "AWS", "Vercel"],
               },
             ].map((desk, idx) => (
@@ -381,7 +406,7 @@ export default function ContactPage() {
               },
               {
                 q: "Do you provide post-launch maintenance and SLA support?",
-                a: "Absolutely. Every project includes 30 days of free post-launch bug fixes. We also offer ongoing monthly SLA maintenance packages for 99.9% uptime.",
+                a: "Absolutely. Every project includes 30 days of free post-launch bug fixes. We also offer ongoing monthly maintenance packages.",
               },
             ].map((faq, idx) => (
               <div

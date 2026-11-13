@@ -4,8 +4,8 @@ import { motion } from "framer-motion";
 import Button from "./Button";
 import TrackedLink from "./TrackedLink";
 import QuickEnquiryForm from "./QuickEnquiryForm";
-import { whatsappUrl } from "@/lib/site";
-import { ArrowRight, MessageSquare, ShieldCheck, Zap, Clock, CheckCircle2 } from "lucide-react";
+import { contact, whatsappUrl } from "@/lib/site";
+import { ArrowRight, CalendarDays, MessageSquare, ShieldCheck, Zap, Clock, CheckCircle2 } from "lucide-react";
 
 interface CTASectionProps {
   title?: string;
@@ -72,6 +72,17 @@ export default function CTASection({
               <span>{primaryCtaText}</span>
               <ArrowRight className="w-4.5 h-4.5" />
             </Button>
+            <TrackedLink
+              event="booking_click"
+              location="cta-section"
+              href={contact.bookingUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-lg border border-slate-300 bg-white px-6 sm:px-8 py-3.5 sm:py-4 text-sm sm:text-base font-semibold text-slate-800 hover:border-sky-400 hover:bg-sky-50 transition-colors"
+            >
+              <CalendarDays className="w-4 h-4 text-[#0369A1]" />
+              <span>Book a Free 30-min Call</span>
+            </TrackedLink>
             <TrackedLink
               event="whatsapp_click"
               location="cta-section"

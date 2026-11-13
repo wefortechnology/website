@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     template: "%s | We For Technology",
   },
   description:
-    "We For Technology is a premier software development agency in Ghaziabad & Delhi NCR, India. We specialize in custom web applications, mobile apps, Zoho CRM automation, AI integrations, and enterprise software.",
+    "We For Technology is a web development studio in Ghaziabad & Delhi NCR, India, with 3+ years of experience building custom websites and web apps with MERN and Next.js, plus mobile apps, Zoho CRM automation and AI integrations.",
   applicationName: "We For Technology",
   authors: [{ name: "We For Technology", url: "https://wefortechnology.in" }],
   generator: "Next.js",
@@ -69,7 +69,7 @@ export const metadata: Metadata = {
     siteName: "We For Technology",
     title: "We For Technology | Digital Solutions That Build Brands",
     description:
-      "Premier software development, modern web applications, mobile apps, Zoho CRM automation, and AI integrations in Ghaziabad & Delhi NCR.",
+      "Custom websites and web apps built with MERN and Next.js, plus mobile apps, Zoho CRM automation and AI integrations, from Ghaziabad & Delhi NCR.",
     images: [
       {
         url: "/images/og-image.png",
@@ -124,7 +124,7 @@ const jsonLdData = [
     description:
       "We For Technology is a full-service software development agency in Ghaziabad, Uttar Pradesh, India, specializing in modern web development, mobile applications, Zoho CRM & Creator automation, and AI integrations.",
     telephone: "+91-8510070940",
-    email: "wefortechnology.ai@gmail.com",
+    email: "contact@wefortechnology.in",
     priceRange: "$$",
     currenciesAccepted: "INR, USD, EUR, GBP",
     paymentAccepted: "Bank Transfer, UPI, Credit Card",
@@ -169,6 +169,7 @@ const jsonLdData = [
       "https://www.linkedin.com/company/wefortechnology",
       "https://www.instagram.com/wefortechnology/",
       "https://github.com/wefortechnology/",
+      "https://www.facebook.com/wefortechnology",
     ],
     hasOfferCatalog: {
       "@type": "OfferCatalog",

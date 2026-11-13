@@ -38,7 +38,7 @@ const comparisonData = [
   { feature: "Technology Stack", wft: "Next.js 15, React 19, Zoho, AWS", traditional: "Legacy PHP / WordPress", freelancers: "Varies Widely" },
   { feature: "Code & IP Ownership", wft: "100% Client Ownership", traditional: "Vendor Lock-In", freelancers: "Partial / Disputed" },
   { feature: "Dedicated Project Manager", wft: "Included on All Projects", traditional: "Extra Charge", freelancers: "No" },
-  { feature: "Zoho Certified Integration", wft: "Native Deluge Experts", traditional: "Third-Party Plug", freelancers: "Rare" },
+  { feature: "Zoho CRM Integration", wft: "Custom Deluge Scripting", traditional: "Third-Party Plug", freelancers: "Rare" },
   { feature: "Post-Launch Support Desk", wft: "24/7 SLA Guarantee", traditional: "Retainer Ticket Only", freelancers: "No SLA" },
 ];
 
@@ -94,7 +94,7 @@ export default function ServicesPage() {
                 transition={{ delay: 0.2 }}
                 className="text-base sm:text-lg text-slate-300 font-light max-w-2xl leading-relaxed"
               >
-                From custom Next.js web applications and mobile platforms to certified Zoho CRM automation and AI integrations — we provide end-to-end engineering tailored for business ROI.
+                From custom Next.js web applications and mobile platforms to Zoho CRM automation and AI integrations — we provide end-to-end engineering tailored for business ROI.
               </MotionP>
 
               {/* Stats Bar */}
@@ -105,8 +105,8 @@ export default function ServicesPage() {
                 className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-3 pt-2"
               >
                 {[
-                  { value: "12", label: "Core Services", color: "text-sky-400", border: "border-sky-500/20", bg: "bg-sky-500/5" },
-                  { value: "50+", label: "Projects Completed", color: "text-emerald-400", border: "border-emerald-500/20", bg: "bg-emerald-500/5" },
+                  { value: "10+", label: "Core Services", color: "text-sky-400", border: "border-sky-500/20", bg: "bg-sky-500/5" },
+                  { value: "3+", label: "Years Experience", color: "text-emerald-400", border: "border-emerald-500/20", bg: "bg-emerald-500/5" },
                   { value: "2–4wk", label: "Avg Sprint Cycle", color: "text-purple-400", border: "border-purple-500/20", bg: "bg-purple-500/5" },
                   { value: "100%", label: "Source Code IP", color: "text-amber-400", border: "border-amber-500/20", bg: "bg-amber-500/5" },
                 ].map((s) => (

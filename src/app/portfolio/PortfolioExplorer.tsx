@@ -49,7 +49,7 @@ export default function PortfolioExplorer() {
         <div className="max-w-7xl mx-auto px-6">
           {filteredItems.length === 0 ? (
             <div className="text-center py-20">
-              <p className="text-slate-400 font-mono">No matching case studies found.</p>
+              <p className="text-slate-400 font-mono">No matching projects found.</p>
             </div>
           ) : (
             <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
